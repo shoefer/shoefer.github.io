@@ -156,11 +156,6 @@
     }
 }
 
-.start-intro {
-    margin-bottom: $spacing-unit;
-}
-
-
 /**
  * Page content
  */
@@ -170,6 +165,7 @@
 
 .page-heading {
     font-size: 20px;
+    font-weight: bold;
 }
 
 .post-link {
@@ -190,6 +186,10 @@
 		color: $grey-color;
 	}
     
+	.post-excerpt {
+        font-size: $small-font-size;
+	}
+
 	.post-link {
 		display: block;
 		font-size: 18px;
@@ -246,4 +246,66 @@
             font-size: 18px;
         }
     }
+}
+
+.start-intro {
+    margin-bottom: $spacing-unit;
+    font-size: $small-font-size;
+}
+
+.intuds-intro {
+    margin-bottom: $spacing-unit;
+    font-size: $small-font-size;
+}
+
+.rel-post-nav {
+	display: block;
+	width: 100%;
+	
+	.left {
+		display:block;
+		float: left;
+		width: 50%;
+		text-align:left;
+		margin-bottom: 25px;
+	}
+	.right {
+		display:block;
+		float: right;
+		width: 50%;
+		text-align:right;
+		margin-bottom: 25px;
+	}
+}
+
+
+.intuds-post-list {
+	margin-left: 35px;
+	list-style-type: decimal;
+
+    > li {
+        margin-bottom: $spacing-unit;
+    }
+
+	.post-date {
+	    font-size: $small-font-size;
+		color: $grey-color;
+	}
+    
+	.post-link {
+		display: block;
+		font-size: 18px;
+	}
+}
+
+/*
+ Extras
+ */
+
+.twitter-plug {
+	border-top: 1px solid $grey-color-light;
+	border-bottom: 1px solid $grey-color-light;
+	font-size: $small-font-size;
+    padding-top: 0.5*$spacing-unit;
+    padding-bottom: 0.5*$spacing-unit;
 }

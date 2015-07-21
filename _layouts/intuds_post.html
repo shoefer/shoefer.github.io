@@ -4,6 +4,8 @@ layout: default
 <div class="post">
 
   <header class="post-header">
+    {% include intuds_rel_post_nav.html %}
+	    
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
   </header>
@@ -12,6 +14,8 @@ layout: default
     {{ content }}
   </article>
 
+  {% include intuds_rel_post_nav.html %}
+  
   {% include twitter_plug.html %}
   {% include disqus.html %}
 

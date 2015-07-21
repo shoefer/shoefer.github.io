@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: intuds_post
 title:  "Disclaimer: Why no formulas"
 date:   2015-07-19 15:00:00
 categories: intuds

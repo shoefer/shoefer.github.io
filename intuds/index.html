@@ -9,6 +9,7 @@ menu-pos: 2
 
   <h1 class="page-heading">{{ page.title }}</h1>
 
+  <div class="intuds-intro">
   In this series of articles I want to give you an <strong>intuitive</strong> understanding of what <strong>data science</strong> does.</p>
 <p><strong>What does intuitive mean?</strong> Intuitive means that I will not use any formulas, but only explain high-level concepts and ideas. The reason is that even the most advanced mathematical tools in this area have a rather simple underlying idea. Once you understood this idea, you can dig into the math and you will grasp the details much more easily. And even if you are not interested in the details you hopefully still learn something. If you want to read more about my particular motivation, check out the <a title="Disclaimer: Why No Formulas" href="{% post_url 2015-07-19-why-no-formulas %}">full disclaimer</a>.</p>
 <p><strong>What is data science?</strong> It touches many many fields like <em>machine learning</em>, <em>data mining</em>, <em>statistical learning</em>, <em>big data, </em><em>artificial intelligence, robotics </em>and many more<em>.</em> I will pick some important concepts and try to explain them as intuitively as possible.</p>
@@ -16,17 +17,18 @@ menu-pos: 2
 <p><strong>How is this blog different from a textbook/website X/course?</strong> This blog cannot substitute a good textbook or university course. It is supposed to complement other resources which get you through the complicated details.</p>
 			
 <p>I recommend to read these articles in order since there are cross-references.</p>
+  </div>
       
   <h1 class="page-heading">Articles</h1>
 
-  <ul class="post-list" style="margin-left: 15px">
+  <ol class="intuds-post-list">
     {% for post in site.categories.intuds reversed %}
       <li style="margin-bottom: 0px">
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 <!--         (<span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>)  -->
       </li>
     {% endfor %}
-  </ul>
+  </ol>
 
 <!-- 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>

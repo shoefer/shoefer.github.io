@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: intuds_post
 title:  "Data, Numbers and Representations"
 date:   2015-07-19 15:07:27
 categories: intuds
@@ -19,7 +19,7 @@ Let's look at picture example again:
 {% capture numbersFullUrl %}/intuds/images/2015-07-19-data-numbers-representations_numbers.png{% endcapture %}
 {% include figure.html src=numbersFullUrl width="85%" %}
 
-Whom do we see here? It's [me](/intuds/images/2015-07-19-data-numbers-representations_picture.png) of course! Ok, if you don't see it don't worry (and if you do you have probably watched The Matrix too often). The trick is that I have taken [this grey scale picture](/intuds/images/2015-07-19-data-numbers-representations_picture.png)  and replaced every dot in the original picture with a number between 0 and 1 where 0 means "black" and 1 means "white", and the numbers in between represent the different shades of grey between these black and white tones. So effectively, I have become a bunch of numbers!
+What do we see here? It's a picture of [myself](/intuds/images/2015-07-19-data-numbers-representations_picture.png) of course! Ok, if you don't see it don't worry (and if you do then you have probably watched [The Matrix](https://en.wikipedia.org/wiki/The_Matrix) too often). The trick is that I have taken [this grey scale picture](/intuds/images/2015-07-19-data-numbers-representations_picture.png)  and replaced every dot in the original picture with a number between 0 and 1 where 0 means "black" and 1 means "white", and the numbers in between represent the different shades of grey between these black and white tones. So effectively, I have become a bunch of numbers!
 
 ### Data is numbers + what + encoding
 
