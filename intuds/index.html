@@ -1,0 +1,26 @@
+---
+layout: default
+title: Intuitive Data Science
+permalink: /intuds/
+menu-pos: 2
+---
+
+<div class="home">
+
+  <h1 class="page-heading">{{ page.title }}</h1>
+
+
+  <ul class="post-list" style="margin-left: 15px">
+    {% for post in site.categories.intuds reversed %}
+      <li style="margin-bottom: 0px">
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+<!--         (<span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>)  -->
+      </li>
+    {% endfor %}
+  </ul>
+
+<!-- 
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+ -->
+ 
+</div>

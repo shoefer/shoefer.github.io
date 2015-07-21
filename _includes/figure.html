@@ -1,0 +1,6 @@
+{% if include.float == "right" %}<div class="imgright">{% else %}<div>{% endif %}
+<div class="imgcap">
+<img src="{{ include.src }}" width="{{ include.width | default: 100% }}" />
+<div class="thecap">{{ include.caption }}</div>
+</div>
+</div>
