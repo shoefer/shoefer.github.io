@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Montserrat'; /*a name to be used later*/
+    src: url('/fonts/montserrat-regular-webfont.ttf'); /*URL to font*/
+}
+
 /**
  * Reset some basic elements
  */
@@ -34,8 +39,6 @@ ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
-
-
 
 /**
  * Images
@@ -118,7 +121,7 @@ a {
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: darken($brand-color, 5%);
     }
 
     &:hover {
@@ -226,4 +229,30 @@ pre {
             fill: $grey-color;
         }
     }
+}
+
+
+/**
+ * Custom color scheme
+ */
+ 
+h1, h2, h3, h4, h5, h6, 
+	a.site-title, a.site-title:active, a.site-title:visited,
+	a.page-link, a.page-link:active, a.page-link:visited  {
+    font-family: $header-font-family; 
+    color: $brand-color;
+}
+
+.post-list {
+	.post-link {
+    font-family: $header-font-family; 
+    color: $brand-color;
+	}
+}
+
+.intuds-post-list {
+	.post-link {
+    font-family: $header-font-family; 
+    color: $brand-color;
+	}
 }

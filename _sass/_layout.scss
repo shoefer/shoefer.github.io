@@ -19,7 +19,7 @@
 
     &,
     &:visited {
-        color: $grey-color-dark;
+/*         color: $grey-color-dark; */
     }
 }
 
@@ -32,7 +32,7 @@
     }
 
     .page-link {
-        color: $text-color;
+/*         color: $text-color; */
         line-height: $base-line-height;
 
         // Gaps between nav items, but not on the first one
@@ -160,6 +160,7 @@
  * Page content
  */
 .page-content {
+	background-color: #fff;
     padding: $spacing-unit 0;
 }
 
@@ -262,6 +263,11 @@
 	display: block;
 	width: 100%;
 	
+	a {
+	    font-family: $header-font-family; 
+	    color: $brand-color;	
+	}
+	
 	.left {
 		display:block;
 		float: left;
@@ -319,18 +325,18 @@
 
 /* http://johnsardine.com/freebies/dl-html-css/simple-little-tab/ */
 table.data-table a:link {
-/* 	color: #666; */
+	color: $brand-color;
 	font-weight: bold;
 	text-decoration:none;
 }
 table.data-table a:visited {
-/* 	color: #999999; */
+ 	color: darken($brand-color, 5%);
 	font-weight:bold;
 	text-decoration:none;
 }
 table.data-table a:active,
 table.data-table a:hover {
-/* 	color: #bd5a35; */
+ 	color: lighten($brand-color, 15%);
 	text-decoration:underline;
 }
 table.data-table {
