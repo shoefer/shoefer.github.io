@@ -34,7 +34,7 @@ As a final remark, don't forget that the representation of data is a very crucia
 The representation of a problem can drastically influence the ability to solve it (as exemplified very well in [[3]](#funwithrepr)), and corresponds directly to the question of how to represent data.
 Lots of the stuff you will read about in future articles deals with transforming numbers from one representation into another. In the next article we will look at how we can talk more precisely about changing the representation of data by introducing the concept of functions.
 
-### TLDR:
+### [TL;DR](http://de.urbandictionary.com/define.php?term=tl%3Bdr):
 * Data is numbers + representation (what these numbers represent)
 * How data is represented is crucial
 

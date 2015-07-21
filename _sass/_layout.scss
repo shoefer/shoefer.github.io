@@ -325,18 +325,18 @@
 
 /* http://johnsardine.com/freebies/dl-html-css/simple-little-tab/ */
 table.data-table a:link {
-	color: $brand-color;
+/* 	color: #666; */
 	font-weight: bold;
 	text-decoration:none;
 }
 table.data-table a:visited {
- 	color: darken($brand-color, 5%);
+/* 	color: #999999; */
 	font-weight:bold;
 	text-decoration:none;
 }
 table.data-table a:active,
 table.data-table a:hover {
- 	color: lighten($brand-color, 15%);
+/* 	color: #bd5a35; */
 	text-decoration:underline;
 }
 table.data-table {
