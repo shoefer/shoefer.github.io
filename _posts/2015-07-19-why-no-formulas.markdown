@@ -21,8 +21,6 @@ The third reason is much simpler: Formulas scare many people. I believe one reas
 - Most people conceptualize complex things in analogies, relating them to perception (e.g. vision) and language
 - Formulas scare people
 
-<a name="further">
-### Further reading and thinking:
+### <a name="further"></a>Further reading and thinking:
 1. [Euler's formula on Wikipedia](http://en.wikipedia.org/wiki/Euler's_formula)
 2. [Where Mathematics Comes From](https://en.wikipedia.org/wiki/Where_Mathematics_Comes_From) by Lakoff and Nunez
-</a>
