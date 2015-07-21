@@ -5,8 +5,4 @@ permalink: /about/
 menu-pos: 100
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
-
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+<p>I&#8217;m a PhD student at the <a title="Robotics &amp; Biology Lab" href="http://www.robotics.tu-berlin.de" target="_blank">Robotics &amp; Biology Lab</a> at TU Berlin, Germany. My main research interest lies in  robots who learn autonomously from their own interaction how to successfully manipulate their environment. Check out my <a title="Me at TU Berlin" href="http://www.robotics.tu-berlin.de/menue/team/sebastian_hoefer/" target="_blank">research web page</a> for more information.</p>
