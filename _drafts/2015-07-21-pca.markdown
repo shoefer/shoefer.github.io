@@ -1,0 +1,75 @@
+---
+layout: intuds_post
+title:  "Principal Component Analysis"
+date:   2015-07-21 15:00:00
+categories: intuds
+comments: true
+---
+
+I hope that you have read the previous articles introducing [data](/intuds/2015/07/19/data-numbers-representations.html), [functions](/intuds/2015/07/20/functions.html) and [vector spaces](/intuds/2015/07/22/vector-spaces.html), since they are all the ingredients we need in order to understand a basic machine learning method,  *Principal Component Analysis* or *PCA*, sometimes also called *Karhunen–Loève transform*. So what does PCA do? On an abstract level, PCA tries to answer the following question(s): given your data in some n-dimensional space, what are the *relevant* dimensions for your data? Is the information in your data actually "less-dimensional" than the data representation you have chosen?
+
+Answering these questions is indeed of great practical relevance. One example application is compression: if we can identify the only relavant dimensions of the data, we can store it more compactly by leaving out the irrelevant ones, i.e. require less bits and bytes on our computer. 
+In fact, an entire field named [dimensionality reduction](https://en.wikipedia.org/wiki/Dimensionality_reduction) dedicates itself to this problem. And some people believe so confidently that developing a dimensionality reduction technique which can compress the first 100MB of Wikipedia in less than 16MB is a major step towards solving artificial intelligence, that they [award 50000 Euro](http://prize.hutter1.net/) to anybody who manages do so! 
+
+So let us introduce one of the earliest techniques in dimensionality reduction, PCA with a toy example. Take a look at the following 3d data.
+     3d scatter plot of 3d sinus wave rotated in 3d
+What do you see? When looking at the animation you will probably notice some kind of wave, floating through 3D space. This wave, however, seems to be only 2-dimensional. You can see that if we draw a plane which contains all the points of the wave:
+     3d scatter plot of 3d sinus wave rotated in 3d + plane
+This is interesting. Although the dimensionality of our vector space is 3d (we have an x, y and z axis), the wave, i.e. the data is actually in 2D, but somewhat rotated in that space, namely around the z-axis. If we rotate -45 degrees around y, we see that the plane is parallel to x and z, and that the y value of all the data points is 0:
+     3d scatter plot of 3d sinus wave rotated to xy + plane
+
+The question is now: How can we devise a method which i) tells us the "real dimensionality" of our data and ii) gives us the rotation that we need to apply such that our data it aligns with the original axes?
+
+The answer is: Of course, PCA will do the job! But how?
+
+The main idea behind PCA is the concept of variation of the data along one dimension. It tries to find the directions, along which the data varies the most, in this case the two directions given by the plane.
+
+- it can also deal with noisy data, e.g. if the wave plotted above would look like this:
+     noisy sine wave in 3d
+
+Note that one could be tempted to state variation = amount of information. But there are exceptions. Consider the following 
+     Gaussian noise
+There is lot of variation, but is there actually information? There isn't really that much, as I just plotted a bunch of random numbers; there is no apparent pattern in this data, unlike the wave we have seen before. Hence, people have been studying other measures for information. Although there is no conclusive answer to the question how to quantify information, I will present another candidate called "slowness" or "temporal coherence" in a forthcoming article on Slow Feature Analysis.
+
+- Applications: Compression
+
+Summary:
+- PCA finds out a lower dimensionality of our data, given that only rotations are allowed
+- It also finds the optimal rotation in your data space such that the axes of the resulting space vary the most.
+performs 
+- By reducing the dimensionality of your data, PCA can also be used to compress your data
+- Variation can be an indicator for amount of information, but not always
+
+
+Further Reading:
+- Bishop's chapter on PCA. Mathematically dense and very, but contains proofs for the two derivations of PCA, for both the "minimum reconstruction error" and the "" interpretation (TODO lookup) 
+- Some PDF which I found once
+
+
+http://www.flotcharts.org/
+http://canvasxpress.org/
+
+Eigenfaces:  http://www.mitpressjournals.org/doi/abs/10.1162/jocn.1991.3.1.71
+http://en.wikipedia.org/wiki/Eigenface
+
+
+Practical Example: Eigenfaces
+
+I hope the toy example above served well to explain the method, but was a bit artificial. Why would we rotate waves in 3D? Hence, let us look at a really cool example from computer vision, so-called Eigenfaces. 
+
+Summary:
+- If you apply PCA to pictures of faces, you get Eigenfaces which are helpful for face recognition
+
+Practical Example: Eigengrasps / Motor synergies
+
+
+
+
+
+
+### [TL;DR](http://de.urbandictionary.com/define.php?term=tl%3Bdr):
+- 
+
+### <a name="further"></a>Footnotes:
+1. <a name="[1]"></a>Of course this is largely oversimplified. The actual price would also depend on whether it is close to the city center or in the suburb, whether it is a new apartment or a shabby one, etc. But for the sake of the example let's assume none of these factors plays a role.
+2. <a name="[2]"></a>To cite the [mathematician Ian Stewart](http://books.google.de/books?id=dUhMAQAAQBAJ&pg=PA182&lpg=PA182&dq=Classical+mathematics+concentrated+on+linear+equations+for+a+sound+pragmatic+reason:+it+could+not+solve+anything+else.&source=bl&ots=PuRT666z3D&sig=YBZtoUP_y0siL0RUXfC14keMGe4&hl=de&sa=X&ei=upteVPDfBIysPJChgZgE&ved=0CCsQ6AEwAQ#v=onepage&q=Classical%20mathematics%20concentrated%20on%20linear%20equations%20for%20a%20sound%20pragmatic%20reason%3A%20it%20could%20not%20solve%20anything%20else.&f=false): "Classical mathematics concentrated on linear equations for a sound pragmatic reason: it could not solve anything else."
