@@ -72,11 +72,20 @@ figcaption {
 }
  */
 
-.imgcenter { margin-bottom: 15px; }
+.imgcenter { 
+	display:block; 
+	margin-bottom: 15px; 
+	width: 100%;
+	text-align: center;
+}
+
 .imgright { float: right; margin-left: 10px; }
-.imgcap img {
-  border: 1px solid #999;
+.imgcenter img {
+/*   border: 1px solid #999; */
   max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .imgcap {
   color: #555;

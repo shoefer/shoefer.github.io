@@ -10,7 +10,13 @@
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
           <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+			<style>
+			  .domain::before {
+				content: "\0040";    /* Unicode character for @ symbol */
+			  }
+			</style>
+ 
+          <li><a href="#">blog<span class="domain">sebastianhoefer.de</span></a></li>
         </ul>
       </div>
 

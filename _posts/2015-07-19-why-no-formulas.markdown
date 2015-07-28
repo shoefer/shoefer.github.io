@@ -1,10 +1,10 @@
 ---
 layout: intuds_post
-title:  "Disclaimer: Why No Formulas"
+title:  "Understanding Data Science Without Math"
 date:   2015-07-19 15:00:00
 categories: intuds
 comments: true
-intuds-weight: 0
+intuds-weight: 1
 ---
 
 In this post I want to defend the basic idea of this series of articles, namely why I am trying to avoid mathematical formalism for explaining data science.
@@ -18,6 +18,8 @@ The first reason is that after studying and working in academia for a couple of 
 The second reason is that formulas do not reflect the way how people figured out the concept or method underlying the formula. It is like not telling the whole story but just the end of it. You will have a hard time reconstructing the rest story from that little information. I think it is similar for formulas, although it is in principle possible since they condense the whole method; but you will still have a hard time figuring out its meaning without some context.
 
 The third reason is much simpler: Formulas scare many people. I believe one reason for this lies in the condensed nature of formulas that I have mentioned before. Formulas use a very precise and non-redundant language, which is far less verbose than natural language. Therefore, you can spend an entire day by looking at one formula without getting it. I believe this being the reason for some people thinking that they are not good at math, although they probably could be. They get disappointed too quickly because they cannot grasp the formula within an eyelash. Relax guys, that holds true for most of us.
+
+So let us now jump right into the topic and talk a bit about *data*!
 
 ### [TL;DR](http://de.urbandictionary.com/define.php?term=tl%3Bdr):
 - Formulas are good for condensing and bullet-proofing concepts and methods, but less often for understanding

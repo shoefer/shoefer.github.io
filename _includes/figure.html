@@ -1,6 +1,25 @@
 {% if include.float == "right" %}<div class="imgright">{% else %}<div class="imgcenter">{% endif %}
 <div class="imgcap">
-<img src="{{ include.src }}" width="{{ include.width | default: 100% }}" />
+{% unless include.gifplayer %}
+{% if include.link %}
+<a href="{{ include.src }}" target="_blank">
+{% endif %}
+{% endunless %}
+<img src="{{ include.src }}" 
+ id="{{ include.id }}" 
+ class="{{ include.class }}" 
+ width="{{ include.width | default: 100% }}" />
+{% unless include.gifplayer %}
+{% if include.link  %}
+</a>
+{% endif %}
+{% endunless %}
 <div class="thecap">{{ include.caption }}</div>
 </div>
 </div>
+
+{% if include.gifplayer %}
+<script>
+    $('#{{ include.id }}').gifplayer({label:'play'});
+</script>
+{% endif %}

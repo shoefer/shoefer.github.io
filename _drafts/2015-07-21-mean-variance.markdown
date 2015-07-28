@@ -4,6 +4,7 @@ title:  "Mean and Variance"
 date:   2015-07-21 15:00:00
 categories: intuds
 comments: true
+intuds-weight: 9
 ---
 
 http://mathoverflow.net/questions/1048/why-is-it-so-cool-to-square-numbers-in-terms-of-finding-the-standard-deviation

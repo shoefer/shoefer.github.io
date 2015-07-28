@@ -4,7 +4,7 @@ title:  "The Real Dimensionality of Data"
 date:   2015-07-25 15:00:00
 categories: intuds
 comments: true
-intuds-weight: 4
+intuds-weight: 5
 ---
 
 We should agree by now that [data is a bunch of numbers](/intuds/2015/07/19/data-numbers-representations.html) encoding some information, and that data can be multi-dimensional which makes them live in [vector spaces](/intuds/2015/07/22/vector-spaces.html). In this post we want to look at the very important concept of *dimensionality* more closely.

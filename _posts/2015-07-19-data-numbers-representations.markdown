@@ -4,7 +4,7 @@ title:  "Data, Numbers and Representations"
 date:   2015-07-19 15:07:27
 categories: intuds
 comments: true
-intuds-weight: 1
+intuds-weight: 2
 ---
 I would like to start the intuitive introduction to data science by looking at the term *data*.  Let us try to gain an informal but sufficient understanding of how we could define data.
 
@@ -20,9 +20,11 @@ Let's look at concrete example of a picture:
 {% capture numbersFullUrl %}/intuds/images/2015-07-19-data-numbers-representations_numbers.png{% endcapture %}
 {% include figure.html src=numbersFullUrl width="85%" %}
 
-What do we see here? It's a picture of [my face](/intuds/images/2015-07-19-data-numbers-representations_picture.png) of course! Ok, if you don't see it don't worry (and if you do then you have probably watched [The Matrix](https://en.wikipedia.org/wiki/The_Matrix) too often). The trick is that I have taken [this grey scale picture](/intuds/images/2015-07-19-data-numbers-representations_picture.png)  and replaced every dot in the original picture with a number between 0 and 1 where 0 means "black" and 1 means "white", and the numbers in between represent the different shades of grey between these black and white tones. So effectively, I have become a bunch of numbers!
+What do we see here? It's a picture of [my face](/intuds/images/2015-07-19-data-numbers-representations_picture.png) of course! Ok, if you don't see it you should definitely watch [The Matrix](https://en.wikipedia.org/wiki/The_Matrix) more often. So how can you see this what's in the picture? The trick is that I have taken [this grey scale picture](/intuds/images/2015-07-19-data-numbers-representations_picture.png)  and replaced every dot in the original picture with a number between 0 and 1 where 0 means "black" and 1 means "white", and the numbers in between represent the different shades of grey between these black and white tones. So effectively, I have become a bunch of numbers!
 
+<!-- 
 (If you wonder why it is so difficult to recognize my face in the table of numbers while it is not in the grey scale picture read [this short post](/intuds/2015/07/23/difficult-cv.html).)
+ -->
 
 ### Data is numbers + what + encoding
 
