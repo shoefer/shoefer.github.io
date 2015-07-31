@@ -7,41 +7,47 @@ comments: true
 intuds-weight: 0
 ---
 
-Thinking machines have already changed and will slowly revolutionalize our everyday life, maybe even more than industrialization and the invention of the car. However, everyone of us knows has an intuition about how a car works whereas thinking machines remain obscure and magical to most of us. But I believe that everyone should have at least a "car intuition" about thinking machines. Unfortunately, common introductions to artificial intelligence and machine learning require quite some knowledge about programming and math and scare laymen off. But any of these skills is required to grasp the core ideas behind thinking machines. And these core ideas are what I would like to tell you about in the forthcoming series of articles in this *introduction to data science*.
+Thinking machines have revolutionalized our everyday life, maybe even more than industrialization or the invention of the car. Although everyone of has an intuition about how a car works thinking machines remain obscure and magical to most of us. 
+
+However, I believe that everyone should have at least a "car intuition" about thinking machines. Unfortunately, common introductions to artificial intelligence and machine learning require quite some knowledge about programming and math and scare laymen off. Luckily, none of these skills is required to grasp the core ideas behind thinking machines. And these core ideas are what I would like to tell you about in the forthcoming series of articles in this *introduction to data science*.
 
 To whet your appetite I would like to present four prototypical applications of data science. We will get back to these applications later and get a more detailed understanding of how data science approaches each of these problems.
 
+## Image Understanding
+
+For decades, researchers have been trying to make machines see the world we do. In 1966, one of the most famous artificial intelligence researchers, Marvin Minsky, hired an undergrad to solve the following problem as a summer project: connect a TV camera to a computer and make the computer describe what it sees. Now, 50 years later, we still haven't fully solved the problem, but at least we have made some progress. In the *image classification* task computers are now able to [outperform humans](https://gigaom.com/2015/02/13/microsoft-says-its-new-computer-vision-system-can-outperform-humans/) in certain regards. In this task, the computer has to decide for any given image what kind of object is depicted on that image. As manually programming the computer to do so has failed, data science tries to solve the problem by learning from data. 
+To learn successfully huge amounts of *labeled data* (images together with descriptions of what object category is depicted on each image) are required which is why the community  created a [database of over 15 million images](http://www.image-net.org/) containing 21841 object types. By learning from these images, using a method called *deep neural networks*, data science is now able to predict the object category correctly in over 95% of all cases - which is above human performance. These neural networks will one of the topics covered later.
+
+{% include figure.html src="/images/image-classification-msrdl1.jpg" width="300" id="image-understanding" link="true" caption="Top 5 predictions by an image classification approach. Credit: Microsoft Research" %}
+
+Note however that the general problem of seeing machines hasn't been solved yet since the image classification task is limited to pictures where only one object is present. Describing entire scenes is much more complicated, but recently [progress has been made there](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), too.
+
 ## Algorithmic Trading: Stock Price Prediction
 
-Machines are slowly taking over the stock markets using [algorithmic trading](https://en.wikipedia.org/wiki/Algorithmic_trading). One important thing these machine traders have to do is predicting stock prices. How would data science approach this thing? The simplest idea would be to apply a technique called *regression*: first, you collect information, also called *features*, about the stock you would like to predict, for example last months's revenue of the company, the size of the company at the time, the stock price from last month, etc. Then you weigh each of the features in such a way that today's stock price (which you know) comes out. Then you cross your fingers and hope that you will be able to plug-in the same features, but with today's value, and that you will able to predict next month's stock price. 
-
-Doesn't sound so complicated, does it? 
-We will look later in more detail how to weigh the features to make predictions, and take a look at why this naive approach actually does not really work in practice, too.
+Machines are slowly taking over the stock markets using [algorithmic trading](https://en.wikipedia.org/wiki/Algorithmic_trading). One important thing these machine traders have to do is predicting stock prices. How would data science approach this problem? In fact, the task is very similar to the image classification problem, only that, instead of an object type, the computer should predict a continuous valued number: the stock price. But what data should the stock price predictor use for learning?
+In the image classification task this was obvious: the image itself. Here, it is not clear what influences the stock price. It could be last months's revenue of the company, the size of the company, the stock price from last month, last year, and many more. 
+A data scientist will approach this problem by collecting as many of these pieces of information, so-called *features*, and try to weigh the features in the best way to predict the stock price. We will look later in more detail how the computer can automatically weigh features to make predictions, and take a look at why the task of "weighing in the best way" is much more difficult then it sounds.
 
 ## Spam Classification
 
 Everyone knows the problem of [spam](http://www.stevenburgess.net/wp-content/uploads/2014/12/Spam-Can.jpg). It tastes weird and, even worse, it fills your mailbox with juicy offers for [penis enlargement](http://www.mensjournal.com/health-fitness/health/the-hard-truth-about-penis-enlargement-20141027) or earning money from [fake Nigerian royalty](http://www.419eater.com/img/news.pdf). But thanks to data science, nowadays most spam automatically finds its way into your junk folder. This application of data science is called *spam classification* and - in its simplest form - works as follows: your mail program receives an email and extracts features (as in the example before) from the email, such as what words the email  contains, whether you know the author of the email, and many more. It then weighs each of these features and makes a binary decision: spam or no spam. 
 
-The approach to make this decision is a similar to the stock price example: data scientists collects many spam emails, and use their fancy tools to find the best weighting of all the features. The main difference is that not a continuous number (stock price), but a binary output (spam / no spam) is computed.
-
-## Image Understanding
-
-For decades researchers are trying to make machines see the world we do. In 1966, one of the most famous artificial intelligence researchers, Marvin Minsky, hired an undergrad to solve the following problem as a summer project: connect a TV camera to a computer and make the computer describe what it sees. Now, 50 years later, we still haven't fully solved the problem, but at least we have made some progress. In the *image classification* task computers are now able to [outperform humans](https://gigaom.com/2015/02/13/microsoft-says-its-new-computer-vision-system-can-outperform-humans/) in certain regards. In this problem, the computer gets one of [15 million images](http://www.image-net.org/) for learning, and it can then make a decision about which object it sees on any image. It is similar to spam classification, only that the input data for the machine is different, and that the decision is not binary, but the machine has to decide between 21841 object types. 
-
-{% include figure.html src="/images/image-classification-msrdl1.jpg" width="300" id="image-understanding" link="true" caption="Top 5 predictions by an image classification approach. Credit: Microsoft Research" %}
-
-Note that image classification is limited to pictures where only one object is present. Describing entire scenes is much more complicated, but recently [progress has been made there](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), too.
+We see a pattern emerging here. Spam classification is very similar to image classification and stock price prediction: data scientists collects many spam emails, extract features from these emails, and use fancy tools to find the best weighting of all the features. The main difference is that not a continuous number (stock price), or an object category, but a binary output (spam / no spam) is computed.
 
 ## Robot Skill Learning
 
-The last and maybe most exciting application of data science is robotics. Interestingly, you can (to some extent) apply exactly the same techniques - regression and classification - to make a robot do cool things. The following video shows how to teach a robot to play table tennis.
+The last and maybe most exciting application of data science is robotics. Interestingly, you can (to some extent) apply exactly the same techniques - as before - to make a robot do cool things. The following video shows how to teach a robot to play table tennis.
 
 <div class="imgcenter">
 <iframe width="280" height="155" src="https://www.youtube.com/embed/SH3bADiB7uQ" frameborder="0" allowfullscreen></iframe>
 </div>
 
-In a nutshell, the researchers make something similar as in stock price prediction: from the position of the ball you try to "predict", or rather decide for, a motor command to send to the robot. Executing this motion will then allow the robot to hit the table tennis ball.
+The type of learning slightly differs from the approaches seen before. Instead of telling the robot exactly what the right motion, the researchers let the robot try out motions on its own and give the robot a reward if it performs a good stroke, or a penalty if it performs bad (in fact, the robot doesn't get lollipops as rewards, but delicious large numbers). The robot will then repetitively generate motions, collect rewards/penalties and step by step correct its motions in order to get more reward and finally execute an excellent table tennis stroke. 
 
-I hope I was able to get you excited about data science! In the next couple of posts I will try to convey the basic ideas how to data science approaches all of these problems.
+<!-- 
+However, you can also formulate the problem In a nutshell, the researchers make something similar as in stock price prediction: from the position of the ball you try to "predict", or rather decide for, a motor command to send to the robot. Executing this motion will then allow the robot to hit the table tennis ball.
+ -->
 
-In the next post will tell you in more detail why you don't need to understand complex math and programming to understand data science.
+I hope I was able to get you excited about data science! In the next couple of posts I will try to convey the basic ideas of how to data science approaches all of these problems.
+
+The next post will tell you in more detail why you don't need to understand complex math and programming to understand data science.

@@ -9,7 +9,9 @@ intuds-weight: 1
 
 In this post I want to defend the basic idea of this series of articles, namely why I am trying to avoid mathematical formalism for explaining data science.
 
-I do not have anything against formulas. Quite the contrary: mathematical formalisms are a fantastic way to condense and sort out the necessary ingredients of a method. Without formalism, we could not program a computer to operationalize any method. Think of a formula as similar to an abstract cooking recipe. Only while writing all of it down, including the ingredients and in which way they are combined, you will realize such things as "Oh I forgot to add the tomatoes to the recipe". In a similar way a formula helps you to structure and bullet-proof the concept or method that you have in mind.
+If you don't care about math anyway, you can skip this post and start reading about [data](/intuds/2015/07/19/data-numbers-representations.html).
+
+I do not have anything against formulas. Quite the contrary: mathematical formalisms are a fantastic way to condense and sort out the necessary ingredients of a method. Without formalism, we could not program a computer to operationalize any method. Think of a formula as an abstract and very detailed cooking recipe. Only while writing all of it down, including the ingredients and in which way they are combined, you will realize such things as "Oh I forgot to add the tomatoes to the recipe". In a similar way a formula helps you to structure and bullet-proof the concept or method that you have in mind.
 
 However, I find formulas a very bad way to understand things. I see three main reasons for that. 
 

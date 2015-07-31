@@ -7,6 +7,13 @@ comments: true
 intuds-weight: 5
 ---
 
+<!-- 
+3 challenges of machine learning
+ Over- and underfitting
+ Real Dim of Data
+ Finding the Right Priors
+ -->
+
 We should agree by now that [data is a bunch of numbers](/intuds/2015/07/19/data-numbers-representations.html) encoding some information, and that data can be multi-dimensional which makes them live in [vector spaces](/intuds/2015/07/22/vector-spaces.html). In this post we want to look at the very important concept of *dimensionality* more closely.
 
 To do so, let us return to our image example. I have told you previously that this image
