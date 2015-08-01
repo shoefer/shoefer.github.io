@@ -1,6 +1,6 @@
 ---
 layout: intuds_post
-title:  "Understanding Data Science Without Math"
+title:  "Understanding Data Science without Math"
 date:   2015-07-19 15:00:00
 categories: intuds
 comments: true
