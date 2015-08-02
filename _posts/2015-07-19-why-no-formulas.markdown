@@ -31,3 +31,4 @@ So let us now jump right into the topic and talk a bit about *data*!
 ### <a name="further"></a>Further reading and thinking:
 1. [Euler's formula on Wikipedia](http://en.wikipedia.org/wiki/Euler's_formula)
 2. [Where Mathematics Comes From](https://en.wikipedia.org/wiki/Where_Mathematics_Comes_From) by Lakoff and Nunez
+3. [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) takes a similar stance as this blog and features cool visualizations of data and machine learning algorithms, as well as brief technical descriptions.
