@@ -10,6 +10,7 @@ intuds-weight: 3
 In the [last post](/intuds/2015/07/19/data-numbers-representations.html) we have seen examples for how numbers can encode information, becoming data. In this post we will talk about a very important way to look at data. This view will allow us to play around with data in a powerful way, and this view lies at the core of data science.
 
 I have previously told you that any [image](/intuds/images/2015-07-19-data-numbers-representations_picture.png) can be represented by a [table of numbers](/intuds/images/2015-07-19-data-numbers-representations_numbers.png) where each number encodes the gray scale value of the image. For the trick that I want to show you, this image is actually pretty large. So for the sake of the argument, let us shrink the image drastically until it gets really really tiny, namely only 3 pixels wide and 1 pixel high - bear with me for a second even if this sounds silly to you because we won't see anything on this image. Our 3x1 image expressed in gray scale values now looks like this:
+
 <table class="data-table">
 <tr>
 <td style="background-color: #000; opacity: 0.909; width: 30px">0.909</td>
@@ -17,6 +18,7 @@ I have previously told you that any [image](/intuds/images/2015-07-19-data-numbe
 <td style="background-color: #000; opacity: 0.860; width: 30px">0.860</td>
 </tr>
 </table>
+
 I have set the color of each table cell to correspond to the actual gray scale value the number encodes. Here comes the trick: although we know that these three numbers encode gray scale values we can *do as if* they were actually encoding the location of a point in 3D space. So instead of encoding "luminosity" we think of the numbers are being in "meters" or "centimeters". As you might remember from high school we draw locations as an arrow in an coordinate system:
 
 {% include figure.html src="/intuds/images/2015-07-21-vector_spaces-arrow.png" width="300" gifplayer="true" id="vector-spaces-arrow" %}

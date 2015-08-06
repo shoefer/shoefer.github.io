@@ -77,7 +77,9 @@ However, machine learning has come up with ways to say "well, I'm not sure, but 
 
 #### Image classification function
 Another more complicated function we have considered before is mapping pictures to object categories. In the [previous post](/intuds/2015/07/25/vector-spaces.html) we have seen that we can draw (hyper)planes to separate two categories of objects, namely blowfish and Sebastians:
+
 {% include figure.html src="/intuds/images/2015-07-21-vector_spaces-arrow-plane.png" width="300" gifplayer="true" id="vector-spaces-arrow-plane" %}
+
 The trick we did for finding this visualization was shrinking the 27x35 images to a 3x1 image which allowed us to treat images as points (vectors) in 3D space.
 What does this look like if we shrink the images even further, namely to a 2x1 image? We can then visualize the images as vectors in 2D. Similar as before we can now ask how to separate the shrinked Sebastians and blowfish. The answer is that we have to find a "2D hyperplane" - which turns out to be just a line!
 
