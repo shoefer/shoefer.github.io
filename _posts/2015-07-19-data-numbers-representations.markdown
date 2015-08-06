@@ -10,7 +10,7 @@ I would like to start the intuitive introduction to data science by looking at t
 
 ### Data is numbers
 
-Big data, data mining, data analysis, data, data, data - everyone wants data. But what *is* data? The philosophical answer could be: information. The statistician's answer would probably be: a bunch of numbers. 
+Big data, data mining, data analysis, data, data, data - everyone wants data. But what *is* data? The philosophical answer could be: information. The data scientist's answer would probably be: a bunch of numbers. 
 Indeed, we are going to stick to the latter definition, namely that *data is everything that can be encoded by numbers* [[1]](#numbersencode).
 
 Some examples: a picture you have taken with your digital camera is data. You can look at it, see the things depicted on it. But your digital camera uses numbers to store the pictures. Also the MP3 sound file that your are currently listening to is data. Even this text here is data! So how is data numbers?

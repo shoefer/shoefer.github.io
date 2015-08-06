@@ -7,9 +7,9 @@ comments: true
 intuds-weight: 0
 ---
 
-Thinking machines have revolutionalized our everyday life, maybe even more than industrialization or the invention of the car. Although everyone of has an intuition about how a car works thinking machines remain obscure and magical to most of us. 
+Thinking machines have revolutionalized our everyday life, maybe even more than industrialization or the invention of the car. But although everyone of has an intuition about how a car works thinking machines remain obscure and magical to most of us. 
 
-However, I believe that everyone should have at least a "car intuition" about thinking machines. Unfortunately, common introductions to artificial intelligence and machine learning require quite some knowledge about programming and math and scare laymen off. Luckily, none of these skills is required to grasp the core ideas behind thinking machines. And these core ideas are what I would like to tell you about in the forthcoming series of articles in this *introduction to data science*.
+I believe that everyone should have at least a "car intuition" about thinking machines. Unfortunately, common introductions to artificial intelligence and machine learning require quite some knowledge about programming and math and scare laymen off. Luckily, none of these skills is required to grasp the core ideas behind thinking machines. And these core ideas are what I would like to tell you about in the forthcoming series of articles in this *introduction to data science*.
 
 To whet your appetite I would like to present four prototypical applications of data science. We will get back to these applications later and get a more detailed understanding of how data science approaches each of these problems.
 
