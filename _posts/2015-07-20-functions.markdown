@@ -52,9 +52,11 @@ Let us return to our simple example from the [introductory post](/intuds/2015/07
 
 This table can be considered a function, as for a annual revenue it gives you a stock price value.
 Such tabular functions are common but they have a severe drawback: we cannot *extrapolate* - from this table alone we do not know how to predict the value for 2015 or 2016! However, the example data I have given exhibits a regularity (surprise, surprise!), namely that the stock price values in the right column are exactly 0.00013 times the annual revenue plus 70 (check this for yourself). This gives us a much more concise way of describing this function:
+
 <div class="pseudoformula">
 <b>Price</b> = 0.00013 * <b>Revenue</b> + 70
 </div>
+
 Let us visualize this function by plotting a graph which has on one axis the size and on the other the price:
 {% include figure.html src="/intuds/images/2015-07-20-functions_sizeprice.png" width="65%" %}
 
