@@ -58,6 +58,7 @@ Such tabular functions are common but they have a severe drawback: we cannot *ex
 </div>
 
 Let us visualize this function by plotting a graph which has on one axis the size and on the other the price:
+
 {% include figure.html src="/intuds/images/2015-07-20-functions_sizeprice.png" width="65%" %}
 
 We see two interesting things here: first, we can now predict the stock price value from the annual revenue, no matter which revenue (or year). Secondly, when the relationship between revenue and stock price in our example turns out to be a line. The fact that such relationships / functions can be drawn by a line results in them being called *linear functions*. Linear functions  are amongst the most important types of relationships in mathematics - and actually they are one of the few that mathematics can really deal with [[2]](#[2]). Therefore, the majority of methods in machine learning are based on linear functions as the one given here. 
@@ -79,7 +80,9 @@ Another more complicated function we have considered before is mapping pictures 
 {% include figure.html src="/intuds/images/2015-07-21-vector_spaces-arrow-plane.png" width="300" gifplayer="true" id="vector-spaces-arrow-plane" %}
 The trick we did for finding this visualization was shrinking the 27x35 images to a 3x1 image which allowed us to treat images as points (vectors) in 3D space.
 What does this look like if we shrink the images even further, namely to a 2x1 image? We can then visualize the images as vectors in 2D. Similar as before we can now ask how to separate the shrinked Sebastians and blowfish. The answer is that we have to find a "2D hyperplane" - which turns out to be just a line!
+
 {% include figure.html src="/intuds/images/2015-07-20-functions_image_class_2d.png"  width="65%" id="2015-07-20-functions_image_class_2d" %}
+
 Interestingly, this looks very much like the stock price prediction above. The main difference is that we do not draw the line *through* the data but in such a way to *separate* the data. Still, in both applications we use a *linear* function. 
 
 <!--
