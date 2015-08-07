@@ -7,13 +7,13 @@ comments: true
 intuds-weight: 5
 ---
 
+We should agree by now that [data is a bunch of numbers](/intuds/2015/07/19/data-numbers-representations.html) encoding some information, and that data can be multi-dimensional which makes them live in [vector spaces](/intuds/2015/07/22/vector-spaces.html). 
+We have also looked at the core competence of data science: learning  [functions](/intuds/2015/07/20/functions.html) from data. In this post we will find out why learning a function is actually such a difficult problem.
+
 <!--
 QUESTION: better explain by intuitive example, e.g. correlating the hypothesis that it is raining to the 
   hmm, but isn't that more about priors?
   -->
-
-We should agree by now that [data is a bunch of numbers](/intuds/2015/07/19/data-numbers-representations.html) encoding some information, and that data can be multi-dimensional which makes them live in [vector spaces](/intuds/2015/07/22/vector-spaces.html). 
-We have also looked at the core competence of data science: learning  [functions](/intuds/2015/07/20/functions.html) from data. In this post we will find out why learning a function is actually such a difficult problem.
 
 In the [last post](/intuds/2015/07/20/functions.html) I have introduced the stock price prediction problem: given the annual revenue of a company, we want to predict the company's stock price. I have given you set of example data and we have found the following regularity in the data:
 
@@ -99,4 +99,5 @@ In the next post we will look at the problem of overfitting in the more complex 
 
 ### <a name="further"></a>Further Reading:
 1. <a name="[1]"></a>[Lecture notes](http://courses.cs.washington.edu/courses/cse546/12wi/slides/cse546wi12LinearRegression.pdf) by Luke Zettlemoyer from University of Washington on overfitting.
-2. <a name="[1]"></a>[Wikipedia article on Occam's razor](https://en.wikipedia.org/wiki/Occam%27s_razor).
+2. <a name="[2]"></a>[Wikipedia article on Occam's razor](https://en.wikipedia.org/wiki/Occam%27s_razor).
+3. <a name="[2]"></a>[Simple Java applet](http://mste.illinois.edu/exner/java.f/leastsquares/) for playing around with data fitting. The switch "degree of polynomial" corresponds to the "wrinkles" in the function. 
