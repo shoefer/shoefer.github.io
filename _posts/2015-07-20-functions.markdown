@@ -26,27 +26,27 @@ Let us return to our simple example from the [introductory post](/intuds/2015/07
 <tr>
 <td>2010</td>
 <td>40.000</td>
-<td>590</td>
+<td>122</td>
 </tr>
 <tr>
 <td>2011</td>
 <td>50.000</td>
-<td>720</td>
+<td>135</td>
 </tr>
 <tr>
 <td>2012</td>
 <td>60.000</td>
-<td>850</td>
+<td>148</td>
 </tr>
 <tr>
 <td>2013</td>
 <td>80.000</td>
-<td>1110</td>
+<td>174</td>
 </tr>
 <tr>
 <td>2014</td>
 <td>100.000</td>
-<td>1370</td>
+<td>200</td>
 </tr>
 </table>
 
@@ -54,7 +54,7 @@ This table can be considered a function, as for a annual revenue it gives you a 
 Such tabular functions are common but they have a severe drawback: we cannot *extrapolate* - from this table alone we do not know how to predict the value for 2015 or 2016! However, the example data I have given exhibits a regularity (surprise, surprise!), namely that the stock price values in the right column are exactly 0.00013 times the annual revenue plus 70 (check this for yourself). This gives us a much more concise way of describing this function:
 
 <div class="pseudoformula">
-<b>Price</b> = 0.00013 * <b>Revenue</b> + 70
+<b>Stock price</b> = 0.00013 * <b>Revenue</b> + 70
 </div>
 
 Let us visualize this function by plotting a graph which has on one axis the size and on the other the price:

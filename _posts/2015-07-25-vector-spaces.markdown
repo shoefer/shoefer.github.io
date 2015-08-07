@@ -45,7 +45,7 @@ Third, I have to lower your expectations about this method a bit: discriminating
 
 Some last notes on terminology.
 
-Often, sequence of numbers, such as the 3d point or the 945-dimensional representation of the image is called a *vector*, and it then lives in a  *vector space* of some dimensionality. Although being basically the same thing, the term vector has a slightly different connotation which we will ignore for now. But we will stick to the term vector just because it sounds cooler.
+Often, sequence of numbers, such as the 3d point or the 945-dimensional representation of the image is called a *vector*, and it then lives in a  *vector space* of some dimensionality. Although being basically the same thing, the term vector has a slightly different connotation which we will ignore for now. But I will often use the vector just because it sounds cooler.
 
 Secondly, mathematics tries to be parsimonious with concepts, mainly because it makes talking about things easier. Therefore, we get rid of the concept "numbers" by treating them as 1-dimensional vectors. So in the future if I talk about vectors, you can often think of them as just being numbers. 
 

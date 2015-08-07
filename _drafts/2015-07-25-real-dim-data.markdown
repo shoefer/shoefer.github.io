@@ -4,24 +4,31 @@ title:  "The Real Dimensionality of Data"
 date:   2015-07-25 15:00:00
 categories: intuds
 comments: true
-intuds-weight: 5
+intuds-weight: 6
 ---
 
 <!-- 
-3 challenges of machine learning
- Over- and underfitting
- Real Dim of Data
+2 challenges of machine learning
+ - Over- and underfitting
+ - Real Dim of Data
+ - No free lunch
+
+Remedies:
  Finding the Right Priors
  -->
 
-We should agree by now that [data is a bunch of numbers](/intuds/2015/07/19/data-numbers-representations.html) encoding some information, and that data can be multi-dimensional which makes them live in [vector spaces](/intuds/2015/07/22/vector-spaces.html). In this post we want to look at the very important concept of *dimensionality* more closely.
+In the last post we have looked at the biggest problem of data science: when we want to learn [functions](/intuds/2015/07/20/functions.html) from data, we have to fight overfitting. We will now look at the concept of *dimensionality* to understand why overfitting is actually such a big problem.
 
 To do so, let us return to our image example. I have told you previously that this image
+
 {% capture numbersFullUrl %}/intuds/images/2015-07-19-data-numbers-representations_numbers.png{% endcapture %}
 {% include figure.html src=numbersFullUrl width="85%" %}
-lives in a 945-dimensional vector space. The question is now: how many possible grey scale pictures exist? The math is not so complicated [[1]](#[1])
 
-http://www.quora.com/How-many-particles-are-there-in-the-universe
+lives in a 945-dimensional vector space. The question is now: how many possible gray scale pictures exist? The math is not so complicated [[1]](#[1]) but I can tell you that by making some reasonable assumptions we see that there are more than 10<sup>945</sup> possible gray scale images with 27x35 pixels - 10<sup>945</sup> is a number consisting of a 1 with 945 trailing zeros, and it is several orders of magnitudes higher than the [number of particles in the entire universe](http://www.quora.com/How-many-particles-are-there-in-the-universe)! (In fact our eye has a much higher resolution and that there are even much more than 10<sup>945</sup> images possible.)
+
+Why does this mean? From our little calculation follows entire mankind will only see a tiny fraction of all theoretically possible images. This means that representing an image by 27x35 pixels with gray scale values is highly *redundant*. To make an analogy, imagine telephone numbers would have 945 digits instead of 9 (that is length of an average phone number in [Berlin](http://www.berlin.de). We would never even come close to using all the possible telephone numbers (and they would be kind of hard to remember - but does anyone do that nowadays anyway?)
+
+So we are not really efficient, but why is that a problem for data science?
 
 So let us introduce one of the earliest techniques in dimensionality reduction, PCA with a toy example. Take a look at the following 3d data.
      3d scatter plot of 3d sinus wave rotated in 3d
@@ -83,6 +90,6 @@ Practical Example: Eigengrasps / Motor synergies
 - 
 
 ### <a name="further"></a>Footnotes:
-1. <a name="[1]"></a>Let us assume that a pixel can take a finite number of values. We assume that only 1 digits after the decimal point are allowed. So we have the numbers 0, 0.1, 0.2, ... 0.9, 1.0, which are 10 in total. We have 945 pixels, this makes 10<sup>945</sup> possible images. This is a 1 with 945 trailing zeros! 
+1. <a name="[1]"></a>Let us assume that a pixel can take a finite number of values. We assume that only 1 digits after the decimal point are allowed. So we have the numbers 0, 0.1, 0.2, ... 0.9, 1.0, which are 10 in total. We have 945 pixels, this makes 10<sup>945</sup> possible images. 
 
-2. <a name="[2]"></a>To cite the [mathematician Ian Stewart](http://books.google.de/books?id=dUhMAQAAQBAJ&pg=PA182&lpg=PA182&dq=Classical+mathematics+concentrated+on+linear+equations+for+a+sound+pragmatic+reason:+it+could+not+solve+anything+else.&source=bl&ots=PuRT666z3D&sig=YBZtoUP_y0siL0RUXfC14keMGe4&hl=de&sa=X&ei=upteVPDfBIysPJChgZgE&ved=0CCsQ6AEwAQ#v=onepage&q=Classical%20mathematics%20concentrated%20on%20linear%20equations%20for%20a%20sound%20pragmatic%20reason%3A%20it%20could%20not%20solve%20anything%20else.&f=false): "Classical mathematics concentrated on linear equations for a sound pragmatic reason: it could not solve anything else."
+
