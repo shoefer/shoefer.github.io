@@ -32,21 +32,21 @@ Alhough I told you that these linear functions are really cool and mathematics c
 {% include figure.html src="/intuds/images/2015-08-07-overfitting-sizeprice.png" width="65%" %}
 
 It is not as nice as the line, but it perfectly passes through all of the data points. And
-from an economic perspective this function looks much better as it predicts that if annual revenues exceed 1000000 Euro the stock price will go up much more quickly! So better go and by some shares now! 
+from an economic perspective this function looks much better as it predicts that if annual revenues exceed 1000000 Euro the stock price will go up much more quickly! So better go and buy some shares now! 
 
 ### Occam's Razor
 
-Let me give you a couple of reasons in defense of using the linear function. The first one is the function's simplicity: although both functions perfectly fit the data (both the blue line and the red curve perfectly coincide with the blue dots) the line has much less wrinkles than the curve - namely zero rather than six! For the line we do not have to choose whether the wrinkles go up or down, how high the go etc. 
+Let me give you a reason in defense of the linear function: the function's simplicity. Although both functions perfectly fit the data (both the blue line and the red curve perfectly coincide with the blue dots) the line has much less wrinkles than the curve - namely zero rather than six! For the line we do not have to choose whether the wrinkles go up or down, how high/low they should go etc. 
 
 In fact, this type of reasoning is very common has been brought up over 700 years ago by William of Ockham and is therefore called [Occam's razor](https://en.wikipedia.org/wiki/Occam%27s_razor). It states that "among competing hypotheses that predict equally well, the one with the fewest assumptions should be selected". 
 
 ### Overfitting
 
-Although Occam's Razor sounds like a good explanation, there is an even better reason for prefering the line in this stock price example. Occam's razor rejects the wrinkled function because we have to make too many choices about the direction and the size of the wrinkles. In fact, there are infinitely many wrinkled functions going through all of the points, for instance:
+Although Occam's Razor sounds reasonable, there is an even better explanation why we should prefer the line in this stock price example. Occam's razor rejects the wrinkled function because we have to make too many choices about the direction and the size of the wrinkles. In fact, there are infinitely many wrinkled functions going through all of the points, for instance this one:
 
 {% include figure.html src="/intuds/images/2015-08-07-overfitting-sizeprice2.png" width="65%" %}
 
-The problem with that is that the chance of picking the *wrong* wrinkled function is much higher than picking the wrong line - because there is only *one line* that goes exactly through all of the points. I cannot rotate or shift the line up without it losing contact with one or more of the points. Therefore, we should prefer the line. So in a way, we have given a justification of Occam's razor by realizing that using a more complex function for predictions makes us more prone to making mistakes.
+The problem with that is that the chance of picking the *wrong* wrinkled function is much higher than picking the wrong line - because (at least in our example) there is only *one line* that goes exactly through all of the points. I cannot rotate or shift the line up without it losing contact with one or more of the points. Therefore, we should prefer the line. So in a way, we have given a justification of Occam's razor by realizing that using a more complex function for predictions forces us to take more arbitrary decisions, which makes us more prone to making mistakes.
 
 ### Random fluctuations
 
@@ -54,9 +54,9 @@ In the case where the data lies exactly on a line the answer was clear that the 
 
 {% include figure.html src="/intuds/images/2015-08-07-overfitting-sizeprice_noise.png" width="65%" %}
 
-We see that no line will be able to pass directly through all the data points, but have easily found a wrinkled function doing so. Still the line shown here seems to capture the main trend quite well. Which of the two functions do you prefer for making predictions about future stock prices? 
+We see that no line will be able to pass directly through all the data points, but we have easily found a wrinkled function doing so. Still the line shown here seems to capture the main trend quite well. Which of the two functions do you prefer for making predictions about future stock prices? 
 
-Since I have told you that the fluctuations are random, you will probably prefer the line - even though it does not fit the data exactly. Although the wrinkled function explains the individual data points well, it does not explain the trend of the function well; it focuses too much on explaining the random fluctations. Data scientists call this general effect *overfitting*, and we say that the wrinkled function *overfits* the data. 
+Since I have told you that the fluctuations are random, you will probably prefer the line - even though it does not fit the data exactly. Although the wrinkled function explains the individual data points well, it does not explain the more moderate trend of the revenue-stock price relationship well; it focuses too much on explaining the random fluctations in the data. Data scientists call this general effect *overfitting*, and we say that the wrinkled function *overfits* the data. 
 
 ### Battling Overfitting
 
@@ -77,15 +77,17 @@ Third, you can use *more data*. In fact, this is way everyone is so excited abou
 
 Forth, you can get more knowledge about which shape of the functions you actually expect. If for example you know that the stock price varies in cycles, that is goes up, slightly down, then up again etc., you can try to find a function which reflects this knowledge.
 
-Although all of these things are good ideas and there are many more, in the end there is only one thing you can do: cross your fingers and hope your function predicts the right thing. Understanding overfitting should hopefully make you think more critically about decision making - both in machines as well as in humans.
+Although all of these things are good ideas and there are many more, in the end there is only one thing you can do: cross your fingers and hope your function predicts the right thing. 
+
+I hope that looking at this very simple example, and how overfitting can occur here, you have already come to think more critically about decision making - both in machines and in humans.
 
 ### Underfitting
 
 Last but not least, let me say that of course also the opposite thing can happen: *underfitting*. If we choose a function that is too simple to explain a relationship we will not get a good prediction, either. I leave it as an exercise for you to think about a good example of underfitting.
 
 <!--  Quadratic function -->
-
-And in case you want to brag in front of your friends, here is some more terminology: the topic of this post, that a function learned from data always has to balance under- and overfitting is also called the *bias-variance trade-off*. *Variance* relates to the variance of all the different complex (e.g. wrinkled) functions that can explain the same data, causing overfitting. *Bias* refers to underfitting, stating that a too simple function adds a systematic bias to the prediction which cannot be overcome by the learner, not even when given more data.
+That's basically it - you have now understood the biggest problem of data science.
+And in case you want to brag in front of your friends, here is some more terminology: the topic of this post, that a function learned from data always has to balance under- and overfitting is also called the *bias-variance trade-off*. *Variance* relates to how much all possible different wrinkled functions vary - the more wrinkles you allow, the higher is the variance of your learning method and hence the more prone the learner is to overfitting. *Bias* refers to underfitting, stating that a too simple function adds a systematic bias to the prediction which cannot be overcome by the learner, not even when given more data. The bias-variance trade-off is a smart way of stating that if don't consider the simplest possible hypothesis, your hypothesis is more likely to be wrong -- too simple or too complicated and wrong.
 
 In the next post we will look at the problem of overfitting in the more complex image classification scenario, and we will see how the dimensionality aggrevates the problem of learning and overfitting even more. 
 
