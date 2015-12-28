@@ -1,6 +1,6 @@
 ---
 layout: intuds_post
-title:  "Understanding Data Science without Math"
+title:  "Understanding Machine Intelligence without Formal Math"
 date:   2015-07-19 15:00:00
 categories: intuds
 comments: true

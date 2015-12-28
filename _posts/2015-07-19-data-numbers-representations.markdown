@@ -6,7 +6,7 @@ categories: intuds
 comments: true
 intuds-weight: 2
 ---
-I would like to start the intuitive introduction to data science by looking at the term *data*.  Let us try to gain an informal but sufficient understanding of how we could define data.
+I would like to start the intuitive introduction to machine intelligence by looking at the term *data*.  Let us try to gain an informal but sufficient understanding of how we could define data.
 
 ### Data is numbers
 
