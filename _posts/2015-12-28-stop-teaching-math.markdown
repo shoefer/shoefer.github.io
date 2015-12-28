@@ -2,7 +2,8 @@
 layout: post
 title:  "Stop Teaching Math in School?"
 date:   2015-12-28 13:43:00
-categories: [education,math ]
+categories: education
+tags: education, math
 comments: true
 ---
 
