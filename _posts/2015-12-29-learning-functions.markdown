@@ -1,7 +1,7 @@
 ---
 layout: intuds_post
 title:  "Learning Functions from Data: A Primer"
-date:   2015-12-28 23:00:00
+date:   2015-12-29 23:00:00
 categories: intuds
 comments: true
 intuds-weight: 5
