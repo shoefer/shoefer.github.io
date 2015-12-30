@@ -5,6 +5,7 @@ date:   2015-12-28 18:10:00
 categories: intuds
 comments: true
 intuds-weight: 4
+intuds-category: Basics
 ---
 
 If you have read the previous posts carefully you should now be familiar with high-dimensional data. In this last introductory article we are now going to look at what machine intelligence people mean when they think about manipulating data: they apply *functions* to data.

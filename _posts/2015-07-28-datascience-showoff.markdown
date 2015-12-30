@@ -5,6 +5,7 @@ date:   2015-07-28 15:00:00
 categories: intuds
 comments: true
 intuds-weight: 0
+intuds-category: Basics
 ---
 
 Thinking machines have revolutionalized our everyday life, maybe even more than industrialization or the invention of the car. But although everyone of has an intuition about how a car works thinking machines remain obscure and magical to most of us. 

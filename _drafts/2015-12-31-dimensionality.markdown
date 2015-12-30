@@ -1,24 +1,14 @@
 ---
 layout: intuds_post
-title:  "The Real Dimensionality of Data"
-date:   2015-07-25 15:00:00
+title:  "The Curse of Dimensionality"
+date:   2015-12-31 15:00:00
 categories: intuds
 comments: true
-intuds-weight: 6
+intuds-weight: 7
 intuds-category: learning
 ---
 
-<!-- 
-2 challenges of machine learning
- - Over- and underfitting
- - Real Dim of Data
- - No free lunch
-
-Remedies:
- Finding the Right Priors
- -->
-
-In the last post we have looked at the biggest problem of data science: when we want to learn [functions](/intuds/2015/07/20/functions.html) from data, we have to fight overfitting. We will now look at the concept of *dimensionality* to understand why overfitting is actually such a big problem.
+In the last post we have looked at one of the big problems of data science: when we want to learn [functions](/intuds/2015/07/20/functions.html) from data, we have to fight [overfitting](/intuds/2015/08/07/overfitting.html). In this post we will look at another archenemy of learning: dimensionality.
 
 To do so, let us return to our image example. I have told you previously that this image
 

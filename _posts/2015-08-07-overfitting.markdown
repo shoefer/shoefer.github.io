@@ -1,14 +1,14 @@
 ---
 layout: intuds_post
-title:  "Overfitting: The Curse of Learning from Data"
+title:  "The Curse of Overfitting"
 date:   2015-08-07 15:00:00
 categories: intuds
 comments: true
 intuds-weight: 6
+intuds-category: Learning from Data
 ---
 
-In the last post we obtained an understanding of how to [learn functions from data](/intuds/2015/12/29/learning-functions.html). In this post, we will find 
-find out why learning a function is actually such a difficult problem.
+In the last post we obtained an understanding of how to [learn functions from data](/intuds/2015/12/29/learning-functions.html), and we developed our first learning method. In this post, we will start building an understanding of learning from data is actually hard. The first problem we are facing is *the curse of overfitting*. Let's see what that is.
 
 <!--
 QUESTION: better explain by intuitive example, e.g. correlating the hypothesis that it is raining to the 
@@ -80,6 +80,8 @@ Last but not least, let me say that of course also the opposite thing can happen
 <!--  Quadratic function -->
 That's basically it - you have now understood the biggest problem of learning form data.
 And in case you want to brag in front of your friends, here is some more terminology: the topic of this post, that a function learned from data always has to balance under- and overfitting is also called the *bias-variance trade-off*. *Variance* relates to how much all possible different wrinkled functions vary - the more wrinkles you allow, the higher is the variance of your learning method and hence the more prone the learner is to overfitting. *Bias* refers to underfitting, stating that a too simple function adds a systematic bias to the prediction which cannot be overcome by the learner, not even when given more data. The bias-variance trade-off is a smart way of stating that if don't consider the simplest possible hypothesis, your hypothesis is more likely to be wrong -- too simple or too complicated and wrong.
+
+This post elucidated the first big problem of machine learning: overfitting. Next, we will look at *the curse of dimensionality*.
 
 <!--In the next post we will look at the problem of overfitting in the more complex image classification scenario, and we will see how the dimensionality aggrevates the problem of learning and overfitting even more. -->
 

@@ -26,10 +26,21 @@ On the other hand I want to give students and scientists an intuition which help
 <p>If you are new to the topic of machine intelligence, I recommend to read these articles in order since the first ones cover basic concepts used in later articles.</p>
 </div>
 
-  <ol class="intuds-post-list">
+  {% assign last_category = 0 %}
   {% assign items = site.categories.intuds | sort: 'intuds-weight' %}
     {% for post in items %}
+	  {% if last_category != post.intuds-category %}      
+
+		  {% if last_category != 0 %}      
+  </ol>
+		  {% endif %}
+	      <h3 style="color:black">{{post.intuds-category}}</h3>
+  <ol class="intuds-post-list">
+	  {% endif %}
+	    
+	  {% assign last_category = post.intuds-category %}
       <li style="margin-bottom: 0px">
+	      	
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 <!--         (<span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>)  -->
       </li>

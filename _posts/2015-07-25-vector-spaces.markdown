@@ -5,6 +5,7 @@ date:   2015-07-25 16:02:00
 categories: intuds
 comments: true
 intuds-weight: 3
+intuds-category: Basics
 ---
 
 In the [last post](/intuds/2015/07/19/data-numbers-representations.html) we have seen examples for how numbers can encode information, becoming data. In this post we will talk about a very important way to look at data. This view will allow us to play around with data in a powerful way, and this view lies at the core of machine intelligence and the science of data.

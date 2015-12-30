@@ -5,6 +5,7 @@ date:   2015-07-19 15:00:00
 categories: intuds
 comments: true
 intuds-weight: 1
+intuds-category: Basics
 ---
 
 In this post I want to defend the basic idea of this series of articles, namely why I am trying to avoid mathematical formalism for explaining data science.

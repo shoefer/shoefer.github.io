@@ -3,14 +3,18 @@ layout: intuds_post
 title:  "Learning Functions from Data: A Primer"
 date:   2015-12-29 23:00:00
 categories: intuds
+tags: machine learning, statistical learning
 comments: true
 intuds-weight: 5
+intuds-category: Learning from Data
 ---
 
-We should agree by now that [data is a bunch of numbers](/intuds/2015/07/19/data-numbers-representations.html) encoding some information, and that data can be multi-dimensional which makes them live in [vector spaces](/intuds/2015/07/25/vector-spaces.html). 
-We have also looked at the core competence of machine intelligence: applying functions  [functions](/intuds/2015/12/28/functions.html) to data. In this post we will look at the most powerful tool of machine intelligence: learning functions from data. 
+In the introductory articles we have learned that [data is a bunch of numbers](/intuds/2015/07/19/data-numbers-representations.html) encoding some information, and that data can be multi-dimensional which makes them live in [vector spaces](/intuds/2015/07/25/vector-spaces.html). 
+We have also looked at the core competence of machine intelligence: applying functions  [functions](/intuds/2015/12/28/functions.html) to data. In this and the following posts we will look at the most powerful tool of machine intelligence: learning functions from data. 
 
-So grab a cup of tea and focus: this is probably the most central and important post in this series of articles! Why? Because if we found a way to learn functions, we could in principle solve all the problems stated in the introductory article; since all of these problems require computing a function! 
+The roadmap is as follows. In this article, we will understand why learning function from data is in principle rather straightforward. Indeed, at the end of this article we will have a developed a very simple learning method. 
+
+The next few posts will then get bring us back down to earth and elicit three fundamental problems that learning from data has, and discuss solutions to these problems. This will endow you with a powerful intuition of how learning from data works and what its current limitations are.
 
 <!--
 QUESTION: better explain by intuitive example, e.g. correlating the hypothesis that it is raining to the 
@@ -19,7 +23,7 @@ QUESTION: better explain by intuitive example, e.g. correlating the hypothesis t
 
 #### Learning Functions from Data
 
-In the [last post](/intuds/2015/12/28/functions.html) I have introduced the stock price prediction problem: given the annual revenue of a company, we want to predict the company's stock price. We have learned that such a prediction is represented by a function. We discussed two representations of functions; first, tabular functions:
+In order to understand how learning from data works, let's use as our running example the stock price prediction problem introduced in the [previous post](/intuds/2015/12/28/functions.html): given the annual revenue of a company, we want to predict the company's stock price. We have learned that such a prediction is represented by a function. We discussed two representations of functions; first, tabular functions:
 
 <table class="data-table">
 <tr>
