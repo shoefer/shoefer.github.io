@@ -1,7 +1,7 @@
 ---
 layout: intuds_post
 title:  "The Power of Machine Intelligence"
-date:   2015-07-26 15:00:00
+date:   2015-07-28 15:00:00
 categories: intuds
 comments: true
 intuds-weight: 0

@@ -1,17 +1,37 @@
 ---
 layout: intuds_post
 title:  "Functions as Data Translators"
-date:   2015-07-20 15:00:00
+date:   2015-12-28 18:10:00
 categories: intuds
 comments: true
 intuds-weight: 4
 ---
 
-If you have read the previous posts carefully you should now be familiar with high-dimensional data. In this last introductory article we are now going to look at what data scientists mean when they think about manipulating data: they apply *functions*.
+If you have read the previous posts carefully you should now be familiar with high-dimensional data. In this last introductory article we are now going to look at what machine intelligence people mean when they think about manipulating data: they apply *functions* to data.
+
+We will learn what functions are and look at different examples. Once we know what they are, we can in the next post see how to learn them - which is essentially what learning machines do.
 
 ## Mathematical Functions
 
-Mathematicians use the term function rather differently from the common sense definition. In everyday language we talk about the function of things in the sense "what is the purpose of the thing" or "how does this thing work". A function in mathematical sense is rather different. It can be best thought of as a translation from one type of data to another type. Let me give you two examples.
+Mathematicians use the term function rather differently from the common sense definition. In everyday language we talk about the function of things in the sense "what is the purpose of the thing" or "how does this thing work". A function in mathematical sense is rather different. It can be best thought of as a translation from one type of data to another type. Or in other words, you give some input (data) to the function, and get some output (data):
+
+{% include figure.html src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Function_machine2.svg" width="35%" %}
+
+(This figure and the first example are taken from the [Wikipedia page on functions](https://en.wikipedia.org/wiki/Function_(mathematics)))
+
+Let me give you a couple of examples of these things called functions.
+
+#### Object description functions
+
+Let's assume a couple of primitive shapes, such as triangles, squares, etc. all of different color. We can now define a function that, given a shape, outputs the color of the function:
+
+{% include figure.html src="https://upload.wikimedia.org/wikipedia/commons/d/df/Function_color_example_3.svg" width="35%" %}
+
+This visualization shows how to map *input data* X (the shape) to some *output*, the shape's color Y. All the arrows between X and Y are the defining elements of the function. Notice that from each object in X only one arrow points to the right; this is indeed a requirement, because you want a function to be a unique mapping. The inverse is not required, that is, two shapes in X could have the same color and they would then point to the same thing in Y; the function would remain a valid function.
+
+We can also come up with a whole bunch of other functions, defined on shapes: for example, we could define functions that counts the edges of each shape; or a function that calculates the area of the shape, and so on.
+
+You see, many concepts and things can be cast as function. However, so far we have only  talked about functions conceptually - we have not stated what a function *looks like*, that is how it actually computes the output from the input. Let us therefore look at a simpler example to shed some light on this.
 
 #### Stock price prediction function
 
@@ -50,37 +70,101 @@ Let us return to our simple example from the [introductory post](/intuds/2015/07
 </tr>
 </table>
 
-This table can be considered a function, as for a annual revenue it gives you a stock price value.
-Such tabular functions are common but they have a severe drawback: we cannot *extrapolate* - from this table alone we do not know how to predict the value for 2015 or 2016! However, the example data I have given exhibits a regularity (surprise, surprise!), namely that the stock price values in the right column are exactly 0.00013 times the annual revenue plus 70 (check this for yourself). This gives us a much more concise way of describing this function:
+If we ignore the year information, this table can be considered a function: for a annual revenue it gives you (exactly) one stock price value. 
+So it sheds some light on how "computing a function" might look like: looking up  some number in a table.
+
+Such tabular functions are common but they have a severe drawback: we cannot *extrapolate* - from this table alone we do not know how to get the value for the stock price in 2015 or 2016! 
+However, the example data I have given exhibits a regularity (surprise, surprise!), namely that the stock price values in the right column are exactly 0.00013 times the annual revenue plus 70 (check this for yourself). This gives us a much more concise way of describing this function:
 
 <div class="pseudoformula">
 <b>Stock price</b> = 0.00013 * <b>Revenue</b> + 70
 </div>
 
-Let us visualize this function by plotting a graph which has on one axis the size and on the other the price:
+You see that the function gets as input the revenue, and gives as output the stock price. To make this even clearer, we usually denote the function by the symbol *f* and write:
+
+<div class="pseudoformula">
+f(<b>Revenue</b>) = 0.00013 * <b>Revenue</b> + 70
+</div>
+
+Let us visualize this function by plotting a graph which has on one axis the annual revenue and on the other the stock price:
 
 {% include figure.html src="/intuds/images/2015-07-20-functions_sizeprice.png" width="65%" %}
 
-We see two interesting things here: first, we can now predict the stock price value from the annual revenue, no matter which revenue (or year). Secondly, when the relationship between revenue and stock price in our example turns out to be a line. The fact that such relationships / functions can be drawn by a line results in them being called *linear functions*. Linear functions  are amongst the most important types of relationships in mathematics - and actually they are one of the few that mathematics can really deal with [[2]](#[2]). Therefore, the majority of methods in machine learning are based on linear functions as the one given here. 
+We see two interesting things here: first, we can now *predict* the stock price value from the annual revenue, no matter which revenue (or year). Secondly, when the relationship between revenue and stock price in our example turns out to be a line. The fact that such relationships / functions can be drawn by a line results in them being called *linear functions*. Linear functions are amongst the most important types of relationships in mathematics - and actually they are one of the few that mathematics can really deal with [[2]](#[2]). Therefore, the majority of methods in machine intelligence are based on linear functions as the one given here. 
 <!-- We will talk about them in more detail in the next article. -->
 
-Still, there are a few more questions arising here. 
-<ol>
-<li>Can we find this regularity automatically from the data?</li>
-<li>Who guarantees the regularity is actually true in the real world?</li>
-</ol>
-The answer to the first question is clearly yes. Finding regularities in data is the core discipline of data science, in particular statistical machine learning, and we will talk about this later.
-<!-- Methods that find regularities by fitting lines (or other shapes) into data are called *regression* methods. -->
+<!--
+##### Truthfulness of a function
 
-Answering the second question is much harder. But to be honest *no one* can guarantee that! It could be that we use entirely wrong assumptions, e.g. that the company's revenue has nothing to do with the stock price. In fact, it is easy find [totally meaningless regularities](http://www.tylervigen.com/spurious-correlations) everywhere. Neither is it clear that the relationship should be a line at all - maybe it should rather have the form of a delicious [Currywurst](https://en.wikipedia.org/wiki/Currywurst#/media/File:Currywurst_%26_Pommes_frites.jpg). 
-However, machine learning has come up with ways to say "well, I'm not sure, but I'm kind of confident that this function is the right one". We will talk about that later in more extent, too.
+In the previous paragraph, I have come up with a function to predict the stock price, by postulating a linear function that relates annual revenue to stock price. Now the question is: Who guarantees this function is actually "true" in the real world? 
 
-#### Image classification function
-Another more complicated function we have considered before is mapping pictures to object categories. In the [previous post](/intuds/2015/07/25/vector-spaces.html) we have seen that we can draw (hyper)planes to separate two categories of objects, namely blowfish and Sebastians:
+To be honest:  *no one* can guarantee you that! I have come up with this function because I saw the regularity in the data; but  I might be totally off. Maybe the stock price drops at 1100000 Euros annual revenue? 
+-->
 
-{% include figure.html src="/intuds/images/2015-07-21-vector_spaces-arrow-plane.png" width="300" gifplayer="true" id="vector-spaces-arrow-plane" %}
+In this example, we have talked about functions that takes a single number as input, and outputs another single number. Let's now look how functions can be applied to vectors.
 
-The trick we did for finding this visualization was shrinking the 27x35 images to a 3x1 image which allowed us to treat images as points (vectors) in 3D space.
+#### Vectorial functions
+
+In the [previous post](/intuds/2015/07/25/vector-spaces.html) we have dealt with the question of representing high-dimensional images as vectors. Of course, we can also define functions on these vectors. Recall that a vector is merely a list of numbers of fixed size, e.g. a 3-dimensional vector looking like this:
+
+<table class="data-table">
+<tr>
+<td style="background-color: #000; opacity: 0.909; width: 30px">0.909</td>
+<td style="background-color: #000; opacity: 1.0; width: 30px">1.000</td>
+<td style="background-color: #000; opacity: 0.860; width: 30px">0.860</td>
+</tr>
+</table>
+
+So let's define a *linear* function on 3-dimensional vectors: 
+
+<div class="pseudoformula">
+f<sub>a</sub>(<b>Image</b>)</b> = f(<b>Image</b><sub>1</sub>, <b>Image</b><sub>2</sub>, <b>Image</b><sub>3</sub>)</b> = 2*<b>Image</b><sub>1</sub> + 5*<b>Image</b><sub>2</sub> - 1* <b>Image</b><sub>3</sub>
+</div>
+
+What does this function do? With the little subscript we denote the individual dimensions of the input image. The function therefore computes the sum of the individual dimensions of the input vector, each dimension multiplied with some number. These numbers are usually called *parameters* of a function. The result for this function applied to the example vector above is:
+
+<div class="pseudoformula">
+f<sub>a</sub>(<b>Image</b>)</b> = 2*0.909 + 5*1.0 - 0.86 = 5.958
+</div>
+
+At first sight this function does not really seem to make much sense. We should we sum up pixel values of image? For example, it allows us draw some conclusions on whether the image is rather dark (low value of f<sub>a</sub>) or light (high value); and the different parameters of f<sub>a</sub> allow us to emphasize certain regions of the image more than others. 
+We will see later that this is actually very useful for recognizing things on images.
+<!--
+But wait a second: we have as many parameters (2, 5 and 1) as input dimensions. This means, if the input data is an image, the parameters are in principle also an image! If you now think of input that are real 945-dimensional images, the parameters of the function can be used to "weigh" certain areas of the images higher. If you don't quite see this now, don't worry, we will talk about this later.
+-->
+
+You might have noticed that the previous function mapped a vectorial input to a single number. But we can also define functions that map vectors to vectors:
+
+<div class="pseudoformula">
+f<sub>b</sub>(<b>Image</b>)</b> = [ &nbsp;&nbsp;&nbsp; 2*<b>Image</b><sub>1</sub> + 4*<b>Image</b><sub>2</sub>,
+	&nbsp;&nbsp;&nbsp; 3*<b>Image</b><sub>2</sub> + 1*<b>Image</b><sub>3</sub>
+&nbsp;&nbsp;&nbsp;]
+</div>
+
+This function maps the 3-dimensional input vector to a *2-dimensional* output vector by summing over subparts of the input (the brackets indicate that the output is a vector, and the comma separates the two output dimensions). These types of functions will be very useful as they allow us to transform data into different representations, for example lower-dimensional ones.
+
+####  Image classification function
+
+I will now introduce a last type of functions which I call *classification* functions. In a nutshell, these functions look like that:
+
+<div class="pseudoformula">
+f<sub>c</sub>(<b>Input</b>) = 1	&nbsp;&nbsp;&nbsp; If <b>Input</b> &gt; 10  <br/>
+f<sub>c</sub>(<b>Input</b>) = 0	&nbsp;&nbsp;&nbsp; otherwise
+</div>
+
+These functions map input data onto 2 (or more) categories which we simply enumerate from 0 upwards.
+
+If we put together classification functions with our knowledge about vectorial functions, we can reconsider the example in the [previous post](/intuds/2015/07/25/vector-spaces.html) we have seen that we can draw (hyper)planes to separate two categories of objects, namely blowfish and Sebastians:
+
+{% include figure.html src="/intuds/images/2015-07-21-vector_spaces-arrow-plane.png" width="500" gifplayer="true" id="vector-spaces-arrow-plane" %}
+
+We would now assign the category Sebastian to 0 and blowfish to 1, and make the if-else-part of f<sub>c</sub> such that it takes into account whether an input sample lies on one or the other side of the line. I will not write that out explicitly, but in fact the left-of-or-right-of-line can also be cast as a multiplication of the input with a bunch of numbers. So classification functions are exactly what we want, if we want to solve classification tasks - surprised?
+
+#### Relationship between functions
+
+Before closing this article, I would like to point out the relationship between the stock price and the image classification function.
+
+For image classification, the trick for visualizing the hyperplane that separated Sebastians from blowfish was to shrink the 27x35 images to a 3x1 image which allowed us to treat images as points (vectors) in 3D space.
 What does this look like if we shrink the images even further, namely to a 2x1 image? We can then visualize the images as vectors in 2D. Similar as before we can now ask how to separate the shrinked Sebastians and blowfish. The answer is that we have to find a "2D hyperplane" - which turns out to be just a line!
 
 {% include figure.html src="/intuds/images/2015-07-20-functions_image_class_2d.png"  width="65%" id="2015-07-20-functions_image_class_2d" %}
@@ -97,31 +181,20 @@ The expression in
 The two expressions only differ with respect to the &gt; or &lt; after the linear expression.
 -->
 
-By now it should be clear how these linear functions translate into higher-dimensional spaces: the plane is a generalization of the line to 3D, and the hyperplane a generalization of the line/plane to higher dimensions! So in the future if we think about discriminating hyperplanes, we will usually visualize this as a line or a plane separating two sets of 2D or 3D points. And as before the mathematical field of [linear algebra](https://en.wikipedia.org/wiki/Linear_algebra) describes how to deal with these lines, planes and hyperplanes. 
+Maybe it's now a bit clearer how these linear functions translate into higher-dimensional spaces: the plane is a generalization of the line to 3D, and the hyperplane a generalization of the line/plane to higher dimensions! So in the future if we think about discriminating hyperplanes, we will usually visualize this as a line or a plane separating two sets of 2D or 3D points. And as before the mathematical field of [linear algebra](https://en.wikipedia.org/wiki/Linear_algebra) describes how to deal with these lines, planes and hyperplanes. 
 
-<!-- The main difference to the stock price example is that the image classification problem is *multi-dimensional*: we are not mapping from one single number (size of apartment) to another single number (price), but from one *set of numbers* (an image, using an encoding as described in [this article](/intuds/2015/07/19/data-numbers-representations.html)) to another set (the sequence of characters). If you have read the previous article on [vector spaces](/intuds/2015/07/25/vector-spaces.html) you already now how this works: we consider the multi-dimensional data to be a vector in a high-dimensional space. In the same way we define functions on numbers, we can define functions on vectors - and these functions have numbers or again vectors (of the same or different dimensionality) as output [[3]](#[3]). Functions can map vectors to new vectors in the same space (for example, image transformed to new image) or into different spaces (image transformed to text) [[4]](#[4]).  -->
+#### Summary
 
-## Machine learning &cong; learning functions
+For now, you should have gotten a feeling for what functions do: translating input to output data. Functions can take different inputs, such as numbers and vectors. (In fact, they can even take other functions as inputs as well! But we won't bother with these insane cases now.)
 
-We have now learned what most data scientists are basically doing all day long: trying to learn functions from data. We have seen two types of functions learning problems: 
-<ol>
-<li>Predicting a continuous value by fitting a line (or any other type of shape) into data; data scientists call methods to fit functions to data <i>regression</i> methods</li>
-<li>Finding a function which separates different subparts of data in order to discriminate between them; data scientists call them <i>classification</i> methods. </li>
-</ol>
-There are some more types of functions and ways to learn them, but by understanding regression and classification from we have got the basic idea of the biggest field of machine learning, [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning). The name *supervised* comes from the fact that the data needs to be *labeled*: for every data sample, we need to know the value of the prediction target. In the stock price example we needed to know the stock price for each annual revenue, and in the image classification example we needed to know the category (Sebastian vs. blowfish) depicted on each picture.
-And digging into some advanced ways of how to automatically learn the right functions is going to be the main topic of the forthcoming articles.
-
-<!--To sum up, we have learned that functions translate between data. Input and output data types of a function can be numbers or vectors, of same dimensionality (as in the stock price example: one to one) or of different dimensionality (image classification: many to one), living in the same space (stock price: Euro to Euro) or different spaces (image classification: image to object type). 
--->
-
-Having understood the powerful concept of functions, we will take a look at why it is actually so hard to learn them in the next posts.
+In the next post, we will get to the real meat: how to learn functions automatically.
 
 ### [TL;DR](http://de.urbandictionary.com/define.php?term=tl%3Bdr):
-- Functions in the mathematical sense translate from one representation to another
+- Functions in the mathematical sense translate an input to an output
 - The simplest and best understood functions are linear functions
-- Functions map between numbers, or more general vectors.
-- Machine learning tries to learn functions from data
-- Regression maps onto continuous numbers, classification onto categories
+- Functions map between numbers, or more general, vectors.
+- Functions can map to single numbers, but also to vector
+- If functions map onto a limited set of categories/classes, we call them classification functions
 
 ### <a name="further"></a>Footnotes:
 1. <a name="[1]"></a>Of course this is largely oversimplified. The actual price would also depend on the size of the company at the time, economic health of the country, stock market crashes, etc. But for the sake of the example let's assume none of these factors plays a role.

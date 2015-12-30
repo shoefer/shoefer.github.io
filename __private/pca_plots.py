@@ -65,3 +65,5 @@ plt.show()
 # for ii in xrange(0,45,1):
 # 	ax.view_init(elev=10., azim=ii)
 # 	plt.savefig("movie%d.png" % ii)
+
+#http://stackoverflow.com/questions/3688870/create-animated-gif-from-a-set-of-jpeg-images

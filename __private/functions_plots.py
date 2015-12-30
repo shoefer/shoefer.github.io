@@ -32,7 +32,34 @@ x_evil2 = np.hstack([x, [ f(t_evil[len(t)+i]) + [1,-1][(i+1) % 2] * 5 for i in r
 p2 = np.polyfit(t_evil, x_evil2, x_evil.shape[0])
 x52 = np.poly1d(p2)
 
+# plt.figure()
+# x2 = [ 23, 134, 686, 240, 35]
+# plt.plot(t, x2, lw=5.0, color="b", alpha=0.5)
+# plt.scatter(t, x2, s=100, color="b", alpha=0.8)
+# plt.xlabel("annual revenue")
+# plt.ylabel("stock price")
+
+#############
+
+n = 10
+
+Xrot = np.zeros( (n+1, 2) )
+Xrot[1,:] = [0.909, 1.0]
+for i in range(2, n+1):
+  Xrot[i,:] = Xrot[1,:] + np.random.randn(2)*0.1
+Xrot = np.clip(Xrot, 0, 1)
+
+Yrot = np.zeros( (n+1, 2) )
+Yrot[1,:] = [0.109, 0.1]
+for i in range(2, n+1):
+  Yrot[i,:] = Yrot[1,:] + np.random.randn(2)*0.1
+Yrot = np.clip(Yrot, 0, 1)
+
+t = [0.,1.]
+x = [1.,0.1 ]
+
 plt.figure()
+
 plt.plot(T, x52(T), lw=5.0, color="g", alpha=0.5)
 plt.plot(T, x5(T), lw=2.0, ls="--", color="r", alpha=0.5)
 plt.plot(t, x, lw=2.0, ls="--", color="b", alpha=0.5)

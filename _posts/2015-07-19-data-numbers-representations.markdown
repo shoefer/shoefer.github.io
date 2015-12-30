@@ -8,7 +8,7 @@ intuds-weight: 2
 ---
 I would like to start the intuitive introduction to machine intelligence by looking at the term *data*.  Let us try to gain an informal but sufficient understanding of how we could define data.
 
-### Data is numbers
+### Data are numbers
 
 Big data, data mining, data analysis, data, data, data - everyone wants data. But what *is* data? The philosophical answer could be: information. The data scientist's answer would probably be: a bunch of numbers. 
 Indeed, we are going to stick to the latter definition, namely that *data is everything that can be encoded by numbers* [[1]](#numbersencode).
