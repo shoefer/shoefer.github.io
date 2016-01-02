@@ -106,11 +106,12 @@ Congratulations: you have witnessed your first machine learning algorithm [[1]](
 
 #### Caveats
 
-You might be a bit disappointed now. Random guessing? That's machine intelligence? That doesn't seem intelligent at all! Fair enough, that is the simplest thing you can do. And in practise, it won't work very well. Yet, the other most prominent learning algorithms are not much more complicated as we will see later!
+You might be a bit disappointed now. Random guessing? That's machine intelligence? That doesn't seem intelligent at all! Fair enough, that is the simplest thing you can do. But
+And in practise, it won't work very well. Yet, some of the most powerful algorithms do apply random guessing (which is officially called *random search*) but combine it with some "tricks" to make the guessing smarter. So random search is an important building block for creating learning algorithms, although it's not very powerful when used on its own.
 
-At this point, we can already try to think about why random guessing might be not so clever. Here are a couple of thoughts.
+At this point, we can already think about why random search does not work so well on its own. Here are a couple of thoughts.
 
-First of all, you don't now how big you should go. Should you shift the line only around from -1 to +1, or from -1000 to +1000? That means, in which granularity should you vary the parameters? In fact, in the animation above, I have set the bounds of the parameters very tightly around the real (but in the usual case unknown) parameters.
+First of all, you don't now how big you should go. Should you shift the line only between -1 to +1, or from -1000 to +1000? Should you try out both 1.1 and 1.10001? That means, in which granularity should you vary the parameters? In fact, in the animation above, I have set the bounds of the parameters very tightly around the real (but in the usual case unknown) parameters. Otherwise, the search would have taken much longer.
 
 Second, we don't learn from our mistakes. If I have guessed line 1 that got a training error of 1000. Next, I guessed line 2 with a training error of 800. Intuitively, I should try to find out what might line 2 better than line 1, and progress into that direction. Instead, random search will just look for a new line which might be much worse than both line 1 and line 2.
 
@@ -122,7 +123,7 @@ Before we close, a note on terminology. Some paragraphs ago, we had to specify t
 
 1. <b>Model</b>, <b>function representation</b> (sometimes also <b>hypothesis space</b>): What kind of functions do I look for? <br/>(In the example: single straight lines)
 2. <b>Objective</b> or <b>loss function</b> [[3]](#[3]): Criterion for evaluating whether the learned function is good. Often this is the <b>training error</b>, a measure of how well the learned function accounts for the training data. <br/>(In the example: distance between samples and function)
-3. <b>Learning algorithm</b>: In which way to come up with functions (or parameters) in order to get a good value for the loss function.<br/>(In the example: random guessing)
+3. <b>Learning algorithm</b>: In which way to come up with functions (or parameters) in order to get a good value for the loss function.<br/>(In the example: random search)
 
 Moreover, if you learn from training data of the form (input, output), the approach is called *supervised learning*. The picture is that the pupil comes up with different inputs, and a supervisor gives the pupil a hint by telling her the right output, and the pupil tries to figure out the regularity (aka function) from these hints.
 

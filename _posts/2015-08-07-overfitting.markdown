@@ -63,13 +63,13 @@ Luckily, there are a few things you can do to counteract overfitting apart from 
 
 First, you can retain some preference for simpler explanations, by making a similar argument as before: even for the randomly fluctuating data there are still only a few lines that are  not too far away from any of the points. But since there are infinitely many wrinkled functions passing directly through all of the points, the chance of picking the wrong wrinkled function is very high. So using a simpler function is better. 
 
-Secondly, you can hold back some of your data and not use it for finding the function - you only use it *after* having computed the function to test how your function copes with that unseen data. If your function really sucks at explaining the testdata you have held out (called *test data*) you should consider using a different or simpler function. 
+Secondly, you can hold back some of your data and not use it for finding the function - you only use it *after* having computed the function to test how your function copes with that unseen data. If your function really sucks at explaining the data you have held out (called *test data*) you should consider using a different type of functions. In fact, using test data is a standard procedure in machine learning and everyone has to do it because fitting well your training data does not tell you at all whether you learned the right thing.
 
-Third, you can use *more data*. In fact, this is why everyone is so excited about *big data* which heavily relies on lots of data being available.
+Third, you can use *more data*. In fact, this is why everyone is so excited about *big data* which heavily relies on lots of data being available. It does work well, but we will see in the next post, that there are some limitations about how much data you can get.
 
 Forth, you can get more knowledge about which shape of the functions you actually expect. If for example you know that the stock price varies in cycles, that is goes up, slightly down, then up again etc., you can try to find a function which reflects this knowledge.
 
-Although all of these things are good ideas and they definitely help to counteract overfitting, in the end there you still have to keep your fingers crossed and hope your function predicts the right thing. There is no guarantee that your function doesn't overfit.
+Although all of these things are good ideas and they definitely help to counteract overfitting, but in the end you still have to keep your fingers crossed and hope your function predicts the right thing. There is no guarantee that your function doesn't overfit although all of the things suggested make it less likely.
 
 I hope that by looking at this very simple example, and by understanding how overfitting can occur here, you have already come to think more critically about decision making - both in machines and in humans.
 
