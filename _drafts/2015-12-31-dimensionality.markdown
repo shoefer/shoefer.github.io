@@ -8,31 +8,94 @@ intuds-weight: 8
 intuds-category: Learning from Data
 ---
 
-In the last post we have looked at one of the big problems of data science: when we want to learn [functions](/intuds/2015/07/20/functions.html) from data, we have to fight [overfitting](/intuds/2015/08/07/overfitting.html). In this post we will look at another archenemy of learning: dimensionality.
+In the last post we have looked at one of the big problems of machine learning: when we want to learn [functions](/intuds/2015/07/20/functions.html) from data, we have to fight [overfitting](/intuds/2015/08/07/overfitting.html). In this post we will look at another archenemy of learning: dimensionality.
 
-To do so, let us return to the problem of understanding (images by assigning them into different categories)(intuds/2015/07/25/vector-spaces.html). I have told you previously that this image
+### Parameters
 
-{% capture numbersFullUrl %}/intuds/images/2015-07-19-data-numbers-representations_numbers.png{% endcapture %}
-{% include figure.html src=numbersFullUrl width="85%" %}
+Let's start with running stock price prediction example. In an [earlier post](/intuds/2015/12/29/learning-functions.html) we used random search to find the parameters of a line that explains the data samples we had well. 
+The algorithm learned two numbers, namely the *parameters* p<sub>1</sub> and p<sub>2</sub>:
 
-lives in a 945-dimensional [vector space](intuds/2015/07/25/vector-spaces.html). The question is now: how many possible gray scale pictures exist? The math is not so complicated [[1]](#[1]) but I can tell you that by making some reasonable assumptions we see that there are more than 10<sup>945</sup> possible gray scale images with 27x35 pixels - 10<sup>945</sup> is a number consisting of a 1 with 945 trailing zeros, and it is several orders of magnitudes higher than the [number of particles in the entire universe](http://www.quora.com/How-many-particles-are-there-in-the-universe)! In fact our eye has a much higher resolution and that there are even much more than 10<sup>945</sup> images possible.
+<div class="pseudoformula">
+f(<b>Revenue</b>) = p<sub>1</sub> * <b>Revenue</b> + p<sub>2</sub>,
+</div>
 
-What does this mean? From our little calculation follows *entire mankind* will only see a tiny fraction of all theoretically possible images. This means that representing an image by 27x35 pixels with gray scale values is highly *redundant*. To make an analogy, imagine telephone numbers would have 945 digits instead of 9 (that is length of an average phone number in [Berlin](http://www.berlin.de)). We would never even come close to using all the possible telephone numbers, even if every particle in the universe would get its own phone.
+where visually, p<sub>1</sub> changes the slope of the line and p<sub>2</sub> the shift along the y-axis of a line.
 
-So images are not really efficiently represented, but why is that a problem for machine intelligence?
+The random search learned the numbers p<sub>1</sub>=0.00015 and p<sub>2</sub>=58:
+
+{% include figure.html src="/intuds/images/2015-12-29-learning-random_guess.png" width="500"  %}
+
+This line is not very far away from the parameters of the "true" function  p<sub>1</sub><sup>true</sup>=0.00013 and p<sub>2</sub><sup>true</sup>=70. Interestingly, for the learned function the slope is a bit higher, but this is "compensated" by a lower shift. Intuitively, this makes sense: the higher the slope, the more we need to shift the line downwards in order to approximately hit the training examples.
+
+### Adding dimensions
+
+Now, I would like to reason about the influence of the number of parameters of a function on the difficulty of learning that function. You can think about the parameters of the line, but in fact I will formulate it in a general way.
+
+For the sake of the argument let's assume that we do not consider all possible numbers as possible parameter values, but that we restrict ourselves a fixed list of numbers (in mathematics that's called *discretization*), and we make this list finite. To make it really simple, we will only use the numbers from 1 to 10. 
+
+Assume that we have a function that has only *one* parameter (for example, only the slope), we immediately see that there are 10 possible values that the parameter can take. We visualize each value of the parameter by a blue box:
+
+<table border="0" style="border-collapse: collapse; margin: 0 0 15px 25px;">
+<tr>
+{% for i in (1..10) %}
+<td style="width:40px; height:30px; border:1px solid blue; font-size: 8pt; color: blue; " align="center">
+{{ i }}
+</td>
+{% endfor %}
+</tr>
+</table>
+
+What happens if we add a second parameter that can take 10 values? Well, you might think that results in 10 values for parameter one and another 10 for parameter two, which makes 20. But unfortunately that's wrong: we need to consider all possible combinations of the parameter values! The reason is that the parameters are usually dependent as we have seen in the line example: when changing parameter one (here the slope), we can still improve how well the line fits the data by changing parameter two (shift). Let's visualize all possible combinations:
+
+<table border="0" style="border-collapse: collapse; margin: 0 0 15px 25px;">
+{% for j in (1..10) %}
+<tr>
+{% for i in (1..10) %}
+<td style="width:40px; height:30px; border:1px solid blue; font-size: 8pt; color: blue; " align="center">
+({{ j }}, {{ i }})
+</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
+
+We see that we have 10 *times* 10, i.e. 100 possible parameter pairs. What happens if we add a third parameter? We get a cube with 10 times 10 times 10 equals 1000 parameters! 
+
+You probably understand the formula: If we have *n* values a parameter can take, and *m* parameters, we end up with *n*<sup>*m*</sup> possible parameter value assignments. We say that the number of parameter values grows *exponentially*.
+
+Now how big of a problem is it? Well, it is very big indeed which is why this problem is called *the curse of dimensionality*. The problem is that data are usually high-dimensional.
+For example, the tiny pictures we played around with in an [earlier post](/intuds/2015/07/25/vector-spaces.html) had 27x35, that is 945 pixels. We could build a function that multiplies every pixel with a parameter.
+If we again assume that every pixel can only take 1 out of 10 values (which is not true because cameras can differentiate between many more shades of gray) we would still end up with 10<sup>945</sup> parameter values - this is a number consisting of a 1 with 945 trailing zeros, and it is several orders of magnitudes higher than the [number of particles in the entire universe](http://www.quora.com/How-many-particles-are-there-in-the-universe)! We will never be able to try out all of these parameters.
+
+So we see that the curse of dimensionality forces us to find smarter ways of finding the parameters of functions.
 
 ### Hughes effect
 
-The problem manifests itself in two ways. The first one can be best explained considering the [image classification problem](/intuds/2015/07/25/vector-spaces.html) of categorizing whether an image is a picture of me, Sebastian, or of a blowfish.
+Unfortunately, high dimensionality has another very problematic (and somewhat unintuitive) implication, namely for classification. In classification, we aim to find a function that discriminates between two or more categories of input data. We looked at the [image classification problem](/intuds/2015/07/25/vector-spaces.html), categorizing whether an image is a picture of me, Sebastian, or of a blowfish.
+
+Remember that the classification function we wanted to find is a hyperplane, and that images from one category lie on one side, and images from another category on the other side of that hyperplane. The hyperplane lies in the space of 945 pixels. 
+
+[in this blog article](http://www.visiondummy.com/2014/04/curse-dimensionality-affect-classification/)
+
+<!--
+<div class="pseudoformula">
+f(<b>Image</b>) = 1	&nbsp;&nbsp;&nbsp; if <br/>
+&nbsp;&nbsp;&nbsp; <b>Image</b><sub>(1,1)</sub> * 10  + <br/>
+&nbsp;&nbsp;&nbsp; <b>Image</b><sub>(1,2)</sub> * 1.1  + <br/>
+&nbsp;&nbsp;&nbsp; ... <br/>
+&nbsp;&nbsp;&nbsp; <b>Image</b><sub>(27,35)</sub> * 2.5 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt; 0
+f(<b>Input</b>) = 0	&nbsp;&nbsp;&nbsp; otherwise
+</div>
+-->
 
 *With every dimension we add to the data, we add one more possibilities to separate the data*. What is the right split then?
 
-http://www.visiondummy.com/2014/04/curse-dimensionality-affect-classification/
-
 http://www.edupristine.com/blog/curse-dimensionality
 
-### Curse of dimensionality
-
+<!--
+### Real dimensionality of data
+-->
 
 
 
@@ -40,5 +103,5 @@ http://www.edupristine.com/blog/curse-dimensionality
 - 
 
 ### <a name="further"></a>Footnotes:
-1. <a name="[1]"></a>Let us assume that a pixel can take a finite number of values. We assume that only 1 digits after the decimal point are allowed. So we have the numbers 0, 0.1, 0.2, ... 0.9, 1.0, which are 10 in total. We have 945 pixels, this makes 10<sup>945</sup> possible images. 
+1. <a name="[1]"></a> Note that this decision function does not exactly correspond to the notion of a separating hyperplane; the decision function for the hyperplane would first multiply all pixel values with a set of parameters, and than look at the resulting number. But since the functions are somewhat similar, we can pretend that they are the same  for the sake of the argument.
 

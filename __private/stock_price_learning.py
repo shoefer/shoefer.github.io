@@ -70,22 +70,24 @@ def animate(nframe):
 
 #-----------------------
 # initial figure explaining accumulated error
-if False:
+if True:
   plt.cla()
 
   xlim, ylim = plot_gt()      
-  ff = lambda t: 0.0005*t + 46
+  #ff = lambda t: 0.0005*t + 46
+  ff = lambda t: 0.00015*t + 58
 
   plt.plot(T, ff(T), lw=3.0, color="r", alpha=0.5, label="current guess")
   for t_ in t:
     plt.plot([t_, t_], [f(t_), ff(t_)], ls="--", lw=2.0, color='r', alpha=0.5) 
-    print f(t_)
-    print ff(t_)
-    print np.abs(f(t_) - ff(t_))
+#     print f(t_)
+#     print ff(t_)
+#     print np.abs(f(t_) - ff(t_))
     plt.text(1.03*t_, 1.01*f(t_), "%d" % np.abs(f(t_) - ff(t_)), fontsize=12)
 
   me = np.sum( [ np.abs(ff(_t)-f(_t)) for _t in t ] )
   plt.text(6e5, 100, "Summed training error = %d" % me, fontsize=15, color='red',)
+  print me
 
   plt.xlim([3*1e5, 11*1e5])
   plt.ylim([50, 700])
