@@ -14,7 +14,7 @@ We have also looked at the core competence of machine intelligence: applying fun
 
 The roadmap is as follows. In this article, we will understand why learning function from data is in principle rather straightforward. Indeed, at the end of this article we will have a developed a very simple learning method. 
 
-The next few posts will then bring us back down to earth and explain three fundamental problems that learning from data has, and discuss solutions to these problems. This will endow you with a powerful intuition of how learning from data works and what its limitations are.
+The next few posts will then bring us back down to earth and explain some fundamental problems that learning from data has, and discuss solutions to these problems. This will endow you with a powerful intuition of how learning from data works and what its limitations are.
 
 <!--
 QUESTION: better explain by intuitive example, e.g. correlating the hypothesis that it is raining to the 

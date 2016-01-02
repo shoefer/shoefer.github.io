@@ -4,7 +4,7 @@ title:  "The Real Dimensionality of Data"
 date:   2015-07-25 15:00:00
 categories: intuds
 comments: true
-intuds-weight: 6
+intuds-weight: 100
 intuds-category: learning
 ---
 

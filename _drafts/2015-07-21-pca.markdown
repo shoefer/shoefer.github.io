@@ -4,7 +4,7 @@ title:  "Dimensionality Reduction: Principal Component Analysis (1)"
 date:   2015-07-21 15:00:00
 categories: intuds
 comments: true
-intuds-weight: 10
+intuds-weight: 100
 ---
 
 I hope that you have read the previous articles introducing [data](/intuds/2015/07/19/data-numbers-representations.html), [functions](/intuds/2015/07/20/functions.html) and [vector spaces](/intuds/2015/07/22/vector-spaces.html), since they are all the ingredients we need in order to understand a basic machine learning method,  *Principal Component Analysis* or *PCA*, sometimes also called *Karhunen–Loève transform*. So what does PCA do? On an abstract level, PCA tries to answer the following question(s): given your data in some n-dimensional space, what are the *relevant* dimensions for your data? Is the information in your data actually "less-dimensional" than the data representation you have chosen?

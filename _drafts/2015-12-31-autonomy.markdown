@@ -1,0 +1,23 @@
+---
+layout: intuds_post
+title:  "The Curse of Autonomy"
+date:   2015-12-31 15:00:00
+categories: intuds
+comments: true
+intuds-weight: 11
+intuds-category: Learning from Data
+---
+
+### Curse of autonomy
+
+- Need for setting up learning experiment
+- Need to gather data
+  (exploration / exploitation)
+- 
+
+
+### [TL;DR](http://de.urbandictionary.com/define.php?term=tl%3Bdr):
+- 
+
+### <a name="further"></a>Footnotes:
+1. <a name="[1]"></a>
