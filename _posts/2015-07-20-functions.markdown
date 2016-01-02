@@ -18,7 +18,7 @@ Mathematicians use the term function rather differently from the common sense de
 
 {% include figure.html src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Function_machine2.svg" width="35%" %}
 
-(This figure and the first example are taken from the [Wikipedia page on functions](https://en.wikipedia.org/wiki/Function_(mathematics)))
+(This figure and the first example are taken from the highly recommended [Wikipedia page on functions](https://en.wikipedia.org/wiki/Function_(mathematics)))
 
 Let me give you a couple of examples of these things called functions.
 
@@ -26,17 +26,23 @@ Let me give you a couple of examples of these things called functions.
 
 Let's assume a couple of primitive shapes, such as triangles, squares, etc. all of different color. We can now define a function that, given a shape, outputs the color of the function:
 
-{% include figure.html src="https://upload.wikimedia.org/wikipedia/commons/d/df/Function_color_example_3.svg" width="35%" %}
+{% include figure.html src="/intuds/images/2015-07-20-functions-color_example_wp.svg" width="35%" %}
 
-This visualization shows how to map *input data* X (the shape) to some *output*, the shape's color Y. All the arrows between X and Y are the defining elements of the function. Notice that from each object in X only one arrow points to the right; this is indeed a requirement, because you want a function to be a unique mapping. The inverse is not required, that is, two shapes in X could have the same color and they would then point to the same thing in Y; the function would remain a valid function.
+This visualization shows how to map *input data* X (the shape) to some *output*, the shape's color Y. All the arrows between X and Y are the defining elements of the function. 
 
+Note that for each object in X there is only one arrow pointing away from it. This is indeed a requirement because we want a function to be a unique mapping: for each input we get exactly one output. The inverse is not required, though: the square and the triangle have the same color, so the red color in Y has two arrows pointing to it. You also notice that some colors, namely blue and purple have no arrows pointing to it. All of these things are very common in functions.
+
+<!--
 We can also come up with a whole bunch of other functions, defined on shapes: for example, we could define functions that counts the edges of each shape; or a function that calculates the area of the shape, and so on.
+-->
 
-You see, many concepts and things can be cast as function. However, so far we have only  talked about functions conceptually - we have not stated what a function *looks like*, that is how it actually computes the output from the input. Let us therefore look at a simpler example to shed some light on this.
+<!-- You see, many concepts and things can be cast as function. However, 
+-->
+So far we have only talked about functions conceptually but we have not stated how a function *can automatically compute* the output from the input. Let us therefore look at a simpler example to shed some light on this.
 
 #### Stock price prediction function
 
-Let us return to our simple example from the [introductory post](/intuds/2015/07/26/datascience-showoff.html). We want to assess the stock price of some company. For the sake of simplicity, we will only use information about the annual revenue of the company (in Euro) and try to predict the stock price (also in Euro). We can describe this relationship in a big table:
+Let us now re-introduce our simple example from the [introductory post](/intuds/2015/07/26/datascience-showoff.html). We want to assess the stock price of some company. For the sake of simplicity, we will only use information about the annual revenue of the company (in Euro) and try to predict the stock price (also in Euro). We can describe this relationship in a big table:
 
 <table class="data-table">
 <tr>
@@ -87,7 +93,7 @@ You see that the function gets as input the revenue, and gives as output the sto
 f(<b>Revenue</b>) = 0.00013 * <b>Revenue</b> + 70
 </div>
 
-Let us visualize this function by plotting a graph which has on one axis the annual revenue and on the other the stock price:
+Let us visualize this function by plotting a graph which has on one axis (the *x-axis) the annual revenue and on the other (the *y-axis*) the stock price:
 
 {% include figure.html src="/intuds/images/2015-07-20-functions_sizeprice.png" width="65%" %}
 
@@ -122,13 +128,13 @@ So let's define a *linear* function on 3-dimensional vectors:
 f<sub>a</sub>(<b>Image</b>)</b> = f(<b>Image</b><sub>1</sub>, <b>Image</b><sub>2</sub>, <b>Image</b><sub>3</sub>)</b> = 2*<b>Image</b><sub>1</sub> + 5*<b>Image</b><sub>2</sub> - 1* <b>Image</b><sub>3</sub>
 </div>
 
-What does this function do? With the little subscript we denote the individual dimensions of the input image. The function therefore computes the sum of the individual dimensions of the input vector, each dimension multiplied with some number. These numbers are usually called *parameters* of a function. The result for this function applied to the example vector above is:
+What does this function do? With the little subscript we denote the individual dimensions of the input image. The function therefore computes the sum of the individual dimensions of the input vector, each dimension multiplied with some number. These numbers (here 2, 5 and -1) are called the *parameters* of a function. The result for this function applied to the example vector above is:
 
 <div class="pseudoformula">
 f<sub>a</sub>(<b>Image</b>)</b> = 2*0.909 + 5*1.0 - 0.86 = 5.958
 </div>
 
-At first sight this function does not really seem to make much sense. We should we sum up pixel values of image? For example, it allows us draw some conclusions on whether the image is rather dark (low value of f<sub>a</sub>) or light (high value); and the different parameters of f<sub>a</sub> allow us to emphasize certain regions of the image more than others. 
+At first sight this function does not really seem to make much sense. Why should we sum up pixel values of an image? For example, it allows us draw some conclusions on whether the image is rather dark (low value of f<sub>a</sub>) or light (high value); and the different parameters of f<sub>a</sub> allow us to emphasize certain regions of the image more than others. 
 We will see later that this is actually very useful for recognizing things on images.
 <!--
 But wait a second: we have as many parameters (2, 5 and 1) as input dimensions. This means, if the input data is an image, the parameters are in principle also an image! If you now think of input that are real 945-dimensional images, the parameters of the function can be used to "weigh" certain areas of the images higher. If you don't quite see this now, don't worry, we will talk about this later.
@@ -146,20 +152,20 @@ This function maps the 3-dimensional input vector to a *2-dimensional* output ve
 
 ####  Image classification function
 
-I will now introduce a last type of functions which I call *classification* functions. In a nutshell, these functions look like that:
+I will now introduce a last type of functions which I call decision functions or *classification functions*. In a nutshell, these functions look like that:
 
 <div class="pseudoformula">
 f<sub>c</sub>(<b>Input</b>) = 1	&nbsp;&nbsp;&nbsp; If <b>Input</b> &gt; 10  <br/>
 f<sub>c</sub>(<b>Input</b>) = 0	&nbsp;&nbsp;&nbsp; otherwise
 </div>
 
-These functions map input data onto 2 (or more) categories which we simply enumerate from 0 upwards.
+Classification functions map input data to 2 (or more) categories which we simply enumerate from 0 to the number of categories (minus one).
 
 If we put together classification functions with our knowledge about vectorial functions, we can reconsider the example in the [previous post](/intuds/2015/07/25/vector-spaces.html) we have seen that we can draw (hyper)planes to separate two categories of objects, namely blowfish and Sebastians:
 
 {% include figure.html src="/intuds/images/2015-07-21-vector_spaces-arrow-plane.png" width="500" gifplayer="true" id="vector-spaces-arrow-plane" %}
 
-We would now assign the category Sebastian to 0 and blowfish to 1, and make the if-else-part of f<sub>c</sub> such that it takes into account whether an input sample lies on one or the other side of the line. I will not write that out explicitly, but in fact the left-of-or-right-of-line can also be cast as a multiplication of the input with a bunch of numbers. So classification functions are exactly what we want, if we want to solve classification tasks - surprised?
+We would now assign the category Sebastian to 0 and blowfish to 1, and make the if-else-part of f<sub>c</sub> such that it takes into account whether an input sample lies on one or the other side of the line. I will not write that out explicitly, but in fact the left-of-or-right-of-line can also be cast as a multiplication of the input with a bunch of numbers. So classification functions are exactly what we want if we want to solve classification tasks - surprised?
 
 #### Relationship between functions
 
@@ -186,7 +192,7 @@ Maybe it's now a bit clearer how these linear functions translate into higher-di
 
 #### Summary
 
-For now, you should have gotten a feeling for what functions do: translating input to output data. Functions can take different inputs, such as numbers and vectors. (In fact, they can even take other functions as inputs as well! But we won't bother with these insane cases now.)
+For now, you should have gotten a feeling for what functions do: translating input to output data. Functions can take different inputs and return different outputs, such as numbers and vectors. (In fact, they can even take other functions as inputs as well! But we won't bother with these insane cases now.)
 
 In the next post, we will get to the real meat: how to learn functions automatically.
 

@@ -14,7 +14,7 @@ We have also looked at the core competence of machine intelligence: applying fun
 
 The roadmap is as follows. In this article, we will understand why learning function from data is in principle rather straightforward. Indeed, at the end of this article we will have a developed a very simple learning method. 
 
-The next few posts will then get bring us back down to earth and elicit three fundamental problems that learning from data has, and discuss solutions to these problems. This will endow you with a powerful intuition of how learning from data works and what its current limitations are.
+The next few posts will then bring us back down to earth and explain three fundamental problems that learning from data has, and discuss solutions to these problems. This will endow you with a powerful intuition of how learning from data works and what its limitations are.
 
 <!--
 QUESTION: better explain by intuitive example, e.g. correlating the hypothesis that it is raining to the 
@@ -23,7 +23,7 @@ QUESTION: better explain by intuitive example, e.g. correlating the hypothesis t
 
 #### Learning Functions from Data
 
-In order to understand how learning from data works, let's use as our running example the stock price prediction problem introduced in the [previous post](/intuds/2015/12/28/functions.html): given the annual revenue of a company, we want to predict the company's stock price. We have learned that such a prediction is represented by a function. We discussed two representations of functions; first, tabular functions:
+In order to understand how learning from data works, let's use as our running example the stock price prediction problem introduced [earlier](/intuds/2015/12/28/functions.html): given the annual revenue of a company, we want to predict the company's stock price. We have learned that such a prediction is represented by a function. We discussed two representations of functions; first, tabular functions:
 
 <table class="data-table">
 <tr>
@@ -52,7 +52,7 @@ In order to understand how learning from data works, let's use as our running ex
 </tr>
 </table>
 
-These functions had the drawback that we could not extrapolate from them, that is we do not know from this table what the stock price in 2016 will be.
+These functions had the drawback that we could not extrapolate from them, that is we do not know from this table what the stock price would be if, for example, the company's revenue was 120.000 Euros per year.
 
 Therefore, we were interested in finding a different function representation, and I suggested to use linear functions, namely this one:
 
@@ -68,12 +68,13 @@ More importantly, the regularity enabled us to predict the stock price given any
 
 #### How to extrapolate from data?
 
-So in the previous post, I actually did the task that the computer is supposed to do: I looked at the data, and I found out that there is a linear relationship between stock price and annual revenue. But what want to do is to give the machine the data from the table above and let it figure out *on its own* how to make stock price predictions into the future! How do we do that?
+By drawing the line through the bunch of dots, I actually did the task that the computer is supposed to do: I looked at the data, and I found out that there is a linear relationship between stock price and annual revenue. But what I really would like to do is to give the machine the data from the table above and let it figure out *on its own* how to make stock price predictions into the future! How do we do that?
 
-Automating exactly this process is the core of *machine learning*. In machine learning, you are given a set of *training examples* - which correspond to the table given above. 
-These training examples are a bunch of data that need to be in the form *(input, output)* where output is the true, known output for the given input. Luckily, the stock price training data are exactly in this form. So how to learn from them?
+Automating exactly this process is the core of *machine learning*. In machine learning, you are given a set of *training examples* - which correspond to the table given above (and are visualized by the blue *dots*). 
+These training examples are a bunch of data that need to be in the form *(input, output)* where output is the true, known output for the given input. The computer should then spit out an appropriate function, namely the blue line.
+Luckily, the stock price training data are exactly in the form (input, output). So how to learn from them?
 
-I will now show you the simplest learning procedure I could come with. And it is indeed very simple! Intuitively, the computer will do the following: we tell the compute to use straight line which it should fit through the data, and then the computer will fiddle around with this line until it comes as close as possible to as many training examples as possible. That's it! 
+I will now show you the simplest learning procedure I could come with. And it is indeed *very* simple! Intuitively, the computer will do the following: we tell the compute to use some line which should relate input and output, and the computer will then fiddle around with this line until it comes as close as possible to as many training examples as possible. That's it! 
 
 Problem solved?
 
@@ -85,11 +86,11 @@ Well, almost. If we would ask our computer to do that, it would reply with some 
 2. What does "as close as possible to as many training examples as possible" mean?
 3. What does "fiddle around" mean?
 
-So let's give some answers:
+So let's give our eager computer some answers:
 
-1. Let's start off with a single line. A line is represented by two basic *parameters*: how much it is shifted up or down (the 70 in the example above), and its slope (the 0.00013).
-2. Let's calculate the difference of every training example to the value predicted by the function the computer guesses. When we sum all of these differences up we obtain a single number which we call the *training error*. The training error allows us to calculate how well any line fits the training examples. 
-3. Let's do random guessing; we randomly guess a line (that means its *parameters*) and see how well it fulfils the criterion defined in 2.
+1. Start off with a single line. A line is represented by two basic *parameters*: how much it is shifted up or down (the 70 in the example above), and its slope (the 0.00013).
+2. Calculate the difference of every training example to the value predicted by the function the computer guesses. When we sum all of these differences up we obtain a single number which we call the *training error*. The training error allows us to calculate how well any line fits the training examples. 
+3. Do random guessing; we randomly guess a line (more precisely, its *parameters*) and see how well it fulfils the criterion defined in 2.
 
 That sounds like a plan, doesn't it? 
 
@@ -111,17 +112,17 @@ At this point, we can already try to think about why random guessing might be no
 
 First of all, you don't now how big you should go. Should you shift the line only around from -1 to +1, or from -1000 to +1000? That means, in which granularity should you vary the parameters? In fact, in the animation above, I have set the bounds of the parameters very tightly around the real (but in the usual case unknown) parameters.
 
-Second, we don't learn from our mistakes. If I have guessed line 1 that got a training error of 10. Next, I guessed line 2 with a training error of 8. Intuitively, I should try to find out what might line 2 better than line 1, and progress into that direction. Instead, random search will just look for a new line which might be much worse than both line 1 and line 2.
+Second, we don't learn from our mistakes. If I have guessed line 1 that got a training error of 1000. Next, I guessed line 2 with a training error of 800. Intuitively, I should try to find out what might line 2 better than line 1, and progress into that direction. Instead, random search will just look for a new line which might be much worse than both line 1 and line 2.
 
 Can you think of more issues? [[2]](#[2])
 
 #### Terminology
 
-Before we close, a note on terminology. Some paragraphs ago we had to specify three things for our learning algorithm to work. I want to quickly state how these things are called in machine intelligence.
+Before we close, a note on terminology. Some paragraphs ago, we had to specify three things for our learning algorithm to work. I want to quickly state how these things are called in machine intelligence.
 
-1. <b>Model</b>, <b>function representation</b> (sometimes also <b>hypothesis space</b>): What kind of functions do I look for?
-2. <b>Objective</b> or <b>loss function</b> [[3]](#[3]): Criterion for evaluating whether the learned function is good. Often this is the <b>training error</b>, a measure of how well the learned function accounts for the training data.
-3. <b>Learning algorithm</b>: In which way to come up with functions (or parameters) in order to get a good value for the loss function.
+1. <b>Model</b>, <b>function representation</b> (sometimes also <b>hypothesis space</b>): What kind of functions do I look for? <br/>(In the example: single straight lines)
+2. <b>Objective</b> or <b>loss function</b> [[3]](#[3]): Criterion for evaluating whether the learned function is good. Often this is the <b>training error</b>, a measure of how well the learned function accounts for the training data. <br/>(In the example: distance between samples and function)
+3. <b>Learning algorithm</b>: In which way to come up with functions (or parameters) in order to get a good value for the loss function.<br/>(In the example: random guessing)
 
 Moreover, if you learn from training data of the form (input, output), the approach is called *supervised learning*. The picture is that the pupil comes up with different inputs, and a supervisor gives the pupil a hint by telling her the right output, and the pupil tries to figure out the regularity (aka function) from these hints.
 

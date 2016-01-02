@@ -61,17 +61,17 @@ It is so prominent that two machine learning professors have even written a song
 
 Luckily, there are a few things you can do to counteract overfitting apart from singing about it. I want to give you a few examples.
 
-First, you can retain some preference for simpler explanations, by making a similar argument as before: even for the randomly fluctuating data there are still only a few lines that are  not too far away from any of the points. But since there are infinitely many wrinkled functions passing directly through all of the points, the chance of picking the wrong wrinkled function is very high. So using a simpler function is better.
+First, you can retain some preference for simpler explanations, by making a similar argument as before: even for the randomly fluctuating data there are still only a few lines that are  not too far away from any of the points. But since there are infinitely many wrinkled functions passing directly through all of the points, the chance of picking the wrong wrinkled function is very high. So using a simpler function is better. 
 
-Secondly, you can hold back some of your data and not use it for finding the function - you only use it *after* having computed the function to test how your function copes with that unseen data. If your function really sucks at explaining the data you have held out you should consider using a different or simpler function.
+Secondly, you can hold back some of your data and not use it for finding the function - you only use it *after* having computed the function to test how your function copes with that unseen data. If your function really sucks at explaining the testdata you have held out (called *test data*) you should consider using a different or simpler function. 
 
 Third, you can use *more data*. In fact, this is why everyone is so excited about *big data* which heavily relies on lots of data being available.
 
 Forth, you can get more knowledge about which shape of the functions you actually expect. If for example you know that the stock price varies in cycles, that is goes up, slightly down, then up again etc., you can try to find a function which reflects this knowledge.
 
-Although all of these things are good ideas and there are many more, in the end there is only one thing you can do: cross your fingers and hope your function predicts the right thing. 
+Although all of these things are good ideas and they definitely help to counteract overfitting, in the end there you still have to keep your fingers crossed and hope your function predicts the right thing. There is no guarantee that your function doesn't overfit.
 
-I hope that looking at this very simple example, and how overfitting can occur here, you have already come to think more critically about decision making - both in machines and in humans.
+I hope that by looking at this very simple example, and by understanding how overfitting can occur here, you have already come to think more critically about decision making - both in machines and in humans.
 
 ### Underfitting
 
@@ -79,7 +79,7 @@ Last but not least, let me say that of course also the opposite thing can happen
 
 <!--  Quadratic function -->
 That's basically it - you have now understood the biggest problem of learning form data.
-And in case you want to brag in front of your friends, here is some more terminology: the topic of this post, that a function learned from data always has to balance under- and overfitting is also called the *bias-variance trade-off*. *Variance* relates to how much all possible different wrinkled functions vary - the more wrinkles you allow, the higher is the variance of your learning method and hence the more prone the learner is to overfitting. *Bias* refers to underfitting, stating that a too simple function adds a systematic bias to the prediction which cannot be overcome by the learner, not even when given more data. The bias-variance trade-off is a smart way of stating that if don't consider the simplest possible hypothesis, your hypothesis is more likely to be wrong -- too simple or too complicated and wrong.
+And in case you want to brag in front of your friends, here is some more terminology: the topic of this post, that a function learned from data always has to balance under- and overfitting is also called the *bias-variance trade-off*. *Variance* relates to how much all possible different wrinkled functions vary - the more wrinkles you allow, the higher is the variance of your learning method and hence the more prone the learner is to overfitting. *Bias* refers to underfitting, stating that a too simple function adds a systematic bias to the prediction which cannot be overcome by the learner, not even when given more data. The bias-variance trade-off is a smart way of stating that if don't consider the simplest possible hypothesis, your hypothesized function is more likely to be wrong -- too simple and wrong or too complicated and wrong.
 
 This post elucidated the first big problem of machine learning: overfitting. Next, we will look at *the curse of dimensionality*.
 
