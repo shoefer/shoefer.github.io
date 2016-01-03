@@ -23,7 +23,7 @@ where visually, p<sub>1</sub> changes the slope of the line and p<sub>2</sub> th
 
 The random search learned the numbers p<sub>1</sub>=0.00015 and p<sub>2</sub>=58:
 
-{% include figure.html src="/intuitivemi/images/2015-12-29-learning-random_guess.png" width="500"  %}
+{% include figure.html src="/intuitivemi/images/2015-12-29-learning-random_guess.png" width="65%"  %}
 
 This line is not very far away from the parameters of the "true" function  p<sub>1</sub><sup>true</sup>=0.00013 and p<sub>2</sub><sup>true</sup>=70. Interestingly, for the learned function the slope p<sub>1</sub> is a bit higher, but this is "compensated" by a lower shift p<sub>2</sub>. Intuitively, this makes sense: the higher the slope, the more we need to shift the line downwards in order to approximately hit the training examples. We will see in a second why this observation is important.
 

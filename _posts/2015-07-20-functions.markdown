@@ -163,7 +163,7 @@ Classification functions map input data to 2 (or more) categories which we simpl
 
 If we put together classification functions with our knowledge about vectorial functions, we can reconsider the example in the [previous post](/intuitivemi/2015/07/25/vector-spaces.html) we have seen that we can draw (hyper)planes to separate two categories of objects, namely blowfish and Sebastians:
 
-{% include figure.html src="/intuitivemi/images/2015-07-21-vector_spaces-arrow-plane.png" width="500" gifplayer="true" id="vector-spaces-arrow-plane" %}
+{% include figure.html src="/intuitivemi/images/2015-07-21-vector_spaces-arrow-plane.png" width="500" height="375" gifplayer="true" id="vector-spaces-arrow-plane" %}
 
 We would now assign the category Sebastian to 0 and blowfish to 1, and make the if-else-part of f<sub>c</sub> such that it takes into account whether an input sample lies on one or the other side of the line. I will not write that out explicitly, but in fact the left-of-or-right-of-line can also be cast as a multiplication of the input with a bunch of numbers. So classification functions are exactly what we want if we want to solve classification tasks - surprised?
 

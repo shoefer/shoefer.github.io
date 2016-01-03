@@ -100,7 +100,7 @@ Here, the blue dots are the training examples, the red curve is the random guess
 
 So how does random guessing perform? The following video shows what this looks like for 100 random guesses.  The green line is the one with the lowest training error so far. We see that it takes some guesses, but eventually we get a close match of the green line and the blue dots, the guess and the training data.
 
-{% include figure.html src="/intuitivemi/images/2015-12-29-learning-random_guess_animation.png" width="500" gifplayer="true" id="learning-random-guess-animation" %}
+{% include figure.html src="/intuitivemi/images/2015-12-29-learning-random_guess_animation.png" width="500" height="375" gifplayer="true" id="learning-random-guess-animation" %}
 
 Congratulations: you have witnessed your first machine learning algorithm [[1]](#[1])!
 
