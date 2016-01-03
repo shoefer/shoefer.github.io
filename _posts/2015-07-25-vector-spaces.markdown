@@ -24,7 +24,7 @@ I have previously told you that any [image](/intuitivemi/images/2015-07-19-data-
 
 I have set the background color of each table cell to correspond to the actual gray scale value the number encodes. Here comes the trick: although we know that these three numbers encode gray scale values we can *pretend they were encoding the location of a point in 3D space*. So instead of encoding "luminosity" we think of the numbers are being in "meters" or "centimeters". As you might remember from high school we draw a location as an arrow in an coordinate system. So let's draw our 3x1 "image" in a 3D coordinate system:
 
-{% include figure.html src="/intuitivemi/images/2015-07-21-vector_spaces-arrow.png" width="500" gifplayer="true" id="vector-spaces-arrow" %}
+{% include figure.html src="/intuitivemi/images/2015-07-21-vector_spaces-arrow.png" width="500" height="375" gifplayer="true" id="vector-spaces-arrow" %}
 
 So you might think: "drawing arrows is really fun but why the heck are we doing this?" There are two reasons for that: the first reason is this that we humans are really good at manipulating objects in 3D space. We know how to move objects, we know how to rotate them, how to distort and mirror them, how to project them on a 2D planar surface (by taking a picture of it), and much more. Thus, if we treat data as locations in space we can apply all our spatial 3D knowledge to it. 
 In fact, [linear algebra](https://en.wikipedia.org/wiki/Linear_algebra) has got all the math worked out to simulate these 3D operations on computers (as you can admire in Toy Story, Madagascar, and so on) [[1]](#[1]). 
@@ -39,7 +39,7 @@ The really cool thing is that we can now understand how the computer can discrim
 
 How could a computer automatically discriminate between these two categories? Geometrically, of course! By treating each image as a point in a 945-dimensional space, we can now come up with a geometrical interpretation of discriminating between categories: we find a plane which separates these two sets of points (blue is me, red the blobfish):
 
-{% include figure.html src="/intuitivemi/images/2015-07-21-vector_spaces-arrow-plane.png" width="500" gifplayer="true" id="vector-spaces-arrow-plane" %}
+{% include figure.html src="/intuitivemi/images/2015-07-21-vector_spaces-arrow-plane.png" width="500" height="375" gifplayer="true" id="vector-spaces-arrow-plane" %}
 
 Using this plane, the computer can now automatically discriminate between blobfish and Sebastians by checking *on which side of the plane* the point lies.
 
