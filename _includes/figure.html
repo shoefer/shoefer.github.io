@@ -1,5 +1,5 @@
-{% if include.float == "right" %}<div class="imgright">{% else %}<div class="imgcenter">{% endif %}
-<div class="imgcap">
+{% if include.float == "right" %}<div class="imgright imgcap">{% else %}<div class="imgcenter imgcap">{% endif %}
+
 {% unless include.gifplayer %}
 {% if include.link %}
 <a href="{{ include.src }}" target="_blank">
@@ -14,8 +14,9 @@
 </a>
 {% endif %}
 {% endunless %}
+{% if include.caption  %}
 <div class="thecap">{{ include.caption }}</div>
-</div>
+{% endif %}
 </div>
 
 {% if include.gifplayer %}

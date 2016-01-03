@@ -12,7 +12,7 @@ In the [last post](/intuitivemi/2015/07/19/data-numbers-representations.html) we
 
 ### Data samples as points in space
 
-I have previously told you that any [image](/intuitivemi/images/2015-07-19-data-numbers-representations_picture.png) can be represented by a [table of numbers](/intuitivemi/images/2015-07-19-data-numbers-representations_numbers.png) where each number encodes the gray scale value of the image. For the trick that I would to teach you, this image is actually a bit too large. So for the sake of the argument, let us shrink the original 27x35 pixel image drastically until it gets really really tiny, namely 3x1, that means only 3 pixels wide and 1 pixel high - bear with me for a second even if this sounds silly to you. We won't see anything on this image but that doesn't matter right now. Our 3x1 image expressed in gray scale values now looks like this:
+I have previously told you that any [image](/intuitivemi/images/2015-07-19-data-numbers-representations_picture.png) can be represented by a [table of numbers](/intuitivemi/images/2015-07-19-data-numbers-representations_numbers.png) where each number encodes the gray scale value of the image. For the trick that I would like to teach you, this image is actually a bit too large. So for the sake of the argument, let us shrink the original 27x35 pixel image drastically until it gets really really tiny, namely 3x1, that means only 3 pixels wide and 1 pixel high - bear with me for a second even if this sounds silly to you. We won't see anything on this image but that doesn't matter right now. Our 3x1 image expressed in gray scale values now looks like this:
 
 <table class="data-table">
 <tr>

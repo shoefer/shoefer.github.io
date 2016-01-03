@@ -49,6 +49,6 @@ The type of learning slightly differs from the approaches seen before. Instead o
 However, you can also formulate the problem In a nutshell, the researchers make something similar as in stock price prediction: from the position of the ball you try to "predict", or rather decide for, a motor command to send to the robot. Executing this motion will then allow the robot to hit the table tennis ball.
  -->
 
-I hope I was able to get you excited about machine intelligence! In the next couple of posts I will try to convey the basic ideas of how to machine intelligence approaches all of these problems.
+I hope I was able to get you excited about machine intelligence! In the next couple of posts I will try to convey the basic ideas of how machine intelligence approaches all of these problems.
 
 The next post will tell you in more detail why you don't need to understand complex math and programming to understand machine intelligence.
