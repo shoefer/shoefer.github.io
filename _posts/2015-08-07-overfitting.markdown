@@ -1,27 +1,27 @@
 ---
-layout: intuds_post
+layout: intuitivemi_post
 title:  "The Curse of Overfitting"
 date:   2015-08-07 15:00:00
-categories: intuds
+categories: intuitivemi
 comments: true
-intuds-weight: 6
-intuds-category: Learning from Data
+intuitivemi-weight: 6
+intuitivemi-category: Learning from Data
 ---
 
-In the last post we obtained an understanding of how to [learn functions from data](/intuds/2015/12/29/learning-functions.html), and we developed our first learning method. In this post, we will start building an understanding of learning from data is actually hard. The first problem we are facing is *the curse of overfitting*. Let's see what that is.
+In the last post we obtained an understanding of how to [learn functions from data](/intuitivemi/2015/12/30/learning-functions.html), and we developed our first learning method. In this post, we will start building an understanding of learning from data is actually hard. The first problem we are facing is *the curse of overfitting*. Let's see what that is.
 
 <!--
 QUESTION: better explain by intuitive example, e.g. correlating the hypothesis that it is raining to the 
   hmm, but isn't that more about priors?
   -->
 
-Recap again the  [stock price prediction problem](/intuds/2015/12/28/functions.html): given the annual revenue of a company, we want to predict the company's stock price. I have given you set of example data and we have found the following *linear* regularity in the data:
+Recap again the  [stock price prediction problem](/intuitivemi/2015/12/28/functions.html): given the annual revenue of a company, we want to predict the company's stock price. I have given you set of example data and we have found the following *linear* regularity in the data:
 
-{% include figure.html src="/intuds/images/2015-07-20-functions_sizeprice.png" width="65%" %}
+{% include figure.html src="/intuitivemi/images/2015-07-20-functions_sizeprice.png" width="65%" %}
 
 Alhough I told you that these *linear* functions are really cool and mathematics can cope with them quite well you have probably already thought of many cases where linear functions do not suffice and we need different ones. And indeed, even in the stock price problem, there seems to be no reason for disregarding different functions, for example this one (red curve): 
 
-{% include figure.html src="/intuds/images/2015-08-07-overfitting-sizeprice.png" width="65%" %}
+{% include figure.html src="/intuitivemi/images/2015-08-07-overfitting-sizeprice.png" width="65%" %}
 
 It is not as nice as the line, but it perfectly passes through all of the data points. And
 from an economic perspective this function looks much better as it predicts that if annual revenues exceed 1000000 Euro the stock price will go up much more quickly! So better go and buy some shares now! 
@@ -36,7 +36,7 @@ In fact, this type of reasoning is very common has been brought up over 700 year
 
 Although Occam's Razor sounds reasonable, there is an even better explanation why we should prefer the line in this stock price example. Occam's razor rejects the wrinkled function because we have to make too many choices about the direction and the size of the wrinkles. In fact, there are infinitely many wrinkled functions going through all of the points, for instance this one (green line):
 
-{% include figure.html src="/intuds/images/2015-08-07-overfitting-sizeprice2.png" width="65%" %}
+{% include figure.html src="/intuitivemi/images/2015-08-07-overfitting-sizeprice2.png" width="65%" %}
 
 The problem with that is that the chance of picking the *wrong* wrinkled function is much higher than picking the wrong straight line - because (at least in our example) there is only *one line* that goes exactly through all of the points. I cannot rotate or shift the line up without it losing contact with one or more of the points. Therefore, we should prefer the line. So in a way, we have given a justification of Occam's razor by realizing that using a more complex function for predictions forces us to take more arbitrary decisions, which makes us more prone to making mistakes.
 
@@ -44,7 +44,7 @@ The problem with that is that the chance of picking the *wrong* wrinkled functio
 
 In the case where the data lies exactly on a line the answer was clear that the line is the best choice. However, in reality, data is not perfect but almost always undergoes random fluctuations and noise. So let us make the stock prediction data a bit more realistic and then look at how well line and wrinkled function explain the data:
 
-{% include figure.html src="/intuds/images/2015-08-07-overfitting-sizeprice_noise.png" width="65%" %}
+{% include figure.html src="/intuitivemi/images/2015-08-07-overfitting-sizeprice_noise.png" width="65%" %}
 
 We see that no line will be able to pass directly through all the data points, but we have easily found a wrinkled function doing so. Still the line shown here seems to capture the main trend quite well. Which of the two functions do you prefer for making predictions about future stock prices? 
 

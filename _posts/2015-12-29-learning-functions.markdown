@@ -1,16 +1,16 @@
 ---
-layout: intuds_post
+layout: intuitivemi_post
 title:  "Learning Functions from Data: A Primer"
 date:   2015-12-29 23:00:00
-categories: intuds
+categories: intuitivemi
 tags: machine learning, statistical learning
 comments: true
-intuds-weight: 5
-intuds-category: Learning from Data
+intuitivemi-weight: 5
+intuitivemi-category: Learning from Data
 ---
 
-In the introductory articles we have learned that [data is a bunch of numbers](/intuds/2015/07/19/data-numbers-representations.html) encoding some information, and that data can be multi-dimensional which makes them live in [vector spaces](/intuds/2015/07/25/vector-spaces.html). 
-We have also looked at the core competence of machine intelligence: applying functions  [functions](/intuds/2015/12/28/functions.html) to data. In this and the following posts we will look at the most powerful tool of machine intelligence: learning functions from data. 
+In the introductory articles we have learned that [data is a bunch of numbers](/intuitivemi/2015/07/19/data-numbers-representations.html) encoding some information, and that data can be multi-dimensional which makes them live in [vector spaces](/intuitivemi/2015/07/25/vector-spaces.html). 
+We have also looked at the core competence of machine intelligence: applying functions  [functions](/intuitivemi/2015/12/28/functions.html) to data. In this and the following posts we will look at the most powerful tool of machine intelligence: learning functions from data. 
 
 The roadmap is as follows. In this article, we will understand why learning function from data is in principle rather straightforward. Indeed, at the end of this article we will have a developed a very simple learning method. 
 
@@ -23,7 +23,7 @@ QUESTION: better explain by intuitive example, e.g. correlating the hypothesis t
 
 #### Learning Functions from Data
 
-In order to understand how learning from data works, let's use as our running example the stock price prediction problem introduced [earlier](/intuds/2015/12/28/functions.html): given the annual revenue of a company, we want to predict the company's stock price. We have learned that such a prediction is represented by a function. We discussed two representations of functions; first, tabular functions:
+In order to understand how learning from data works, let's use as our running example the stock price prediction problem introduced [earlier](/intuitivemi/2015/12/28/functions.html): given the annual revenue of a company, we want to predict the company's stock price. We have learned that such a prediction is represented by a function. We discussed two representations of functions; first, tabular functions:
 
 <table class="data-table">
 <tr>
@@ -62,7 +62,7 @@ Therefore, we were interested in finding a different function representation, an
 
 I have told you that since the function is a *linear* we can visualize it with a line:
 
-{% include figure.html src="/intuds/images/2015-07-20-functions_sizeprice.png" width="65%" %}
+{% include figure.html src="/intuitivemi/images/2015-07-20-functions_sizeprice.png" width="65%" %}
 
 More importantly, the regularity enabled us to predict the stock price given any annual revenue. Intuitively, when the the revenue gets higher, the stock price moderately increases.
 
@@ -95,12 +95,12 @@ So let's give our eager computer some answers:
 That sounds like a plan, doesn't it? 
 
 Let's first get an intuition what the *training error* looks like for some randomly guessed function:
-{% include figure.html src="/intuds/images/2015-12-29-learning-random_guess_training_error.png" width="65%" %}
+{% include figure.html src="/intuitivemi/images/2015-12-29-learning-random_guess_training_error.png" width="65%" %}
 Here, the blue dots are the training examples, the red curve is the random guess, the dotted lines indicate the discrepancy between the guessed line and the training data, and the numbers next to the lines indicate how big the discrepancy is. By summing over all  these differences, we obtain the red number at the bottom. This number is the training error - we want to get it as low as possible in order to find a highly predictive function.
 
 So how does random guessing perform? The following video shows what this looks like for 100 random guesses.  The green line is the one with the lowest training error so far. We see that it takes some guesses, but eventually we get a close match of the green line and the blue dots, the guess and the training data.
 
-{% include figure.html src="/intuds/images/2015-12-29-learning-random_guess_animation.png" width="500" gifplayer="true" id="learning-random-guess-animation" %}
+{% include figure.html src="/intuitivemi/images/2015-12-29-learning-random_guess_animation.png" width="500" gifplayer="true" id="learning-random-guess-animation" %}
 
 Congratulations: you have witnessed your first machine learning algorithm [[1]](#[1])!
 
@@ -127,7 +127,7 @@ Before we close, a note on terminology. Some paragraphs ago, we had to specify t
 
 Moreover, if you learn from training data of the form (input, output), the approach is called *supervised learning*. The picture is that the pupil comes up with different inputs, and a supervisor gives the pupil a hint by telling her the right output, and the pupil tries to figure out the regularity (aka function) from these hints.
 
-Finally, there are two general types of supervised learning, which depend on the type of function you want to learn. If you learn to map an input to a continuous number (as done in the stock price example), the learning task is called a *regression task*; if you map the input to a category (as in the [image classification example](/intuds/2015/07/19/data-numbers-representations.html)), it is called a *classification task*. Just so you know.
+Finally, there are two general types of supervised learning, which depend on the type of function you want to learn. If you learn to map an input to a continuous number (as done in the stock price example), the learning task is called a *regression task*; if you map the input to a category (as in the [image classification example](/intuitivemi/2015/07/19/data-numbers-representations.html)), it is called a *classification task*. Just so you know.
 
 In the next post, we will critically assess what we have done, and find out that there is a fundamental issue in learning from data which we have neglected so far. It is coarsely related to the question "why did we actually use a straight line, and not something with the shape of a [Currywurst](https://en.wikipedia.org/wiki/Currywurst#/media/File:Currywurst_%26_Pommes_frites.jpg)?"
 

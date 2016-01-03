@@ -1,11 +1,11 @@
 ---
-layout: intuds_post
+layout: intuitivemi_post
 title:  "Functions as Data Translators"
 date:   2015-12-28 18:10:00
-categories: intuds
+categories: intuitivemi
 comments: true
-intuds-weight: 4
-intuds-category: Basics
+intuitivemi-weight: 4
+intuitivemi-category: Basics
 ---
 
 If you have read the previous posts carefully you should now be familiar with high-dimensional data. In this last introductory article we are now going to look at what machine intelligence people mean when they think about manipulating data: they apply *functions* to data.
@@ -26,7 +26,7 @@ Let me give you a couple of examples of these things called functions.
 
 Let's assume a couple of primitive shapes, such as triangles, squares, etc. all of different color. We can now define a function that, given a shape, outputs the color of the function:
 
-{% include figure.html src="/intuds/images/2015-07-20-functions-color_example_wp.svg" width="35%" %}
+{% include figure.html src="/intuitivemi/images/2015-07-20-functions-color_example_wp.svg" width="35%" %}
 
 This visualization shows how to map *input data* X (the shape) to some *output*, the shape's color Y. All the arrows between X and Y are the defining elements of the function. 
 
@@ -42,7 +42,7 @@ So far we have only talked about functions conceptually but we have not stated h
 
 #### Stock price prediction function
 
-Let us now re-introduce our simple example from the [introductory post](/intuds/2015/07/26/datascience-showoff.html). We want to assess the stock price of some company. For the sake of simplicity, we will only use information about the annual revenue of the company (in Euro) and try to predict the stock price (also in Euro). We can describe this relationship in a big table:
+Let us now re-introduce our simple example from the [introductory post](/intuitivemi/2015/07/28/datascience-showoff.html). We want to assess the stock price of some company. For the sake of simplicity, we will only use information about the annual revenue of the company (in Euro) and try to predict the stock price (also in Euro). We can describe this relationship in a big table:
 
 <table class="data-table">
 <tr>
@@ -93,9 +93,9 @@ You see that the function gets as input the revenue, and gives as output the sto
 f(<b>Revenue</b>) = 0.00013 * <b>Revenue</b> + 70
 </div>
 
-Let us visualize this function by plotting a graph which has on one axis (the *x-axis) the annual revenue and on the other (the *y-axis*) the stock price:
+Let us visualize this function by plotting a graph which has on one axis (the *x-axis*) the annual revenue and on the other (the *y-axis*) the stock price:
 
-{% include figure.html src="/intuds/images/2015-07-20-functions_sizeprice.png" width="65%" %}
+{% include figure.html src="/intuitivemi/images/2015-07-20-functions_sizeprice.png" width="65%" %}
 
 We see two interesting things here: first, we can now *predict* the stock price value from the annual revenue, no matter which revenue (or year). Secondly, when the relationship between revenue and stock price in our example turns out to be a line. The fact that such relationships / functions can be drawn by a line results in them being called *linear functions*. Linear functions are amongst the most important types of relationships in mathematics - and actually they are one of the few that mathematics can really deal with [[2]](#[2]). Therefore, the majority of methods in machine intelligence are based on linear functions as the one given here. 
 <!-- We will talk about them in more detail in the next article. -->
@@ -112,7 +112,7 @@ In this example, we have talked about functions that takes a single number as in
 
 #### Vectorial functions
 
-In the [previous post](/intuds/2015/07/25/vector-spaces.html) we have dealt with the question of representing high-dimensional images as vectors. Of course, we can also define functions on these vectors. Recall that a vector is merely a list of numbers of fixed size, e.g. a 3-dimensional vector looking like this:
+In the [previous post](/intuitivemi/2015/07/25/vector-spaces.html) we have dealt with the question of representing high-dimensional images as vectors. Of course, we can also define functions on these vectors. Recall that a vector is merely a list of numbers of fixed size, e.g. a 3-dimensional vector looking like this:
 
 <table class="data-table">
 <tr>
@@ -161,9 +161,9 @@ f<sub>c</sub>(<b>Input</b>) = 0	&nbsp;&nbsp;&nbsp; otherwise
 
 Classification functions map input data to 2 (or more) categories which we simply enumerate from 0 to the number of categories (minus one).
 
-If we put together classification functions with our knowledge about vectorial functions, we can reconsider the example in the [previous post](/intuds/2015/07/25/vector-spaces.html) we have seen that we can draw (hyper)planes to separate two categories of objects, namely blowfish and Sebastians:
+If we put together classification functions with our knowledge about vectorial functions, we can reconsider the example in the [previous post](/intuitivemi/2015/07/25/vector-spaces.html) we have seen that we can draw (hyper)planes to separate two categories of objects, namely blowfish and Sebastians:
 
-{% include figure.html src="/intuds/images/2015-07-21-vector_spaces-arrow-plane.png" width="500" gifplayer="true" id="vector-spaces-arrow-plane" %}
+{% include figure.html src="/intuitivemi/images/2015-07-21-vector_spaces-arrow-plane.png" width="500" gifplayer="true" id="vector-spaces-arrow-plane" %}
 
 We would now assign the category Sebastian to 0 and blowfish to 1, and make the if-else-part of f<sub>c</sub> such that it takes into account whether an input sample lies on one or the other side of the line. I will not write that out explicitly, but in fact the left-of-or-right-of-line can also be cast as a multiplication of the input with a bunch of numbers. So classification functions are exactly what we want if we want to solve classification tasks - surprised?
 
@@ -174,7 +174,7 @@ Before closing this article, I would like to point out the relationship between 
 For image classification, the trick for visualizing the hyperplane that separated Sebastians from blowfish was to shrink the 27x35 images to a 3x1 image which allowed us to treat images as points (vectors) in 3D space.
 What does this look like if we shrink the images even further, namely to a 2x1 image? We can then visualize the images as vectors in 2D. Similar as before we can now ask how to separate the shrinked Sebastians and blowfish. The answer is that we have to find a "2D hyperplane" - which turns out to be just a line!
 
-{% include figure.html src="/intuds/images/2015-07-20-functions_image_class_2d.png"  width="65%" id="2015-07-20-functions_image_class_2d" %}
+{% include figure.html src="/intuitivemi/images/2015-07-20-functions_image_class_2d.png"  width="65%" id="2015-07-20-functions_image_class_2d" %}
 
 Interestingly, this looks very much like the stock price prediction above. The main difference is that we do not draw the line *through* the data but in such a way to *separate* the data. Still, in both applications we use a *linear* function. 
 
@@ -208,6 +208,6 @@ In the next post, we will get to the real meat: how to learn functions automatic
 2. <a name="[2]"></a>To cite the [mathematician Ian Stewart](http://books.google.de/books?id=dUhMAQAAQBAJ&pg=PA182&lpg=PA182&dq=Classical+mathematics+concentrated+on+linear+equations+for+a+sound+pragmatic+reason:+it+could+not+solve+anything+else.&source=bl&ots=PuRT666z3D&sig=YBZtoUP_y0siL0RUXfC14keMGe4&hl=de&sa=X&ei=upteVPDfBIysPJChgZgE&ved=0CCsQ6AEwAQ#v=onepage&q=Classical%20mathematics%20concentrated%20on%20linear%20equations%20for%20a%20sound%20pragmatic%20reason%3A%20it%20could%20not%20solve%20anything%20else.&f=false): "Classical mathematics concentrated on linear equations for a sound pragmatic reason: it could not solve anything else."
 
 <!--
-3. <a name="[3]"></a>You might remember that in the post on [vector spaces](intuds/2015/07/25/vector-spaces) we mentioned that *linear algebra* is the mathematical discipline taking care of moving or rotating vectors. It is not a coincidence that the term *linear* appears in the title of this field: every possible movement or rotation of objects can be formalized by exactly the same kind of linear functions that we have seen above! Only that they are defined on vectors not on numbers. 
+3. <a name="[3]"></a>You might remember that in the post on [vector spaces](intuitivemi/2015/07/25/vector-spaces) we mentioned that *linear algebra* is the mathematical discipline taking care of moving or rotating vectors. It is not a coincidence that the term *linear* appears in the title of this field: every possible movement or rotation of objects can be formalized by exactly the same kind of linear functions that we have seen above! Only that they are defined on vectors not on numbers. 
 4. <a name="[4]"></a> Indeed, finding a function for the image captioning problem is a very difficult task. Only recently, a [very complicated type of functions](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) has been found which shows promising performance at this task. These functions - called recurrent neural networks - are actually not that different from the linear functions we have just learned above, and we will hopefully cover them at a later point.
 -->

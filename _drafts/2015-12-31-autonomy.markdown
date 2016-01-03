@@ -1,11 +1,11 @@
 ---
-layout: intuds_post
+layout: intuitivemi_post
 title:  "The Curse of Autonomy"
 date:   2015-12-31 15:00:00
-categories: intuds
+categories: intuitivemi
 comments: true
-intuds-weight: 11
-intuds-category: Learning from Data
+intuitivemi-weight: 11
+intuitivemi-category: Learning from Data
 ---
 
 ### Curse of autonomy

@@ -1,11 +1,11 @@
 ---
-layout: intuds_post
+layout: intuitivemi_post
 title:  "Data, Numbers and Representations"
 date:   2015-07-19 15:07:27
-categories: intuds
+categories: intuitivemi
 comments: true
-intuds-weight: 2
-intuds-category: Basics
+intuitivemi-weight: 2
+intuitivemi-category: Basics
 ---
 I would like to start the intuitive introduction to machine intelligence by looking at the term *data*.  Let us try to gain an informal but sufficient understanding of how we could define data.
 
@@ -18,13 +18,13 @@ Some examples: a picture you have taken with your digital camera is data. You ca
 <!-- However, information is also quite an obscure term. So let's define data as "everything you might consider doing something with".  -->
 
 Let's look at the concrete example of a picture:
-{% capture numbersFullUrl %}/intuds/images/2015-07-19-data-numbers-representations_numbers.png{% endcapture %}
+{% capture numbersFullUrl %}/intuitivemi/images/2015-07-19-data-numbers-representations_numbers.png{% endcapture %}
 {% include figure.html src=numbersFullUrl width="85%" %}
 
-What do we see here? It's a picture of [my face](/intuds/images/2015-07-19-data-numbers-representations_picture.png) of course! Ok, if you don't see it you should definitely watch [The Matrix](https://en.wikipedia.org/wiki/The_Matrix) more often. In case that doesn't work, how do we get the picture back? The trick is that I have taken the gray scale picture of [my face](/intuds/images/2015-07-19-data-numbers-representations_picture.png)  and replaced every dot in the original picture with a number between 0 and 1 where 0 means "black" and 1 means "white", and the numbers in between represent the different [shades of gray](https://en.wikipedia.org/wiki/Fifty_Shades_of_Grey) between these black and white tones. When showing the image on the screen the computer translates these numbers back to gray values.
+What do we see here? It's a picture of [my face](/intuitivemi/images/2015-07-19-data-numbers-representations_picture.png) of course! Ok, if you don't see it you should definitely watch [The Matrix](https://en.wikipedia.org/wiki/The_Matrix) more often. In case that doesn't work, how do we get the picture back? The trick is that I have taken the gray scale picture of [my face](/intuitivemi/images/2015-07-19-data-numbers-representations_picture.png)  and replaced every dot in the original picture with a number between 0 and 1 where 0 means "black" and 1 means "white", and the numbers in between represent the different [shades of gray](https://en.wikipedia.org/wiki/Fifty_Shades_of_Grey) between these black and white tones. When showing the image on the screen the computer translates these numbers back to gray values.
 
 <!-- 
-(If you wonder why it is so difficult to recognize my face in the table of numbers while it is not in the gray scale picture read [this short post](/intuds/2015/07/23/difficult-cv.html).)
+(If you wonder why it is so difficult to recognize my face in the table of numbers while it is not in the gray scale picture read [this short post](/intuitivemi/2015/07/23/difficult-cv.html).)
  -->
 
 ### Data is numbers + what + encoding

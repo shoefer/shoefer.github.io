@@ -1,11 +1,11 @@
 ---
-layout: intuds_post
+layout: intuitivemi_post
 title:  "Gradient Descent - Walking Down the Error"
 date:   2016-01-10 15:00:00
-categories: intuds
+categories: intuitivemi
 comments: true
-intuds-weight: 20
-intuds-category: Machine Learning Methods
+intuitivemi-weight: 20
+intuitivemi-category: Machine Learning Methods
 ---
 
 ### Building blocks

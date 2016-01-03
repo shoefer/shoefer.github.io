@@ -1,16 +1,16 @@
 ---
-layout: intuds_post
+layout: intuitivemi_post
 title:  "Understanding Machine Intelligence without Formal Math"
 date:   2015-07-19 15:00:00
-categories: intuds
+categories: intuitivemi
 comments: true
-intuds-weight: 1
-intuds-category: Basics
+intuitivemi-weight: 1
+intuitivemi-category: Basics
 ---
 
 In this post I want to defend the basic idea of this series of articles, namely why I am trying to avoid mathematical formalism for explaining data science.
 
-If you don't care about math anyway, you can skip this post and start reading about [data](/intuds/2015/07/19/data-numbers-representations.html).
+If you don't care about math anyway, you can skip this post and start reading about [data](/intuitivemi/2015/07/19/data-numbers-representations.html).
 
 I do not have anything against formulas. Quite the contrary: mathematical formalisms are a fantastic way to condense and sort out the necessary ingredients of a method. Without formalism, we could not program a computer to operationalize any method. Think of a formula as a packing list for your camping trip. It has to be complete and all the things you need have to be on it, and you only on site you might realize if you did something wrong ("Oh no, I forgot to bring my [hiking heels](http://consumerist.com/2010/11/29/go-hiking-in-style-with-these-teva-high-heels/)"). In a similar way a formula has to contain everything required to describe your mathematical concept or method, and only when applying it / executing your method you realize whether something in your mathematical description is wrong or missing.
 

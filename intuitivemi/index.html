@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Intuitive Machine Intelligence
-permalink: /intuds/
+permalink: /intuitivemi/
 menu-pos: 2
 ---
 
@@ -9,7 +9,7 @@ menu-pos: 2
 
   <h1 class="page-heading">{{ page.title }}</h1>
 
-  <div class="intuds-intro">
+  <div class="intuitivemi-intro">
   In this series of articles I want to give you an <strong>intuitive</strong> understanding of what <strong>machine intelligence</strong> does.</p>
 <p><strong>What is machine intelligence?</strong> It summarizes efforts in the fields of <em>machine learning</em> (<em>data mining</em>, <em>statistical learning</em>, <em>big data</em>, ...), <em>artificial intelligence</em> and <em>robotics</em> to equip machines with human-like capabilities by enabling them to <em>learn</em>. It has become one of the most pervasive and fastest developing technologies of our times. Yet, to non-experts it remains largely obscure and magic how machines learn by themselves from data. This causes the problem of researchers oversimplifying/overselling their research and the public over-/underestimating the state of the art.
 In this series of articles I want to alleviate this problem by intuitively explaining the state of the art in these fields to non-experts.</p>
@@ -22,23 +22,23 @@ On the other hand I want to give students and scientists an intuition which help
       
   <h1 class="page-heading">Articles</h1>
 
-  <div class="intuds-intro">
+  <div class="intuitivemi-intro">
 <p>If you are new to the topic of machine intelligence, I recommend to read these articles in order since the first ones cover basic concepts used in later articles.</p>
 </div>
 
   {% assign last_category = 0 %}
-  {% assign items = site.categories.intuds | sort: 'intuds-weight' %}
+  {% assign items = site.categories.intuitivemi | sort: 'intuitivemi-weight' %}
     {% for post in items %}
-	  {% if last_category != post.intuds-category %}      
+	  {% if last_category != post.intuitivemi-category %}      
 
 		  {% if last_category != 0 %}      
   </ol>
 		  {% endif %}
-	      <h3 style="color:black">{{post.intuds-category}}</h3>
-  <ol class="intuds-post-list">
+	      <h3 style="color:black">{{post.intuitivemi-category}}</h3>
+  <ol class="intuitivemi-post-list">
 	  {% endif %}
 	    
-	  {% assign last_category = post.intuds-category %}
+	  {% assign last_category = post.intuitivemi-category %}
       <li style="margin-bottom: 0px">
 	      	
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
