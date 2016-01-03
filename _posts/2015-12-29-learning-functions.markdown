@@ -106,7 +106,7 @@ Congratulations: you have witnessed your first machine learning algorithm [[1]](
 
 #### Caveats
 
-You might be a bit disappointed now. Random guessing? That's machine intelligence? That doesn't seem intelligent at all! Fair enough, that is the simplest thing you can do. But
+You might be a bit disappointed now. Random guessing? That's machine intelligence? That doesn't seem intelligent at all! Fair enough, that is the simplest thing you can do. 
 And in practise, it won't work very well. Yet, some of the most powerful algorithms do apply random guessing (which is officially called *random search*) but combine it with some "tricks" to make the guessing smarter. So random search is an important building block for creating learning algorithms, although it's not very powerful when used on its own.
 
 At this point, we can already think about why random search does not work so well on its own. Here are a couple of thoughts.
