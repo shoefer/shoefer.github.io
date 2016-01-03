@@ -2,11 +2,11 @@
 title: Sebastian Höfer's Blog
 email: blog@sebastianhoefer.de
 description: > # this means to ignore newlines until "baseurl:"
-  A blog about how to understand AI and Machine Learning intuitively, including random posts about all sorts of different topics.
+  A blog about how to understand AI, robotics and machine learning intuitively, including random posts about all sorts of different topics.
 baseurl: "" # the subpath of your site, e.g. /blog/
 #url: "http://blog.sebastianhoefer.de" # the base hostname & protocol for your site
 url: "http://shoefer.github.io" # the base hostname & protocol for your site
-twitter_username: baschtlh
+twitter_username: hoeferse
 github_username:  shoefer
 exclude: [__private]
 
