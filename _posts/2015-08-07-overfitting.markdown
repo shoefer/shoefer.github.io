@@ -30,11 +30,11 @@ from an economic perspective this function looks much better as it predicts that
 
 Let me give you a reason in defense of the linear function: the function's simplicity. Although both functions perfectly fit the data (both the blue line and the red curve perfectly coincide with the blue dots) the line has much less wrinkles than the curve - namely zero rather than six! For the line we do not have to choose whether the wrinkles go up or down, how high/low they should go etc. 
 
-In fact, this type of reasoning is very common has been brought up over 700 years ago by William of Ockham and is therefore called [Occam's razor](https://en.wikipedia.org/wiki/Occam%27s_razor). It states that "among competing hypotheses that predict equally well, the one with the fewest assumptions should be selected". 
+In fact, this type of reasoning is so common that it has already been brought up over 700 years ago by William of Ockham. Therefore, this principle is called [Occam's razor](https://en.wikipedia.org/wiki/Occam%27s_razor) (although Ockham wasn't the first to bring it up, nor was he known for being particularly passionate about shaving). It states that "among competing hypotheses that predict equally well, the one with the fewest assumptions should be selected". 
 
 ### Overfitting
 
-Although Occam's Razor sounds reasonable, there is an even better explanation why we should prefer the line in this stock price example. Occam's razor rejects the wrinkled function because we have to make too many choices about the direction and the size of the wrinkles. In fact, there are infinitely many wrinkled functions going through all of the points, for instance this one (green line):
+Although this explanation of Occam's Razor sounds reasonable, there is an even better way of arguing why we should prefer the line in this stock price example. Occam's razor rejects the wrinkled function because we have to make too many choices about the direction and the size of the wrinkles. In fact, there are infinitely many wrinkled functions going through all of the points, for instance this one (green line):
 
 {% include figure.html src="/intuitivemi/images/2015-08-07-overfitting-sizeprice2.png" width="65%" %}
 

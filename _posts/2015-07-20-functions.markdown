@@ -46,41 +46,42 @@ Let us now re-introduce our simple example from the [introductory post](/intuiti
 
 <table class="data-table">
 <tr>
-<th>Year</th>
+<th style="color: gray">Year</th>
 <th>Annual Revenue in January (Euro)</th>
 <th>Price (Euro)</th>
 </tr>
 <tr>
-<td>2010</td>
+<td style="color: gray">2010</td>
 <td>40.000</td>
 <td>122</td>
 </tr>
 <tr>
-<td>2011</td>
+<td style="color: gray">2011</td>
 <td>50.000</td>
 <td>135</td>
 </tr>
 <tr>
-<td>2012</td>
+<td style="color: gray">2012</td>
 <td>60.000</td>
 <td>148</td>
 </tr>
 <tr>
-<td>2013</td>
+<td style="color: gray">2013</td>
 <td>80.000</td>
 <td>174</td>
 </tr>
 <tr>
-<td>2014</td>
+<td style="color: gray">2014</td>
 <td>100.000</td>
 <td>200</td>
 </tr>
 </table>
 
-If we ignore the year information, this table can be considered a function: for a annual revenue it gives you (exactly) one stock price value. 
-So it sheds some light on how "computing a function" might look like: looking up  some number in a table.
+This table can be considered a function in at least three ways: either we use the year as input, we use the annual revenue as input, or we use the stock price as input. We choose the annual revenue as the input and the stock price as the output because we believe that the annual revenue is more predictive for the stock price than the year - if the company was founded 10 years earlier, we would still expect the relationship of annual revenue and stock price to be similar (unless there was something like a global crisis, but we ignore that for now).
 
-Such tabular functions are common but they have a severe drawback: we cannot *extrapolate* - from this table alone we do not know how to get the value for the stock price in 2015 or 2016! 
+So the input of our function is *annual revenue* and the output *stock price*. And "computing" this function is very simple: given a number for the annual revenue, we look up the row in the table containing this number and return the corresponding stock price.
+
+Such tabular functions are common but they have a severe drawback: we cannot *extrapolate* - from this table alone we do not know how to get the value for the stock price for an annual revenue of 90.000 Euros or 200.000 Euros! 
 However, the example data I have given exhibits a regularity (surprise, surprise!), namely that the stock price values in the right column are exactly 0.00013 times the annual revenue plus 70 (check this for yourself). This gives us a much more concise way of describing this function:
 
 <div class="pseudoformula">
@@ -93,11 +94,13 @@ You see that the function gets as input the revenue, and gives as output the sto
 f(<b>Revenue</b>) = 0.00013 * <b>Revenue</b> + 70
 </div>
 
+The parentheses behind the *f* contain the inputs of the function, sometimes called *arguments*.
+
 Let us visualize this function by plotting a graph which has on one axis (the *x-axis*) the annual revenue and on the other (the *y-axis*) the stock price:
 
 {% include figure.html src="/intuitivemi/images/2015-07-20-functions_sizeprice.png" width="65%" %}
 
-We see two interesting things here: first, we can now *predict* the stock price value from the annual revenue, no matter which revenue (or year). Secondly, when the relationship between revenue and stock price in our example turns out to be a line. The fact that such relationships / functions can be drawn by a line results in them being called *linear functions*. Linear functions are amongst the most important types of relationships in mathematics - and actually they are one of the few that mathematics can really deal with [[2]](#[2]). Therefore, the majority of methods in machine intelligence are based on linear functions as the one given here. 
+We see two interesting things here: first, we can now *predict* the stock price value from the annual revenue, no matter which revenue. Secondly, the relationship between revenue and stock price in our example turns out to be a line. The fact that such relationships / functions can be drawn by a line results in them being called *linear functions*. Linear functions are amongst the most important types of relationships in mathematics - and actually they are one of the few that mathematics can really deal with [[2]](#[2]). Therefore, the majority of methods in machine intelligence are based on linear functions as the one given here. 
 <!-- We will talk about them in more detail in the next article. -->
 
 <!--
@@ -122,7 +125,7 @@ In the [previous post](/intuitivemi/2015/07/25/vector-spaces.html) we have dealt
 </tr>
 </table>
 
-So let's define a *linear* function on 3-dimensional vectors: 
+So let's define a *linear* function on 3-dimensional *vectors*: 
 
 <div class="pseudoformula">
 f<sub>a</sub>(<b>Image</b>)</b> = f(<b>Image</b><sub>1</sub>, <b>Image</b><sub>2</sub>, <b>Image</b><sub>3</sub>)</b> = 2*<b>Image</b><sub>1</sub> + 5*<b>Image</b><sub>2</sub> - 1* <b>Image</b><sub>3</sub>
@@ -131,11 +134,11 @@ f<sub>a</sub>(<b>Image</b>)</b> = f(<b>Image</b><sub>1</sub>, <b>Image</b><sub>2
 What does this function do? With the little subscript we denote the individual dimensions of the input image. The function therefore computes the sum of the individual dimensions of the input vector, each dimension multiplied with some number. These numbers (here 2, 5 and -1) are called the *parameters* of a function. The result for this function applied to the example vector above is:
 
 <div class="pseudoformula">
-f<sub>a</sub>(<b>Image</b>)</b> = 2*0.909 + 5*1.0 - 0.86 = 5.958
+f<sub>a</sub>(<b>Image</b>)</b> = 2*0.909 + 5*1.0 - 1*0.86 = 5.958
 </div>
 
 At first sight this function does not really seem to make much sense. Why should we sum up pixel values of an image? For example, it allows us draw some conclusions on whether the image is rather dark (low value of f<sub>a</sub>) or light (high value); and the different parameters of f<sub>a</sub> allow us to emphasize certain regions of the image more than others. 
-We will see later that this is actually very useful for recognizing things on images.
+We will see later that this is actually very useful for recognizing things in images.
 <!--
 But wait a second: we have as many parameters (2, 5 and 1) as input dimensions. This means, if the input data is an image, the parameters are in principle also an image! If you now think of input that are real 945-dimensional images, the parameters of the function can be used to "weigh" certain areas of the images higher. If you don't quite see this now, don't worry, we will talk about this later.
 -->

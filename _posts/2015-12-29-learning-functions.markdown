@@ -10,9 +10,9 @@ intuitivemi-category: Learning from Data
 ---
 
 In the introductory articles we have learned that [data is a bunch of numbers](/intuitivemi/2015/07/19/data-numbers-representations.html) encoding some information, and that data can be multi-dimensional which makes them live in [vector spaces](/intuitivemi/2015/07/25/vector-spaces.html). 
-We have also looked at the core competence of machine intelligence: applying functions  [functions](/intuitivemi/2015/12/28/functions.html) to data. In this and the following posts we will look at the most powerful tool of machine intelligence: learning functions from data. 
+We have also looked at the core competence of machine intelligence: applying   [functions](/intuitivemi/2015/12/28/functions.html) to data. In this and the following posts we will look at the most powerful tool of machine intelligence: *learning functions from data*. 
 
-The roadmap is as follows. In this article, we will understand why learning function from data is in principle rather straightforward. Indeed, at the end of this article we will have a developed a very simple learning method. 
+The roadmap is as follows. In this article, we will understand why learning functions from data is in principle rather straightforward. Indeed, at the end of this article we will have a developed a very simple learning method. 
 
 The next few posts will then bring us back down to earth and explain some fundamental problems that learning from data has, and discuss solutions to these problems. This will endow you with a powerful intuition of how learning from data works and what its limitations are.
 
@@ -127,9 +127,9 @@ Before we close, a note on terminology. Some paragraphs ago, we had to specify t
 
 Moreover, if you learn from training data of the form (input, output), the approach is called *supervised learning*. The picture is that the pupil comes up with different inputs, and a supervisor gives the pupil a hint by telling her the right output, and the pupil tries to figure out the regularity (aka function) from these hints.
 
-Finally, there are two general types of supervised learning, which depend on the type of function you want to learn. If you learn to map an input to a continuous number (as done in the stock price example), the learning task is called a *regression task*; if you map the input to a category (as in the [image classification example](/intuitivemi/2015/07/19/data-numbers-representations.html)), it is called a *classification task*. Just so you know.
+Finally, there are two general types of supervised learning, which depend on the type of function you want to learn. If you learn to map an input to a continuous number (as done in the stock price example), the learning task is called a *regression task*; in the last post we called this fitting a line *through* the data. In contrast, if you map the input to a category (as in the [image classification example](/intuitivemi/2015/07/19/data-numbers-representations.html)), it is called a *classification task*. We solve this class by finding a (hyper)plane or line that *separates* the data.
 
-In the next post, we will critically assess what we have done, and find out that there is a fundamental issue in learning from data which we have neglected so far. It is coarsely related to the question "why did we actually use a straight line, and not something with the shape of a [Currywurst](https://en.wikipedia.org/wiki/Currywurst#/media/File:Currywurst_%26_Pommes_frites.jpg)?"
+In the next post, we will critically assess what we have done, and find out that there is a fundamental issue in learning from data which we have neglected so far. It is coarsely related to the question: why did we actually use a straight line, and not something with the shape of a curve or a snake?
 
 ### [TL;DR](http://de.urbandictionary.com/define.php?term=tl%3Bdr):
 - Machine intelligence learns functions from data
