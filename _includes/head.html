@@ -22,4 +22,25 @@
   <script type="text/javascript" src="{{ "/js/jquery.gifplayer.min.js" | prepend: site.baseurl }}"></script>
   <link rel="stylesheet" href="{{ "/css/gifplayer.css" | prepend: site.baseurl }}">
 
+  {% if page.use_math %}
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+  </script>
+  {% endif %}
+
 </head>
