@@ -14,6 +14,10 @@ It will probably be difficult to understand it in detail if you are a beginner.
 For beginners, I recommend reading [my blog on intuitive machine
 intelligence](http://www.intuitivemi.de).
 
+Note: the post is based on an ipython notebook. You can also [download the 
+original notebook](https://github.com/shoefer/shoefer.github.io/blob/master/notebooks/Yet%20Another%20ML%20101.ipynb)
+to play around with the code.
+
 ## General setting
 
 In general, we distinguish three general paradigms in ML
