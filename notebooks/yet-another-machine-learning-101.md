@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Yet Another ML 101"
+title: "Yet Another Machine Learning 101"
 tags:
     - python
     - notebook
@@ -46,8 +46,8 @@ the *labels*.
 Together, they are called the *training data*.
 
 Any ML method usually consists of three ingredients.
-- A representation of $f$, i.e. whether it is a linear function, or non-
-parametric, etc.
+- A representation of $f$, i.e. whether it is a linear function, polynomial,
+neural network, or non-parametric, etc.
 - An appropriate *loss function* $\mathcal{L}$,
 - which is minimized using an *optimization method*.
 
@@ -86,10 +86,25 @@ together nicely.
 However, only making $\mathcal{L}=0$ for the training data, i.e. only fitting
 the training data does not necessarily solve the problem -- the task is to learn
 an $f$ that *generalizes* to unseen examples $x^{(j)}$. Fitting the training
-data is very easy: just memorize all of them by heart! Therefore, the core
-problem of any machine learning to learn an $f$ that generalizes. If $f$ only
-works well on the training data, but not on unseen data, $f$ is said to
-*overfit*.
+data is very easy: just memorize all of them by heart! This will trivially bring
+$\mathcal{L}$ for our training data.
+But the core problem of any machine learning is to learn an $f$ that
+generalizes. If $f$ only works well on the training data, but not on unseen
+data, $f$ is said to *overfit*.
+
+To ensure that our function does not overfit, we divide the data into three
+sets:
+
+- *Training data*<br/>The data used for actually fitting the function
+- *Validation data*<br/>Additional data, not used learning the function, but
+only used to compute the loss for our current estimate of the function. It is
+also used to tune the hyperparameters of your method, or decide which method to
+use.
+- *Test data* <br/> Another additional data set, neither used for training nor
+for validation. You can think of it as being locked in some secret drawer, and
+it is only released and used to evaluate $f$ once you are sure that you have
+propetly learned $f$ .
+
 
 ### Example: Linear regression
 
@@ -141,7 +156,7 @@ scatter(X, Y);
 
 
 
-![png]({{site.url}}/notebooks/yet-another-ml-101_files/yet-another-ml-101_2_1.png)
+![png]({{site.url}}/notebooks/yet-another-machine-learning-101_files/yet-another-machine-learning-101_2_1.png)
 
 
 The idea is linear regression is to fit a linear function, i.e. a line of the
@@ -179,7 +194,7 @@ $$
 \frac{\partial \mathcal{L}_\textrm{MSE}}{\partial {w}_j}
 = \frac{1}{2N} \sum_{i=0}^N \frac{\partial}{\partial {w}_j}
 ( \mathbf{w}^T \mathbf{x}^{(i)} - y^{(i)})^2 \\
-= \frac{1}{2N} \sum_{i=0}^N 2 x_j^{(i)}  (w_j x_j^{(i)} - y^{(j)})\\
+= \frac{1}{2N} \sum_{i=0}^N 2 w_j^{(i)}  (w_j x_j^{(i)} - y^{(j)})\\
 = \frac{1}{N} \sum_{i=0}^N w_j (f(x_j^{(i)}) - y^{(j)})
 $$
 
@@ -216,24 +231,32 @@ In the linear regression case, however, there is a more direct solution. If we
 consider $\mathbf{w}$ to be a matrix rather then a vector, we can write the loss
 in the following way:
 
-$$ \mathcal{L}_\textrm{MSE} = \mathbf{X}\mathbf{w} - \mathbf{y}$$
+$$ \mathcal{L}_\textrm{MSE} = \frac{1}{2} (\mathbf{X}\mathbf{w} - \mathbf{y})^T
+(\mathbf{X}\mathbf{w} - \mathbf{y})$$
 
 where $\mathbf{X}$ contains in each $i$-th *row* on training example
 $\mathbf{x}^{(i)}$, and $\mathbf{y}$ in each $i$-th row a
 label  $y^{(i)}$.
 
-Now we can set it 0, bring $\mathbf{y}$ to the right-hand side and solve for
-$\mathbf{w}$. To that we need to invert $\mathbf{X}$ -- which is usually not
-possible because it is not square in the general case. But we can apply a trick:
-using the pseudo-inverse:
+Now we can compute the derivative of $\mathcal{L}_\textrm{MSE}$, set it 0, and
+solve for $\mathbf{w}$. As you can check yourself, the derivative is given by:
+$$ \frac{d \mathcal{L}_\textrm{MSE}}{d \mathbf{w}} = \mathbf{X}\mathbf{w} -
+\mathbf{y} \\
+\mathbf{X}\mathbf{w} - \mathbf{y}  = 0\\
+\mathbf{X}\mathbf{w}  = \mathbf{y}
+$$
+
+To now solve it for $\mathbf{w}$, we need to invert $\mathbf{X}$ -- which is
+usually not possible because it is not square in the general case. But we can
+apply a trick, namely use the *pseudo-inverse*:
 
 $$\mathbf{X}\mathbf{w} = \mathbf{y}\\
 \mathbf{X}^T\mathbf{X}\mathbf{w} = \mathbf{X}^T\mathbf{y}\\
 \mathbf{w} = (\mathbf{X}^T\mathbf{X})^-1 \mathbf{X}^T\mathbf{y}\\
 $$
 
-where $(\mathbf{X}^T\mathbf{X})^-1 \mathbf{X}^T$ is also known as the *pseudo-
-inverse*.
+where the *pseudo-inverse* is given by $(\mathbf{X}^T\mathbf{X})^-1
+\mathbf{X}^T$.
 
 ### Computational example
 
@@ -241,7 +264,7 @@ Let's now implement this in python.
 
 
 
-**In [7]:**
+**In [2]:**
 
 {% highlight python %}
 # transpose training data and append 1
@@ -249,6 +272,10 @@ Xhat = np.hstack([X, np.ones((X.shape[0],1.))])
 w = np.linalg.inv(Xhat.T.dot(Xhat)).dot(Xhat.T).dot(Y)
 w
 {% endhighlight %}
+
+    /usr/lib/python2.7/dist-packages/numpy/core/numeric.py:190: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+      a = empty(shape, dtype, order)
+
 
 
 
@@ -265,7 +292,7 @@ plot(X, Xhat.dot(w));
 {% endhighlight %}
 
 
-![png]({{site.url}}/notebooks/yet-another-ml-101_files/yet-another-ml-101_5_0.png)
+![png]({{site.url}}/notebooks/yet-another-machine-learning-101_files/yet-another-machine-learning-101_5_0.png)
 
 
 Luckily, there are libraries that do all that for us. One of the most popular ML
@@ -297,7 +324,7 @@ lr.coef_, lr.intercept_
 
 
 
-![png]({{site.url}}/notebooks/yet-another-ml-101_files/yet-another-ml-101_7_1.png)
+![png]({{site.url}}/notebooks/yet-another-machine-learning-101_files/yet-another-machine-learning-101_7_1.png)
 
 
 The blue line is now our prediction. And you see that it fits the data Ok, but
@@ -341,7 +368,7 @@ lr.coef_, lr.intercept_
 
 
 
-![png]({{site.url}}/notebooks/yet-another-ml-101_files/yet-another-ml-101_9_1.png)
+![png]({{site.url}}/notebooks/yet-another-machine-learning-101_files/yet-another-machine-learning-101_9_1.png)
 
 
 We see that the training data is fitted almost perfectly; but the function
@@ -349,22 +376,31 @@ hallucinates weird values inbetween and before/after the training data! This is
 a classical example of overfitting: we used a function that is too "powerful",
 as it has many more parameters than the linear model. There are different ways
 to remedy this problem:
-- Learning from more training data
-- Restricting the function to a simpler one (e.g. less parameters)
+- [More training data](https://en.wikipedia.org/wiki/Big_data)!
+- Restricting the function to a simpler one (e.g. less parameters)<br/>(The
+danger can be *underfitting*, i.e. choosing a too simple model)
+- Model selection, e.g. using [cross-validation](https://en.wikipedia.org/wiki
+/Cross-validation_%28statistics%29)
+- Incorporating prior knowledge about the problem, e.g. by [feature
+engineering](https://en.wikipedia.org/wiki/Feature_engineering)
 - Regularization
 
 [Regularization](https://en.wikipedia.org/wiki/Regularization_%28mathematics%29)
 is a different way to enforce a simpler function to be learned, while keeping
 the number of parameters that are learned the same. Instead, we put additional
-into the loss function. A popular regularization is *L2* which puts a norm
-penalty on the weights, i.e. $||\mathbf{w}||^2$. The optimizer then has to make
-sure not only to fulfill the initial loss, e.g. the mean-squared error, but also
-the regularization.
+into the loss function. A popular regularization is *L2* which puts a
+[L2-norm](http://mathworld.wolfram.com/L2-Norm.html) penalty on the weights,
+i.e. $||\mathbf{w}||^2$. The optimizer then has to make sure not only to fulfill
+the initial loss, e.g. the mean-squared error, but also the regularization.
 
-A linear regression with L2 regularization is called *ridge regression*, and is
-also implemented in scikit learn:
+A linear regression with L2 regularization is called *ridge regression*. The
+loss then becomes:
+$$ \mathcal{L}_\textrm{Ridge} = \frac{1}{2} (\mathbf{X}\mathbf{w} -
+\mathbf{y})^T (\mathbf{X}\mathbf{w} - \mathbf{y}) + \alpha ||\mathbf{w}||^2 $$
 
-We can easily use the scikit-learn LinearRegression class with regularization:
+where $\alpha$ weights the influence of the regularizer.
+
+Ridge regression is also implemented in scikit learn:
 
 **In [6]:**
 
@@ -389,12 +425,11 @@ lr.coef_, lr.intercept_
 
 
 
-![png]({{site.url}}/notebooks/yet-another-ml-101_files/yet-another-ml-101_11_1.png)
+![png]({{site.url}}/notebooks/yet-another-machine-learning-101_files/yet-another-machine-learning-101_11_1.png)
 
 
-Here $\alpha$ weights the influence of the regularizer. We see, that the values
-inbetween are much smoother, but still for values $>120$ and $<40$ the linear
-model reflects our intuition about the real $f$ better.
+We see, that the values inbetween are much smoother, but still for values $>120$
+and $<40$ the linear model reflects our intuition about the real $f$ better.
 
 ## Regression vs. Classification
 
@@ -496,7 +531,7 @@ $x$. The question is how to quantify "information". This very complicated and
 highly depends on the task; but PCA defines information as *high variance* (in a
 statistical sense). Therefore, the loss for PCA is roughly equivalent to:
 
-$$\tilde{\mathcal{L}}_\textrm{PCA} = -\textrm{Var}(f(\mathbf{x}))$$
+$${\mathcal{L}}_\textrm{PCA} \approx -\textrm{Var}(f(\mathbf{x}))$$
 
 I we need some additional constraints to make this problem solvable. I will not
 go into details here, but you should understand, that one can formulate learning
@@ -533,5 +568,3 @@ tackle this problem. We cannot look at all of these techniques in detail here,
 but it is important that you at least understand the general setting of
 reinforcement learning, and its difference to supervised learning (and
 unsupervised learning).
-
-

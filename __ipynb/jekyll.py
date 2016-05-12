@@ -17,14 +17,14 @@ except ImportError:
 import os
 import sys
 
-#HOME_DIR = "/home/shoefer/"
-HOME_DIR = "/Users/Hoefer/"
+HOME_DIR = "/home/shoefer/"
+#HOME_DIR = "/Users/Hoefer/"
 
 try:
     BLOG_DIR = os.environ['BLOG_DIR']
 except:
-    #BLOG_DIR = os.path.join(HOME_DIR, 'workspace/shoefer.github.io')
-    BLOG_DIR = os.path.join(HOME_DIR, 'Workspace/shoefer.github.io')
+    BLOG_DIR = os.path.join(HOME_DIR, 'workspace/shoefer.github.io')
+    #BLOG_DIR = os.path.join(HOME_DIR, 'Workspace/shoefer.github.io')
 
 f = None
 for arg in sys.argv:
