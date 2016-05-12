@@ -273,6 +273,10 @@ w = np.linalg.inv(Xhat.T.dot(Xhat)).dot(Xhat.T).dot(Y)
 w
 {% endhighlight %}
 
+    /usr/lib/python2.7/dist-packages/numpy/core/numeric.py:190: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+      a = empty(shape, dtype, order)
+
+
 
 
 
@@ -315,7 +319,7 @@ lr.coef_, lr.intercept_
 
 
 
-    (array([ 10.04581152]), 58.789267015706741)
+    (array([ 10.04581152]), 58.789267015706969)
 
 
 
@@ -359,7 +363,7 @@ lr.coef_, lr.intercept_
 
 
     (array([  1.44137296e+04,  -3.94630145e+02,   5.20499616e+00,
-             -3.31906931e-02,   8.21304324e-05]), -201202.688457913)
+             -3.31906931e-02,   8.21304323e-05]), -201202.68818045547)
 
 
 
@@ -416,7 +420,7 @@ lr.coef_, lr.intercept_
 
 
     (array([ -5.20832737e-02,  -2.00807910e+00,   5.28324483e-02,
-             -4.75230122e-04,   1.44755456e-06]), 1401.9265643035942)
+             -4.75230122e-04,   1.44755456e-06]), 1401.9265644036786)
 
 
 

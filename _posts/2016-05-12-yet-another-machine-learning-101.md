@@ -214,10 +214,12 @@ point in this bowl, the gradient points towards the bottom of this bown, and
 thus the minimum of the loss. The update rule then takes small steps towards
 this minimum.
 This is a cool visualization which is also accompanied by a [Matlab
-script](http://www.mathworks.com/matlabcentral/fileexchange/35389-gradient-descent-visualization):
+script](http://www.mathworks.com/matlabcentral/fileexchange/35389-gradient-
+descent-visualization):
 <img src="http://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/35389/versions/1/screenshot.png"
 style="width:30%" alt="Obtained from
-http://www.mathworks.com/matlabcentral/fileexchange/35389-gradient-descent-visualization" />
+http://www.mathworks.com/matlabcentral/fileexchange/35389-gradient-descent-
+visualization" />
 
 Gradient descent is a very important technique, very popular especially for
 training neural networks (see below).
@@ -271,8 +273,6 @@ w
 {% endhighlight %}
 
 
-
-
     array([ 10.04581152,  58.78926702])
 
 
@@ -312,7 +312,7 @@ lr.coef_, lr.intercept_
 
 
 
-    (array([ 10.04581152]), 58.789267015706741)
+    (array([ 10.04581152]), 58.789267015706969)
 
 
 
@@ -356,7 +356,7 @@ lr.coef_, lr.intercept_
 
 
     (array([  1.44137296e+04,  -3.94630145e+02,   5.20499616e+00,
-             -3.31906931e-02,   8.21304324e-05]), -201202.688457913)
+             -3.31906931e-02,   8.21304323e-05]), -201202.68818045547)
 
 
 
@@ -413,7 +413,7 @@ lr.coef_, lr.intercept_
 
 
     (array([ -5.20832737e-02,  -2.00807910e+00,   5.28324483e-02,
-             -4.75230122e-04,   1.44755456e-06]), 1401.9265643035942)
+             -4.75230122e-04,   1.44755456e-06]), 1401.9265644036786)
 
 
 
@@ -450,7 +450,8 @@ The idea is to compose the function $f$ of small slightly nonlinear functions
 and together they form a neural network that can be visualized as follows:
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Artificial_neural_network.svg" alt="Artificial neural network
-(https://commons.wikimedia.org/wiki/File:Artificial_neural_network.svg)" style="width: 20%;"/>
+(https://commons.wikimedia.org/wiki/File:Artificial_neural_network.svg)"
+style="width: 20%;"/>
 
 The picture (image taken from [wikipedia](https://commons.wikimedia.org/wiki/Fil
 e:Artificial_neural_network.svg)) depicts a network with an input layer
