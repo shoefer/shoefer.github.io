@@ -1,18 +1,46 @@
 ---
 layout: post
-title:  "Why Machine Learning and AI Needs Agency"
+#title:  "Why Machine Learning for AI Needs Agency"
+#title:  "Why Intelligence Needs Agency"
+title:  "Why Intelligent Agents Need Agency -- and Why That's Not a Trivial Statement"
 date:   2016-06-06 17:43:00
 categories: artificial intelligence
 tags: machine learning, artificial intelligence, perception, action
 comments: true
+use_math: true
 ---
 
-For a long time now, I have been wondering about whether we need agency to solve difficult AI problems, such as identifying objects on images.  By *agency* I mean that the AI [[1]](#[1]) needs to be able to take actions and possibly have a body, rather than just being a passive observer. The recent advances of deep learning in solving image classification tasks seem to answer this question in the negative: these approaches are given images and labels about the content of these images, and [learn to classify](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks) previously unseen images only from these data.
+For a long time now, I have been wondering about whether we need agency to solve difficult AI problems, such as identifying objects on images.  By *agency* I mean that the AI [[1]](#[1]) needs to be able to take *actions* and possibly have a body, rather than just being a passive observer. The recent advances of deep learning in solving image classification tasks seem to answer this question in the negative: these approaches are given images and labels about the content of these images, and [learn to classify](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks) previously unseen images only from these data.
  
-<i>Does this mean, we don't need agency and can solve any AI problem with this simple, yet brute-force approach?</i>
+<i>Does this mean, we don't need agency and can solve any AI problem with supervised learning?</i>
 
 In this post, I want to discuss this question, and I will argue that agency <i>is indispensable</i> for solving difficult AI tasks. 
 Obviously, this claim is not new -- however, the main contribution of this post is that it puts into perspective a wide variety of approaches that make this claim, and therefore gives an [overview](#overview) of the different ways agency is required for AI.
+
+#### Agency in Machine Learning
+
+Before we go into the details of the discussion let us quickly think about where agency could enter the standard supervised learning picture:
+
+         f
+    x -------> y
+
+The arrow represents the standard supervised learning problem of learning a function $$f$$ that predicts labels $$y$$ from input data $$x$$. We can identify two ways of how agency can enter this picture:
+
+- <b>Active learning</b> can be used to select inputs $$x$$ in order to be more efficient at learning $$f$$. For example, if the task is object classification, the learner could request showing the back of an object, and thus become more apt at classifying this object from in any orientation.
+- <b>Self-supervised learning</b> is used to generate labels $$y$$. For example, for a robot that has the task of visually classifying the weight of an object, the robot can lift the object, measure its weight and thus generate the label by itself.
+[in some communities there is a notion of self-supervised learning in the context of semi-supervised learning]
+
+As we will see at the end of the article, <b>learning with side information</b> will modify the picture above as follows, and give a third option of how agency can enter this picture:
+
+         f
+    x -------> y
+         ^
+         |
+         |
+         z
+
+Note that the side information $$z$$ will is only required to be available during training, not during prediction time. For example, $$z$$ can correspond to an action, and thus give valuable information for learning $$f$$.
+
 
 #### Perceptual vs. Control Tasks
 
@@ -26,8 +54,8 @@ Of course, these tasks require agency trivially, but they involve perceptual sub
 
 My argument will now go as follows:
 
-1. In control tasks, not only the control task itself but also the perceptual subtasks require agency. The reason is that in these tasks there is no principle difference between perception and action. 
-2. Certain purely perceptual tasks can be turned into control tasks -- and thus, for these tasks, all arguments for agency from point 1 apply.
+1. In control tasks, not only the control task itself but also the perceptual subtasks require agency. The reason is that in these tasks there is no principled difference between perception and action. 
+2. Certain purely perceptual tasks can be turned into control tasks -- and thus, for these tasks, all arguments for agency from point 1 apply. (TODO: make clear what kind of tasks can be turned into control tasks and why one would wanna do that)8
 3. Finally, I will argue that even purely perceptual tasks that do not fall under 2 require agency. The reason is that also in these tasks agency enables the learnable AI to leverage information it would not have access to otherwise -- going beyond self-supervised and even for the task of classifying camera images!
 
 <!-- ---------------------------------------- -->
