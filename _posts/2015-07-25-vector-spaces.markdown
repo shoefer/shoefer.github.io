@@ -76,8 +76,8 @@ In the next post we will look at how be more precise about what we mean by trans
 - Hyperplanes in space discriminate between vectors, and hence categories
 
 ### <a name="further"></a>Footnotes:
-1. <a name="[1]"></a>Actually, linear algebra can do even a bit more than what is "physically possible" in the 3D world. 
-2. <a name="[2]"></a>To turn images into an arrow/point, we need to remove the column and row structure of the image and write all of the numbers in one very long row. And since 27 times 35 = 945, the original image becomes a 945-dimension point. This has indeed been common practise when learning from images.
+1. <a name="[1]"></a>Actually, linear algebra can do even a bit more than what is "physically possible" in the 3D world, e.g. mirroring and skewing objects. 
+2. <a name="[2]"></a>To turn images into an arrow/point, we need to remove the column and row structure of the image and write all of the numbers in one very long row. And since 27 times 35 = 945, the original image becomes a 945-dimensional point. This has indeed been common practise when learning from images (although more recent algorithms exploit the spatial, i.e. "grid" structure of the image, rather than just stitching the columns together).
 3. <a name="[3]"></a>It is important to notice that moving or rotating a point in 945-dimensional space which represents an image *is not the same* as shifting or rotating the image! Since moving in 3D is equivalent to "adding a number to one or more dimensions", this is also the definition of moving in 945-dimensional space. If you push a 3D object 3m up and 5m to the right you effectively add these two numbers some coordinates of the object. Hence, in the image example, moving is equivalent to changing the gray scale value of certain pixels. Neither do vector rotations actually rotate the image. 
 <!--  Rotations look even weirder: -->
 <!-- TODO rotated image -->
