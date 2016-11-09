@@ -22,7 +22,7 @@ The second reason is that formulas often do not reflect the way how people figur
 
 The third reason is much simpler: Formulas scare many people. I believe one reason for this lies in the condensed nature of formulas that I have mentioned before. Formulas use a very precise and non-redundant language, which is far less verbose than natural language. Therefore, you can spend an entire day looking at one single formula without getting it. I believe this being the reason for some people thinking that they are not good at math, although they probably could be. They get disappointed too quickly because they cannot grasp the formula within an eyelash. Relax guys, that holds true for most of us.
 
-So let us now jump right into the topic and talk a bit about *data*!
+So let us now jump right into the topic and talk a bit about *data*! 
 
 <i><b>Update 09/11/2016:</b>  I have received a series of similar comments regarding this article, which I would like to respond to. The first critique was that I am claiming that all researchers think in intuitions, rather than in formulas, when devising mathematical equations and algorithms. That is of course not true; there are people who prefer to and are very good at thinking in abstract formulas, rather than in intuitions. And indeed, certain problems can be more easily solved "syntactically", that means only by applying mathematical rules rather than thinking in intuitions (but we won't do that in this series of articles). Secondly, I want to admit that, in some cases, the full aha-that's-how-it-works moment comes when reconciling the intuitive and the formal, mathematical levels. But - at least for me - the intuitive level was always required to make full understanding happen.</i>
 
