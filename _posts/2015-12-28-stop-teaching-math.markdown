@@ -21,7 +21,7 @@ There is a deeper point that I want to make here. In my opinion, Bennett misconc
 And sound argumentation, sharp thinking and - obviously - statistics are at the very core of math. All of this is required because you have the right to vote for your leaders - if  you are well-informed and able to make up your own opinion on valid logical ground, you are less likely to fall for populists and propaganda.
 
 I do agree that my math curriculum did not do a great job at teaching me all of the this - but it should. We most definitely should change the way math is taught, and there are various ideas of doing so (I have [some thoughts](/intuitivemi/2015/07/19/why-no-formulas.html) about what is going wrong in university courses, and [some people](https://www.youtube.com/watch?v=fu-gFkuls_c) have ideas on how to fix them). However, dropping maths from the curriculum does not sound like a viable solution to me. 
-The number of people supporting populists like Donald Trump shows that we have an education problem. Let’s try to make education better, and let’s make teaching better math part of this endeavour.
+The number of people supporting [clowns](http://www.der-postillon.com/2016/11/erster-clown.html) like Donald Trump shows that we have an education problem. Let’s try to make education better, and let’s make teaching better math part of this endeavour.
 
 
 
