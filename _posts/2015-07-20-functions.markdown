@@ -128,13 +128,13 @@ In the [previous post](/intuitivemi/2015/07/25/vector-spaces.html) we have dealt
 So let's define a *linear* function on 3-dimensional *vectors*: 
 
 <div class="pseudoformula">
-f<sub>a</sub>(<b>Image</b>)</b> = f(<b>Image</b><sub>1</sub>, <b>Image</b><sub>2</sub>, <b>Image</b><sub>3</sub>)</b> = 2*<b>Image</b><sub>1</sub> + 5*<b>Image</b><sub>2</sub> - 1* <b>Image</b><sub>3</sub>
+f<sub>a</sub>(<b>Image</b>) = f(<b>Image</b><sub>1</sub>, <b>Image</b><sub>2</sub>, <b>Image</b><sub>3</sub>) = 2*<b>Image</b><sub>1</sub> + 5*<b>Image</b><sub>2</sub> - 1* <b>Image</b><sub>3</sub>
 </div>
 
-What does this function do? With the little subscript we denote the individual dimensions of the input image. The function therefore computes the sum of the individual dimensions of the input vector, each dimension multiplied with some number. These numbers (here 2, 5 and -1) are called the *parameters* of a function. The result for this function applied to the example vector above is:
+What does this function do? With the little subscript we denote the individual dimensions of the input image. The function therefore computes the sum of the individual dimensions of the input vector, each dimension multiplied with some number. These numbers (here 2, 5 and -1, which I have chosen arbitrarily in this example) are called the *parameters* of a function. The result for this function applied to the example vector above is:
 
 <div class="pseudoformula">
-f<sub>a</sub>(<b>Image</b>)</b> = 2*0.909 + 5*1.0 - 1*0.86 = 5.958
+f<sub>a</sub>(<b>Image</b>) = 2*0.909 + 5*1.0 - 1*0.86 = 5.958
 </div>
 
 At first sight this function does not really seem to make much sense. Why should we sum up pixel values of an image? For example, it allows us draw some conclusions on whether the image is rather dark (low value of f<sub>a</sub>) or light (high value); and the different parameters of f<sub>a</sub> allow us to emphasize certain regions of the image more than others. 
