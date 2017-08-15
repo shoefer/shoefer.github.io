@@ -164,28 +164,28 @@ f<sub>c</sub>(<b>Input</b>) = 0	&nbsp;&nbsp;&nbsp; otherwise
 
 Classification functions map input data to 2 (or more) categories which we simply enumerate from 0 to the number of categories (minus one).
 
-If we put together classification functions with our knowledge about vectorial functions, we can reconsider the example in the [previous post](/intuitivemi/2015/07/25/vector-spaces.html) we have seen that we can draw (hyper)planes to separate two categories of objects, namely blowfish and Sebastians:
+If we put together classification functions with our knowledge about vectorial functions, we can reconsider the example in the [previous post](/intuitivemi/2015/07/25/vector-spaces.html) we have seen that we can draw (hyper)planes to separate two categories of objects, namely blobfish and Sebastians:
 
 {% include figure.html src="/intuitivemi/images/2015-07-21-vector_spaces-arrow-plane.png" width="500" height="375" gifplayer="true" id="vector-spaces-arrow-plane" %}
 
-We would now assign the category Sebastian to 0 and blowfish to 1, and make the if-else-part of f<sub>c</sub> such that it takes into account whether an input sample lies on one or the other side of the line. I will not write that out explicitly, but in fact the left-of-or-right-of-line can also be cast as a multiplication of the input with a bunch of numbers. So classification functions are exactly what we want if we want to solve classification tasks - surprised?
+We would now assign the category Sebastian to 0 and blobfish to 1, and make the if-else-part of f<sub>c</sub> such that it takes into account whether an input sample lies on one or the other side of the line. I will not write that out explicitly, but in fact the left-of-or-right-of-line can also be cast as a multiplication of the input with a bunch of numbers. So classification functions are exactly what we want if we want to solve classification tasks - surprised?
 
 #### Relationship between functions
 
 Before closing this article, I would like to point out the relationship between the stock price and the image classification function.
 
-For image classification, the trick for visualizing the hyperplane that separated Sebastians from blowfish was to shrink the 27x35 images to a 3x1 image which allowed us to treat images as points (vectors) in 3D space.
-What does this look like if we shrink the images even further, namely to a 2x1 image? We can then visualize the images as vectors in 2D. Similar as before we can now ask how to separate the shrinked Sebastians and blowfish. The answer is that we have to find a "2D hyperplane" - which turns out to be just a line!
+For image classification, the trick for visualizing the hyperplane that separated Sebastians from blobfish was to shrink the 27x35 images to a 3x1 image which allowed us to treat images as points (vectors) in 3D space.
+What does this look like if we shrink the images even further, namely to a 2x1 image? We can then visualize the images as vectors in 2D. Similar as before we can now ask how to separate the shrinked Sebastians and blobfish. The answer is that we have to find a "2D hyperplane" - which turns out to be just a line!
 
 {% include figure.html src="/intuitivemi/images/2015-07-20-functions_image_class_2d.png"  width="65%" id="2015-07-20-functions_image_class_2d" %}
 
 Interestingly, this looks very much like the stock price prediction above. The main difference is that we do not draw the line *through* the data but in such a way to *separate* the data. Still, in both applications we use a *linear* function. 
 
 <!--
-Therefore, we can down write the Sebastian-vs.-Blowfish discriminator in the following way:
+Therefore, we can down write the Sebastian-vs.-Blobfish discriminator in the following way:
 <div class="pseudoformula">
 <b>Category = <i>Sebastian</i></b> &nbsp; <b>IF</b> { -0.9 * <b>gray value 1</b> + 0.00013 * <b>gray value 2</b> + 1 } <b> &gt; x </b><br/>
-<b>Category = <i>Blowfish</i></b> &nbsp; <b>IF</b> { -0.1 * <b>gray value 1</b> + 0.00013 * <b>gray value 2</b> + 1 } <b> &lt; x </b><br/>
+<b>Category = <i>Blobfish</i></b> &nbsp; <b>IF</b> { -0.1 * <b>gray value 1</b> + 0.00013 * <b>gray value 2</b> + 1 } <b> &lt; x </b><br/>
 </div>
 The expression in 
 The two expressions only differ with respect to the &gt; or &lt; after the linear expression.
