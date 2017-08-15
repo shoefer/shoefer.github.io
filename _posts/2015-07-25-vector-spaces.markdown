@@ -35,7 +35,7 @@ So just to make this clear: I will now continue drawing 3D arrows, but these arr
 
 ### Discriminating between categories = finding separating planes
 
-The really cool thing is that we can now understand how the computer can discriminate between images that depict different objects. Imagine we have another image of, say a [blobfish](http://conservationmagazine.org/wordpress/wp-content/uploads/2013/11/blobfish.jpg). By the same procedure as before we can make the blobfish a point in 945-dimensional space. Now let's assume we do not only have one picture of me and one of the blobfish, but a whole bunch of pictures for each category, Sebastians and blobfish. 
+The really cool thing is that we can now understand how the computer can discriminate between images that depict different objects. Imagine we have another image of, say a [blobfish](https://teara.govt.nz/en/photograph/5281/blobfish-and-snailfish). By the same procedure as before we can make the blobfish a point in 945-dimensional space. Now let's assume we do not only have one picture of me and one of the blobfish, but a whole bunch of pictures for each category, Sebastians and blobfish. 
 
 How could a computer automatically discriminate between these two categories? Geometrically, of course! By treating each image as a point in a 945-dimensional space, we can now come up with a geometrical interpretation of discriminating between categories: we find a plane which separates these two sets of points (blue is me, red the blobfish):
 
