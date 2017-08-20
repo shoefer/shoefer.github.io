@@ -7,7 +7,7 @@ menu-pos: 100
 
 I'm Sebastian. I like [robots](http://static6.businessinsider.com/image/53c6d03decad043552f996ba/countries-around-the-world-are-worried-about-killer-robots.jpg). But I also like humans (at least [some](http://images5.fanpop.com/image/photos/28100000/david-david-hasselhoff-28104576-400-300.jpg)).
 
-In my spare time, I&#8217;m working as an Applied Scientist in the Core Machine Learning/Robotics team at <a title="Amazon Development Center" href="https://de-de.facebook.com/adcgermany/" target="_blank">Amazon</a> in Berlin, Germany.
+I hold a PhD in computer science (robot learning) and I am working as an Applied Scientist at <a title="Amazon Development Center" href="https://de-de.facebook.com/adcgermany/" target="_blank">Amazon</a> in Berlin, Germany.
 Check out my <a title="sebastianhoefer.de" href="http://www.sebastianhoefer.de" target="_blank">research web page</a> for more information about my research activities.
 
 <br/>
