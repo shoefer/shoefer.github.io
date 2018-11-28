@@ -12,7 +12,7 @@ In the last post we have looked at one of the big problems of machine learning: 
 
 ### Parameters
 
-Let's briefly recap our stock price prediction example. In an [earlier post](/intuitivemi/2015/12/30/learning-functions.html) we used random search to find the parameters of a line that explains the training data examples well. 
+Let's briefly recap our stock price prediction example. In an [earlier post](/intuitivemi/2015/12/30/learning-functions.html) we used random search to find the parameters of a line that explains the training data examples well.
 The algorithm learned two numbers, namely the *parameters* p<sub>1</sub> and p<sub>2</sub>:
 
 <div class="pseudoformula">
@@ -31,7 +31,7 @@ This line is not very far away from the parameters of the "true" function  p<sub
 
 Now, I would like to reason about the influence of the number of parameters of a function on the difficulty of learning that function. You can think about the parameters of the line, but in fact I will formulate it in a general way.
 
-For the sake of the argument let's assume that we do not consider all possible numbers as possible parameter values, but that we restrict ourselves a fixed list of numbers (in mathematics that's called *discretization*), and we make this list finite. To make it really simple, we will only use the numbers from 1 to 10. 
+For the sake of the argument let's assume that we do not consider all possible numbers as possible parameter values, but that we restrict ourselves a fixed list of numbers (in mathematics that's called *discretization*), and we make this list finite. To make it really simple, we will only use the numbers from 1 to 10.
 
 Assume that we have a function that has only *one* parameter (for example, only the slope of a line), we immediately see that there are 10 possible values that the parameter can take. We visualize each value of the parameter by a blue box:
 
@@ -67,7 +67,7 @@ Now how big of a problem is it? Well, it is very big indeed, which is why this p
 
 For example, the tiny pictures we played around with in an [earlier post](/intuitivemi/2015/07/25/vector-spaces.html) had 27x35, that is 945 pixels. If we were to learn a function that has a parameter for every pixel and again every parameter can only take 1 out of 10 values we would still end up with 10<sup>945</sup> parameter values - this is a number consisting of a 1 with 945 trailing zeros, and it is several orders of magnitudes higher than the [number of particles in the entire universe](http://www.quora.com/How-many-particles-are-there-in-the-universe)! We will never be able to try out even a tiny fraction of all possible parameter values.
 
-So we see that the curse of dimensionality forces us to find smarter ways of finding the parameters of functions. We will save this for a later articles.
+So we see that the curse of dimensionality forces us to find smarter ways of finding the parameters of functions. We will save this for later articles.
 
 ### Hughes effect
 
@@ -96,7 +96,7 @@ f(<b>Input</b>) = 0	&nbsp;&nbsp;&nbsp; otherwise
 
 In this post, we got to know another nemesis of data: high dimensionality. When looking at learning from the perspective of searching for the right parameters, each additional dimensionality means that we must search an exponential number of more parameter values. And in classification, every additional dimension makes it harder to find the right hyperplane to discriminate between the categories.
 
-But another curse is already on its way; and it has to do with (no) free lunch. 
+But another curse is already on its way; and it has to do with (no) free lunch.
 
 
 ### [TL;DR](http://de.urbandictionary.com/define.php?term=tl%3Bdr):
